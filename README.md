@@ -32,10 +32,9 @@ Il proprio mazzo con cui si incomincia è formato da 5 carte randomiche selezion
 
 ### Tipologia carte:
 Il mazzo generale è composto da più tipi di carte:
-
-	> Carte Mostro:
-	> Carte Magia:
-	> Carte Trappola:
+	- Carte Mostro:
+	- Carte Magia:
+	- Carte Trappola:
 ## Analisi tecnica
 ## Analisi classi
 ## Casi di test
