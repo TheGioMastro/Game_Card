@@ -35,7 +35,20 @@ Il proprio mazzo con cui si incomincia è formato da 5 carte randomiche selezion
 Il mazzo generale è composto da più tipi di carte:
 
 	- Carte Mostro:
+		> Vampiro.
+		> Umano.
+		> Licantropo.
 	- Carte Magia:
+		> Possibilità di attaccare 2 volte nello stesso turno.
+		> Distruggi una carta dal campo avversario.
+		> Pesca l'ultima carta dal cimitero.
+		> Toglie la possibilità dell'attacare all'avversario per il turno successivo.
+		Deck Vampiro
+			> Sacca di sangue: aggiunge alla sua difesa l'attacco affettuato(solo per il prossimo turno resta la vita aggiunta).
+		Deck Licantropo
+			> Luna piena: tutte le carte in gioco aggiungono 500 in attacco e in difesa(durata un turno).
+		Deck Umano
+			> Spirito indomito: aggiunge 1000 all'attacco e toglie 200 alla difesa(l'attacco aggiuntivo si toglie al turno successiovo, la difesa no).
 	- Carte Trappola:
 ## Analisi tecnica
 ## Analisi classi
