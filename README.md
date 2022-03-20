@@ -21,7 +21,8 @@ Il combattimento fa subire 3 danni, mentre l’azzanno fa subire 2 danni all’a
 
 ## Ipotesi aggiuntive
 ### Info Generali:
-Il gioco incomincia avendo in mano 5 carte, si possono pescare massimo 10 carte in tutta la giocata, in mano si possono avere massimo 12 carte.
+Il gioco incomincia avendo in mano 4 carte, si possono pescare massimo 11 carte in tutta la giocata, in mano si possono avere massimo 8 carte.
+Il mazzo complessivo è composto da 15 carte.
 Esistono due mazzi per giocatore, il primo è quello da cui si pesca una carta all’inizio del proprio turno finché non esaurisce, il secondo mazzo chiamato cimitero contiene le carte sconfitte e quelle utilizzate, da quest’ultimo non è possibile riprendere le carte se non tramite una abilità apposita.
 
 ### Campo:
