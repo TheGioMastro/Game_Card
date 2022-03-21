@@ -9,6 +9,7 @@ Progetto Gioco Carte relativo a informatica.
 #### Michele Celozzi
 #### Alessandro Generali
 #### Alessandro Poggi
+#### Giuliano Tommaso Colombo
 
 ## Analisi delle richieste
 Si hanno delle carte da gioco che rappresentano un Personaggio che può essere di tipo Umano o Mostro.
