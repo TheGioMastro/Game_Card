@@ -43,11 +43,11 @@ public class Gioco_Carte extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         //get the path of the card file on your system
-        Path relative1 = Paths.get("lupomannaro2.jpg");
+        Path relative1 = Paths.get("Immagini/lupomannaro2.jpg");
         Path absolute1 = relative1.toAbsolutePath();
-        Path relative2 = Paths.get("persona2.jpg");
+        Path relative2 = Paths.get("Immagini/persona2.jpg");
         Path absolute2 = relative2.toAbsolutePath();
-        Path relative3 = Paths.get("vampiro2.jpg");
+        Path relative3 = Paths.get("Immagini/vampiro2.jpg");
         Path absolute3 = relative3.toAbsolutePath();
         
         //convert the file path to string and save as a string
