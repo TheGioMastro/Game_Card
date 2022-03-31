@@ -142,6 +142,14 @@ public class Main extends Application{
         //open the help page when help button clicked---------------------------
         mazzo.setOnAction((ActionEvent event) -> {
             System.out.println("Come osi PrEmErMi!?!?!?!");
+            radiobutton1.setDisable(true);
+            radiobutton2.setDisable(true);
+            radiobutton3.setDisable(true);
+            radiobutton4.setDisable(true);
+            radiobutton5.setDisable(true);
+            radiobutton6.setDisable(true);
+            radiobutton7.setDisable(true);
+            radiobutton8.setDisable(true);
         });
         
         
@@ -151,6 +159,14 @@ public class Main extends Application{
         //open the help page when help button clicked---------------------------
         cimitero.setOnAction((ActionEvent event) -> {
             System.out.println("Come osi PrEmErMi!?!?!?!");
+            radiobutton1.setDisable(false);
+            radiobutton2.setDisable(false);
+            radiobutton3.setDisable(false);
+            radiobutton4.setDisable(false);
+            radiobutton5.setDisable(false);
+            radiobutton6.setDisable(false);
+            radiobutton7.setDisable(false);
+            radiobutton8.setDisable(false);
         });
         
         
