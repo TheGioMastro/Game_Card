@@ -138,6 +138,7 @@ public class Main extends Application{
         //create help button
         Button mazzo = new Button();
         mazzo.setText("Pesca");
+        mazzo.setGraphic(new ImageView(image1));
         
         //open the help page when help button clicked---------------------------
         mazzo.setOnAction((ActionEvent event) -> {
@@ -154,7 +155,8 @@ public class Main extends Application{
         
         
         Button cimitero = new Button();
-        cimitero.setText("Manda al macello");
+        cimitero.setText("Cimitero");
+        cimitero.setGraphic(new ImageView(image1));
         
         //open the help page when help button clicked---------------------------
         cimitero.setOnAction((ActionEvent event) -> {
@@ -174,10 +176,8 @@ public class Main extends Application{
         
         
         
-        //add the radio button to the grid
+        //Grid mano
         GridPane gp = new GridPane();
-        
-        
         
         gp.add(radiobutton1, 0, 0);
         gp.add(radiobutton2, 1, 0);
@@ -188,14 +188,12 @@ public class Main extends Application{
         gp.add(radiobutton7, 6, 0);
         gp.add(radiobutton8, 7, 0);
         
-
-        //set the border of the window
         gp.setHgap(10);
         gp.setVgap(10);
         
         
 
-        //set the window center alignment
+        //Create multiple HBOX!!!!!! ... in other HBOX!!
         HBox hbox_mazzo = new HBox(mazzo);
         hbox_mazzo.setAlignment(Pos.BOTTOM_LEFT);
         
