@@ -7,6 +7,7 @@ package Gioco_di_Carte;
 import java.io.FileInputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -48,89 +49,32 @@ public class Main extends Application{
         //convert the file path to string and save as a string
         String yugiohretro = absolute1.toString();
         
-        //create the card button(radio button)
-        RadioButton radiobutton1 = new RadioButton();
-        radiobutton1.setPadding(new Insets(5));
-        RadioButton radiobutton2 = new RadioButton();
-        radiobutton2.setPadding(new Insets(5));
-        RadioButton radiobutton3 = new RadioButton();
-        radiobutton3.setPadding(new Insets(5));
-        RadioButton radiobutton4 = new RadioButton();
-        radiobutton4.setPadding(new Insets(5));
-        RadioButton radiobutton5 = new RadioButton();
-        radiobutton5.setPadding(new Insets(5));
-        RadioButton radiobutton6 = new RadioButton();
-        radiobutton6.setPadding(new Insets(5));
-        RadioButton radiobutton7 = new RadioButton();
-        radiobutton7.setPadding(new Insets(5));
-        RadioButton radiobutton8 = new RadioButton();
-        radiobutton8.setPadding(new Insets(5));
-        
-        
         
         //create group of radio button and create an Image type contenet the image path
         ToggleGroup group = new ToggleGroup();
         
         FileInputStream is1 = new FileInputStream(yugiohretro);
         Image image1 = new Image(yugiohretro, 100, 146, false, false);
-
         
-        //button1 Style radiobutton1
-        radiobutton1.setToggleGroup(group);
-        radiobutton1.setGraphic(new ImageView(image1));
-        radiobutton1.getStyleClass().remove("radio-button");
-        radiobutton1.getStyleClass().add("toggle-button");
-        radiobutton1.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton1.setBorder(Border.EMPTY);
         
-        radiobutton2.setToggleGroup(group);
-        radiobutton2.setGraphic(new ImageView(image1));
-        radiobutton2.getStyleClass().remove("radio-button");
-        radiobutton2.getStyleClass().add("toggle-button");
-        radiobutton2.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton2.setBorder(Border.EMPTY);
         
-        radiobutton3.setToggleGroup(group);
-        radiobutton3.setGraphic(new ImageView(image1));
-        radiobutton3.getStyleClass().remove("radio-button");
-        radiobutton3.getStyleClass().add("toggle-button");
-        radiobutton3.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton3.setBorder(Border.EMPTY);
         
-        radiobutton4.setToggleGroup(group);
-        radiobutton4.setGraphic(new ImageView(image1));
-        radiobutton4.getStyleClass().remove("radio-button");
-        radiobutton4.getStyleClass().add("toggle-button");
-        radiobutton4.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton4.setBorder(Border.EMPTY);
+        //Array contenente i radio button del mazzo mano
+        //create the card button(radio button)
+        RadioButton[] Array_radiobutton_mano = new RadioButton[8];
         
-        radiobutton5.setToggleGroup(group);
-        radiobutton5.setGraphic(new ImageView(image1));
-        radiobutton5.getStyleClass().remove("radio-button");
-        radiobutton5.getStyleClass().add("toggle-button");
-        radiobutton5.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton5.setBorder(Border.EMPTY);
+        for(int i=0; i<8; i++){
+            //aggiunta dello stile a tutti i radiobutton
+            Array_radiobutton_mano[i] = new RadioButton();
+            Array_radiobutton_mano[i].setPadding(new Insets(5));
+            Array_radiobutton_mano[i].setToggleGroup(group);
+            Array_radiobutton_mano[i].setGraphic(new ImageView(image1));
+            Array_radiobutton_mano[i].getStyleClass().remove("radio-button");
+            Array_radiobutton_mano[i].getStyleClass().add("toggle-button");
+            Array_radiobutton_mano[i].setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+            Array_radiobutton_mano[i].setBorder(Border.EMPTY);
+        }
         
-        radiobutton6.setToggleGroup(group);
-        radiobutton6.setGraphic(new ImageView(image1));
-        radiobutton6.getStyleClass().remove("radio-button");
-        radiobutton6.getStyleClass().add("toggle-button");
-        radiobutton6.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton6.setBorder(Border.EMPTY);
-        
-        radiobutton7.setToggleGroup(group);
-        radiobutton7.setGraphic(new ImageView(image1));
-        radiobutton7.getStyleClass().remove("radio-button");
-        radiobutton7.getStyleClass().add("toggle-button");
-        radiobutton7.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton7.setBorder(Border.EMPTY);
-        
-        radiobutton8.setToggleGroup(group);
-        radiobutton8.setGraphic(new ImageView(image1));
-        radiobutton8.getStyleClass().remove("radio-button");
-        radiobutton8.getStyleClass().add("toggle-button");
-        radiobutton8.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        radiobutton8.setBorder(Border.EMPTY);
         
         
         
@@ -143,14 +87,14 @@ public class Main extends Application{
         //open the help page when help button clicked---------------------------
         mazzo.setOnAction((ActionEvent event) -> {
             System.out.println("Come osi PrEmErMi!?!?!?!");
-            radiobutton1.setDisable(true);
-            radiobutton2.setDisable(true);
-            radiobutton3.setDisable(true);
-            radiobutton4.setDisable(true);
-            radiobutton5.setDisable(true);
-            radiobutton6.setDisable(true);
-            radiobutton7.setDisable(true);
-            radiobutton8.setDisable(true);
+            Array_radiobutton_mano[0].setDisable(true);
+            Array_radiobutton_mano[1].setDisable(true);
+            Array_radiobutton_mano[2].setDisable(true);
+            Array_radiobutton_mano[3].setDisable(true);
+            Array_radiobutton_mano[4].setDisable(true);
+            Array_radiobutton_mano[5].setDisable(true);
+            Array_radiobutton_mano[6].setDisable(true);
+            Array_radiobutton_mano[7].setDisable(true);
         });
         
         
@@ -161,14 +105,14 @@ public class Main extends Application{
         //open the help page when help button clicked---------------------------
         cimitero.setOnAction((ActionEvent event) -> {
             System.out.println("Come osi PrEmErMi!?!?!?!");
-            radiobutton1.setDisable(false);
-            radiobutton2.setDisable(false);
-            radiobutton3.setDisable(false);
-            radiobutton4.setDisable(false);
-            radiobutton5.setDisable(false);
-            radiobutton6.setDisable(false);
-            radiobutton7.setDisable(false);
-            radiobutton8.setDisable(false);
+            Array_radiobutton_mano[0].setDisable(false);
+            Array_radiobutton_mano[1].setDisable(false);
+            Array_radiobutton_mano[2].setDisable(false);
+            Array_radiobutton_mano[3].setDisable(false);
+            Array_radiobutton_mano[4].setDisable(false);
+            Array_radiobutton_mano[5].setDisable(false);
+            Array_radiobutton_mano[6].setDisable(false);
+            Array_radiobutton_mano[7].setDisable(false);
         });
         
         
@@ -179,14 +123,14 @@ public class Main extends Application{
         //Grid mano
         GridPane gp = new GridPane();
         
-        gp.add(radiobutton1, 0, 0);
-        gp.add(radiobutton2, 1, 0);
-        gp.add(radiobutton3, 2, 0);
-        gp.add(radiobutton4, 3, 0);
-        gp.add(radiobutton5, 4, 0);
-        gp.add(radiobutton6, 5, 0);
-        gp.add(radiobutton7, 6, 0);
-        gp.add(radiobutton8, 7, 0);
+        gp.add(Array_radiobutton_mano[0], 0, 0);
+        gp.add(Array_radiobutton_mano[1], 1, 0);
+        gp.add(Array_radiobutton_mano[2], 2, 0);
+        gp.add(Array_radiobutton_mano[3], 3, 0);
+        gp.add(Array_radiobutton_mano[4], 4, 0);
+        gp.add(Array_radiobutton_mano[5], 5, 0);
+        gp.add(Array_radiobutton_mano[6], 6, 0);
+        gp.add(Array_radiobutton_mano[7], 7, 0);
         
         gp.setHgap(10);
         gp.setVgap(10);
