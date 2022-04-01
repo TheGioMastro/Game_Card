@@ -9,5 +9,17 @@ package Gioco_di_Carte;
  * @author 
  */
 public class Deck {
+    protected Descrizione[] Insieme_descrizioni = new Descrizione[15];
+    public Deck(){
+        for(int i=0; i<15; i++){
+            Insieme_descrizioni[i]= new Descrizione();
+        }           
+    }
+
+    public Descrizione getInsieme_descrizioni(int i) {
+        return Insieme_descrizioni[i];
+    }
+
+    
     
 }
