@@ -6,8 +6,8 @@ package Gioco_di_Carte;
 
 /**
  *
- * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
+ * @author 
  */
-public class Personaggio {
+public class Personaggio extends Carta{
     
 }
