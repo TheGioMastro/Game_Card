@@ -34,7 +34,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author giorg
+ * @author Giorgio Mastrogiovanni
  */
 public class Main extends Application{
 
@@ -42,43 +42,78 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         
+        int i;
+        
+        //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
         Path relative1 = Paths.get("Immagini/yugiohretro.jpg");
         Path absolute1 = relative1.toAbsolutePath();
-        
-        //convert the file path to string and save as a string
+        //convert the file path to string, save as a string and define the width and height
         String yugiohretro = absolute1.toString();
-        
-        
-        //create group of radio button and create an Image type contenet the image path
-        ToggleGroup group = new ToggleGroup();
-        
         FileInputStream is1 = new FileInputStream(yugiohretro);
         Image image1 = new Image(yugiohretro, 100, 146, false, false);
         
         
+        //MAZZO-----------------------------------------------------------------------------------------------------------
+        //RADIOBUTTON-----------------------------------------------------------
+        //crea l'arraylist in cui inserirre i radiobutton
+        ArrayList<RadioButton> ArrayList_radiobutton_mazzo = new ArrayList<RadioButton>(15);
         
-        
-        //Array contenente i radio button del mazzo mano
-        //create the card button(radio button)
-        RadioButton[] Array_radiobutton_mano = new RadioButton[8];
-        
-        for(int i=0; i<8; i++){
+        //popola tutto l'arraylist con gli elementi
+        for(i=0; i<15; i++){
             //aggiunta dello stile a tutti i radiobutton
-            Array_radiobutton_mano[i] = new RadioButton();
-            Array_radiobutton_mano[i].setPadding(new Insets(5));
-            Array_radiobutton_mano[i].setToggleGroup(group);
-            Array_radiobutton_mano[i].setGraphic(new ImageView(image1));
-            Array_radiobutton_mano[i].getStyleClass().remove("radio-button");
-            Array_radiobutton_mano[i].getStyleClass().add("toggle-button");
-            Array_radiobutton_mano[i].setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-            Array_radiobutton_mano[i].setBorder(Border.EMPTY);
+            ArrayList_radiobutton_mazzo.add(i, new RadioButton());
+            ArrayList_radiobutton_mazzo.get(i).setPadding(new Insets(5));
+            ArrayList_radiobutton_mazzo.get(i).setGraphic(new ImageView(image1));
+            ArrayList_radiobutton_mazzo.get(i).getStyleClass().remove("radio-button");
+            ArrayList_radiobutton_mazzo.get(i).getStyleClass().add("toggle-button");
+            ArrayList_radiobutton_mazzo.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+            ArrayList_radiobutton_mazzo.get(i).setBorder(Border.EMPTY);
         }
         
         
         
+        //MANO------------------------------------------------------------------------------------------------------------
+        //RADIOBUTTON-----------------------------------------------------------
+        //crea il gruppo in cui contenere i radiobutton
+        ToggleGroup group_radiobutton_mano = new ToggleGroup();
+        
+        //crea l'arraylist in cui inserirre i radiobutton
+        ArrayList<RadioButton> ArrayList_radiobutton_mano = new ArrayList<RadioButton>(8);
+        
+        //aggiunge ad un gruppo il radiobutton
+        ArrayList_radiobutton_mazzo.get(i).setToggleGroup(group_radiobutton_mano);
+        
+        //rimuove da un gruppo un radiobutton
+        group_radiobutton_mano.getToggles().remove(RadioButton);
         
         
+        
+        //CIMITERO--------------------------------------------------------------------------------------------------------
+        //RADIOBUTTON-----------------------------------------------------------
+        //crea l'arraylist in cui inserirre i radiobutton
+        ArrayList<RadioButton> ArrayList_radiobutton_cimitero = new ArrayList<RadioButton>(15);
+        
+        
+        
+        //MAZZOCAMPO------------------------------------------------------------------------------------------------------
+        //RADIOBUTTON-----------------------------------------------------------
+        //crea il gruppo in cui contenere i radiobutton
+        ToggleGroup group_radiobutton_mazzocampo = new ToggleGroup();
+        
+        //crea l'arraylist in cui inserirre i radiobutton
+        ArrayList<RadioButton> ArrayList_radiobutton_mazzocampo = new ArrayList<RadioButton>(6);
+        
+        //aggiunge ad un gruppo il radiobutton
+        ArrayList_radiobutton_mazzocampo.get(i).setToggleGroup(group_radiobutton_mazzocampo);
+        
+        //rimuove da un gruppo un radiobutton
+        group_radiobutton_mazzocampo.getToggles().remove(RadioButton);
+        
+        
+        
+        
+        //BUTTON----------------------------------------------------------------
         //create help button
         Button mazzo = new Button();
         mazzo.setText("Pesca");
@@ -86,15 +121,7 @@ public class Main extends Application{
         
         //open the help page when help button clicked---------------------------
         mazzo.setOnAction((ActionEvent event) -> {
-            System.out.println("Come osi PrEmErMi!?!?!?!");
-            Array_radiobutton_mano[0].setDisable(true);
-            Array_radiobutton_mano[1].setDisable(true);
-            Array_radiobutton_mano[2].setDisable(true);
-            Array_radiobutton_mano[3].setDisable(true);
-            Array_radiobutton_mano[4].setDisable(true);
-            Array_radiobutton_mano[5].setDisable(true);
-            Array_radiobutton_mano[6].setDisable(true);
-            Array_radiobutton_mano[7].setDisable(true);
+
         });
         
         
@@ -105,14 +132,7 @@ public class Main extends Application{
         //open the help page when help button clicked---------------------------
         cimitero.setOnAction((ActionEvent event) -> {
             System.out.println("Come osi PrEmErMi!?!?!?!");
-            Array_radiobutton_mano[0].setDisable(false);
-            Array_radiobutton_mano[1].setDisable(false);
-            Array_radiobutton_mano[2].setDisable(false);
-            Array_radiobutton_mano[3].setDisable(false);
-            Array_radiobutton_mano[4].setDisable(false);
-            Array_radiobutton_mano[5].setDisable(false);
-            Array_radiobutton_mano[6].setDisable(false);
-            Array_radiobutton_mano[7].setDisable(false);
+
         });
         
         
@@ -123,14 +143,14 @@ public class Main extends Application{
         //Grid mano
         GridPane gp = new GridPane();
         
-        gp.add(Array_radiobutton_mano[0], 0, 0);
-        gp.add(Array_radiobutton_mano[1], 1, 0);
-        gp.add(Array_radiobutton_mano[2], 2, 0);
-        gp.add(Array_radiobutton_mano[3], 3, 0);
-        gp.add(Array_radiobutton_mano[4], 4, 0);
-        gp.add(Array_radiobutton_mano[5], 5, 0);
-        gp.add(Array_radiobutton_mano[6], 6, 0);
-        gp.add(Array_radiobutton_mano[7], 7, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(0), 0, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(1), 1, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(2), 2, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(3), 3, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(4), 4, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(5), 5, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(6), 6, 0);
+        gp.add(ArrayList_radiobutton_mazzo.get(7), 7, 0);
         
         gp.setHgap(10);
         gp.setVgap(10);
