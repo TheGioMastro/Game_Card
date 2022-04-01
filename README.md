@@ -5,11 +5,11 @@ Progetto Gioco Carte relativo a informatica.
 ![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/_ProgGiocoCarte%20-%20Gruppo.png?raw=true)
 
 ## Ruoli nel gruppo
-#### Giorgio Mastrogiovanni
-#### Michele Celozzi
-#### Alessandro Generali
-#### Alessandro Poggi
-#### Giuliano Tommaso Colombo
+#### Giorgio Mastrogiovanni < main >
+#### Michele Celozzi < Grafica Carte + (MazzoCampo, Cimitero, Mazzo) >
+#### Alessandro Generali < (Descrizione, Deck, Mano) >
+#### Alessandro Poggi < (Carta, Magia, Personaggio) >
+#### Giuliano Tommaso Colombo < (Player, Campo, Gioco) >
 
 ## Analisi delle richieste
 Si hanno delle carte da gioco che rappresentano un Personaggio che può essere di tipo Umano o Mostro.
