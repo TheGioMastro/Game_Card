@@ -44,6 +44,7 @@ public class Main extends Application{
         
         int i;
         
+        
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
         Path relative1 = Paths.get("Immagini/yugiohretro.jpg");
@@ -73,6 +74,7 @@ public class Main extends Application{
         
         
         
+        /*
         //MANO------------------------------------------------------------------------------------------------------------
         //RADIOBUTTON-----------------------------------------------------------
         //crea il gruppo in cui contenere i radiobutton
@@ -87,15 +89,17 @@ public class Main extends Application{
         //rimuove da un gruppo un radiobutton
         group_radiobutton_mano.getToggles().remove(RadioButton);
         
+        */
         
-        
+        /*
         //CIMITERO--------------------------------------------------------------------------------------------------------
         //RADIOBUTTON-----------------------------------------------------------
         //crea l'arraylist in cui inserirre i radiobutton
         ArrayList<RadioButton> ArrayList_radiobutton_cimitero = new ArrayList<RadioButton>(15);
         
+        */
         
-        
+        /*
         //MAZZOCAMPO------------------------------------------------------------------------------------------------------
         //RADIOBUTTON-----------------------------------------------------------
         //crea il gruppo in cui contenere i radiobutton
@@ -110,7 +114,7 @@ public class Main extends Application{
         //rimuove da un gruppo un radiobutton
         group_radiobutton_mazzocampo.getToggles().remove(RadioButton);
         
-        
+        */
         
         
         //BUTTON----------------------------------------------------------------
@@ -121,7 +125,7 @@ public class Main extends Application{
         
         //open the help page when help button clicked---------------------------
         mazzo.setOnAction((ActionEvent event) -> {
-
+            System.out.println("Come osi PrEmErMi!?!?!?!");
         });
         
         
