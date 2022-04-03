@@ -9,7 +9,7 @@ import javafx.scene.control.RadioButton;
 
 /**
  *
- * @author 
+ * @author Michele Celozzi & interfaccia grafica Giorgio Mastrogiovanni
  */
 public class Cimitero {
     

@@ -24,7 +24,7 @@ import javafx.scene.paint.Color;
 
 /**
  *
- * @author giorg
+ * @author giorg Michele Celozzi & interfaccia grafica Giorgio Mastrogiovanni
  */
 public class Mazzo {
     

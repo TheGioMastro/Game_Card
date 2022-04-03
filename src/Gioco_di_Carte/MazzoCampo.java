@@ -10,7 +10,7 @@ import javafx.scene.control.ToggleGroup;
 
 /**
  *
- * @author 
+ * @author Michele Celozzi & interfaccia grafica Giorgio Mastrogiovanni
  */
 public class MazzoCampo {
     

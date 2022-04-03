@@ -8,7 +8,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 /**
  *
- * @author 
+ * @author Alessandro Genrali & interfaccia grafica Giorgio Mastrogiovanni
  */
 public class Mano {
     protected int misura;
