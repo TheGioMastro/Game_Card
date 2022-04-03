@@ -9,5 +9,6 @@ package Gioco_di_Carte;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Gioco {
-    
+    Campo giocatore_1;
+    Campo giocatore_2;
 }

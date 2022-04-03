@@ -9,5 +9,9 @@ package Gioco_di_Carte;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Campo {
-    
+    protected Deck dck;
+    protected Mano man;
+    protected MazzoCampo mazCam;
+    protected Cimitero cim;
+    protected Player giocatore;
 }
