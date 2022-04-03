@@ -6,7 +6,7 @@ package Gioco_di_Carte;
 
 /**
  *
- * @author 
+ * @author Alessandro Poggi
  */
 public class Carta {
     
