@@ -13,6 +13,17 @@ public class Player {
     protected int vita;
     protected int tipo_deck;
     
+    //Costruttori
+    public Player(String nome, int vita, int tipo_deck) {
+        this.nome = nome;
+        this.vita = vita;
+        this.tipo_deck = tipo_deck;
+    }
+    
+    public Player(){
+    }
+    //------------------------------------------------------
+    
     //setter----------------------------------
     public void setNome(String nome) {
         this.nome = nome;
@@ -40,4 +51,9 @@ public class Player {
         return tipo_deck;
     }
     //------------------------------------------
+    
+    //toString
+    public String toString(){
+        return "\nNome: " + this.nome + "\nVita: " + this.vita + "Tipo Deck: " + this.tipo_deck;
+    }
 }
