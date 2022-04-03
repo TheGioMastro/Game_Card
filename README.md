@@ -5,7 +5,7 @@ Progetto Gioco Carte relativo a informatica.
 ![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/_ProgGiocoCarte%20-%20Gruppo.png?raw=true)
 
 ## Ruoli nel gruppo
-#### Giorgio Mastrogiovanni < Main + Interfaccia Grafica>
+#### Giorgio Mastrogiovanni < Main + Interfaccia Grafica >
 #### Michele Celozzi < Grafica Carte + (MazzoCampo, Cimitero, Mazzo) >
 #### Alessandro Generali < (Descrizione, Deck, Mano) >
 #### Alessandro Poggi < (Carta, Magia, Personaggio) >
