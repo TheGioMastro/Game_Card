@@ -4,6 +4,17 @@
  */
 package Gioco_di_Carte;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+
 /**
  *
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
@@ -15,8 +26,66 @@ public class Campo {
     protected Cimitero cim = new Cimitero();
     protected Player giocatore = new Player();
     
+    //Parte interfaccia grafica(impostazione grid mano e mazzocampo + riempimento deck e creazione cimitero)
+    //Grid mazzomano
+    protected GridPane gp_mazzomano;
+    //Grid mazzocampo
+    protected GridPane gp_mazzocampo;
+    
+    //bottoni
+    Button mazzo;
+    Button cimitero;
+    
+    
+    
     //Costruttore
     public Campo() {
+        //parte interfaccia grafica
+        gp_mazzomano = new GridPane();
+        gp_mazzocampo = new GridPane();
+        
+        for(int i=0; i<8; i++){
+            gp_mazzomano.add(man.get_ArrayList_radiobutton_mano(i), i, 0);
+            
+        }
+        for(int i=0; i<6; i++){
+            gp_mazzocampo.add(mazCam.get_ArrayList_radiobutton_mazzocampo(i), i, 0);
+            
+        }
+        
+        gp_mazzomano.setHgap(10);
+        gp_mazzomano.setVgap(10);
+        gp_mazzocampo.setHgap(10);
+        gp_mazzocampo.setVgap(10);
+        
+        
+        //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
+        //IMAGE-----------------------------------------------------------------
+        //get the path of the card file on your system
+        Path relative1 = Paths.get("Immagini/yugiohretro.jpg");
+        Path absolute1 = relative1.toAbsolutePath();
+        
+        //convert the file path to string, save as a string and define the width and height
+        String yugiohretro = absolute1.toString();
+        try {
+            FileInputStream is1 = new FileInputStream(yugiohretro);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Mazzo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Image image1 = new Image(yugiohretro, 100, 146, false, false);
+        
+        //FINE PARTE TEMPORANEA
+        
+        //bottoni
+        mazzo = new Button();
+        mazzo.setGraphic(new ImageView(image1));
+        mazzo.setDisable(true);
+        
+        cimitero = new Button();
+        cimitero.setGraphic(new ImageView(image1));
+        cimitero.setDisable(true);
+        
     }
     //------------
     
@@ -62,7 +131,25 @@ public class Campo {
     public Player getGiocatore() {
         return giocatore;
     }
+    
+    public GridPane getGp_mazzomano() {
+        return gp_mazzomano;
+    }
+
+    public GridPane getGp_mazzocampo() {
+        return gp_mazzocampo;
+    }
+
+    public Button getMazzo() {
+        return mazzo;
+    }
+
+    public Button getCimitero() {
+        return cimitero;
+    }
     //------------------------------
+
+    
     
     
     
