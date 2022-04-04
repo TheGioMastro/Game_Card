@@ -169,7 +169,7 @@ public class Main extends Application{
         
         //open the help page when help button clicked---------------------------
         mazzo_sopra.setOnAction((ActionEvent event) -> {
-            System.out.println("Come osi PrEmErMi!?!?!?!");
+            System.out.println("Come osi PrEmErMi!?!?!?!\n Pesca sopra");
         });
         
         
@@ -178,7 +178,7 @@ public class Main extends Application{
         
         //open the help page when help button clicked---------------------------
         cimitero_sopra.setOnAction((ActionEvent event) -> {
-            System.out.println("Come osi PrEmErMi!?!?!?!");
+            System.out.println("Come osi PrEmErMi!?!?!?!\n Cimitero sopra");
 
         });
         
@@ -190,7 +190,7 @@ public class Main extends Application{
         
         //open the help page when help button clicked---------------------------
         mazzo_sotto.setOnAction((ActionEvent event) -> {
-            System.out.println("Come osi PrEmErMi!?!?!?!");
+            System.out.println("Come osi PrEmErMi!?!?!?!\n Pesca sotto");
         });
         
         
@@ -199,7 +199,7 @@ public class Main extends Application{
         
         //open the help page when help button clicked---------------------------
         cimitero_sotto.setOnAction((ActionEvent event) -> {
-            System.out.println("Come osi PrEmErMi!?!?!?!");
+            System.out.println("Come osi PrEmErMi!?!?!?!\n Cimitero sotto");
 
         });
         
@@ -276,12 +276,12 @@ public class Main extends Application{
         HBox.setHgrow(scritta_mazzo_sopra_hbox, Priority.ALWAYS);
         scritta_mazzo_sopra_hbox.setAlignment(Pos.CENTER);
         
-        HBox hbox1_2_sopra = new HBox(scritta_mazzo_sopra_pesca, scritta_mazzo_sopra_hbox, scritta_mazzo_sopra_cimitero);
+        HBox hbox1_2_sopra = new HBox(scritta_mazzo_sopra_cimitero, scritta_mazzo_sopra_hbox, scritta_mazzo_sopra_pesca);
         hbox1_2_sopra.setSpacing(10);
         hbox1_2_sopra.setAlignment(Pos.CENTER);
         
         //riga 1
-        HBox hbox2_sopra = new HBox(hbox_mazzo_sopra, hbox_mano_sopra, hbox_cimitero_sopra);
+        HBox hbox2_sopra = new HBox(hbox_cimitero_sopra, hbox_mano_sopra, hbox_mazzo_sopra);
         hbox2_sopra.setSpacing(10);
         HBox.setHgrow(hbox_mano_sopra, Priority.ALWAYS);
         
@@ -401,7 +401,19 @@ public class Main extends Application{
         scritta_giocatore_top_vita.setFont(new Font("OCR A Extended", 30));
         scritta_giocatore_top_vita.setTextFill(Color.web("#F8C66D"));
         
-        HBox hbox_top = new HBox(scritta_giocatore_top_nome, scritta_giocatore_top_vita_Stringa, scritta_giocatore_top_vita);
+        HBox hbox_top_destra = new HBox(scritta_giocatore_top_nome, scritta_giocatore_top_vita_Stringa, scritta_giocatore_top_vita);
+        hbox_top_destra.setSpacing(20);
+        hbox_top_destra.setAlignment(Pos.CENTER);
+        hbox_top_destra.setSpacing(10);
+        HBox.setHgrow(hbox_top_destra, Priority.ALWAYS);
+        
+        HBox hbox_top_sinistra = new HBox();
+        hbox_top_sinistra.setSpacing(20);
+        hbox_top_sinistra.setAlignment(Pos.CENTER);
+        hbox_top_sinistra.setSpacing(10);
+        HBox.setHgrow(hbox_top_sinistra, Priority.ALWAYS);
+        
+        HBox hbox_top = new HBox(hbox_top_destra, hbox_top_sinistra);
         hbox_top.setSpacing(20);
         hbox_top.setAlignment(Pos.CENTER);
         
@@ -422,7 +434,19 @@ public class Main extends Application{
         scritta_giocatore_bot_vita.setFont(new Font("OCR A Extended", 30));
         scritta_giocatore_bot_vita.setTextFill(Color.web("#F8C66D"));
         
-        HBox hbox_bot = new HBox(scritta_giocatore_bot_nome, scritta_giocatore_bot_vita_Stringa, scritta_giocatore_bot_vita);
+        HBox hbox_bot_destra = new HBox(scritta_giocatore_bot_nome, scritta_giocatore_bot_vita_Stringa, scritta_giocatore_bot_vita);
+        hbox_bot_destra.setSpacing(20);
+        hbox_bot_destra.setAlignment(Pos.CENTER);
+        hbox_bot_destra.setSpacing(10);
+        HBox.setHgrow(hbox_bot_destra, Priority.ALWAYS);
+        
+        HBox hbox_bot_sinistra = new HBox();
+        hbox_bot_sinistra.setSpacing(20);
+        hbox_bot_sinistra.setAlignment(Pos.CENTER);
+        hbox_bot_sinistra.setSpacing(10);
+        HBox.setHgrow(hbox_bot_sinistra, Priority.ALWAYS);
+        
+        HBox hbox_bot = new HBox(hbox_bot_sinistra, hbox_bot_destra);
         hbox_bot.setSpacing(20);
         hbox_bot.setAlignment(Pos.CENTER);
         
