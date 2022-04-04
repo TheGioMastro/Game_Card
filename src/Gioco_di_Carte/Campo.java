@@ -62,7 +62,7 @@ public class Campo {
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
-        Path relative1 = Paths.get("Immagini/yugiohretro.jpg");
+        Path relative1 = Paths.get("Immagini/void.jpg");
         Path absolute1 = relative1.toAbsolutePath();
         
         //convert the file path to string, save as a string and define the width and height

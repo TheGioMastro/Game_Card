@@ -40,7 +40,7 @@ public class Mazzo {
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
-        Path relative1 = Paths.get("Immagini/yugiohretro.jpg");
+        Path relative1 = Paths.get("Immagini/void.jpg");
         Path absolute1 = relative1.toAbsolutePath();
         
         //convert the file path to string, save as a string and define the width and height
@@ -85,6 +85,36 @@ public class Mazzo {
             
         }
         
+        
+    }
+    
+    
+    //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
+    
+    public void SWAP_REMOVE(int indice_arry, Mano mano){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
+        
+        ArrayList_radiobutton_mazzo.set(indice_arry, mano.SWAP_ADD(indice_arry, appoggio));
+        
+    }
+    
+    public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
+        
+        ArrayList_radiobutton_mazzo.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
+        
+    }
+    
+    public void SWAP_REMOVE(int indice_arry, Cimitero cimitero){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
+        
+        ArrayList_radiobutton_mazzo.set(indice_arry, cimitero.SWAP_ADD(indice_arry, appoggio));
         
     }
     

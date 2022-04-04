@@ -32,6 +32,37 @@ public class Cimitero {
         
     }
     
+    //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
+    
+    public void SWAP_REMOVE(int indice_arry, Mano mano){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_cimitero.get(indice_arry);
+        
+        ArrayList_radiobutton_cimitero.set(indice_arry, mano.SWAP_ADD(indice_arry, appoggio));
+        
+    }
+    
+    public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_cimitero.get(indice_arry);
+        
+        ArrayList_radiobutton_cimitero.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
+        
+    }
+    
+    public RadioButton SWAP_ADD(int indice_arry, RadioButton campo){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_cimitero.get(indice_arry);
+        
+        ArrayList_radiobutton_cimitero.set(indice_arry, campo);
+        
+        return appoggio;
+        
+    }
+    
     public boolean add(RadioButton radiobutton){
         
         //aggiungo il radio button all'arraylist

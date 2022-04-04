@@ -13,8 +13,8 @@ import javafx.scene.text.Font;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Player {
-    protected String nome;
-    protected int vita;
+    protected String nome = "Giocatore";
+    protected int vita = 4000;
     protected int tipo_deck;
     
     //Parte interfaccia grafica(contiene il campo per la vita e il nome del giocatore)
@@ -45,6 +45,17 @@ public class Player {
     }
     
     public Player(){
+        
+        //Parte interfaccia grafica(istanziamento)
+        scritta_giocatore_nome = new Label(this.nome);
+        scritta_giocatore_nome.setFont(new Font("OCR A Extended", 30));
+        scritta_giocatore_nome.setTextFill(Color.web("#F8C66D"));
+        scritta_giocatore_vita_Stringa = new Label("Vita:");
+        scritta_giocatore_vita_Stringa.setFont(new Font("OCR A Extended", 30));
+        scritta_giocatore_vita_Stringa.setTextFill(Color.web("#F8C66D"));
+        scritta_giocatore_vita = new Label(String.valueOf(this.vita));
+        scritta_giocatore_vita.setFont(new Font("OCR A Extended", 30));
+        scritta_giocatore_vita.setTextFill(Color.web("#F8C66D"));
     }
     //------------------------------------------------------
     

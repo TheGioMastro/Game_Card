@@ -48,7 +48,7 @@ public class Mano {
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
-        Path relative1 = Paths.get("Immagini/yugiohretro.jpg");//carta non presente
+        Path relative1 = Paths.get("Immagini/void.jpg");//carta non presente
         Path absolute1 = relative1.toAbsolutePath();
         
         //convert the file path to string, save as a string and define the width and height
@@ -99,16 +99,37 @@ public class Mano {
         
     }
     
-    //Per scambiare due radiobutton si effettua obj1.SWAP_ADD(obj2.SWAP_REMOVE())... da fare
-    /*
-    public RadioButton SWAP_ADD(RadioButton radiobutton){
+    //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
+    
+    public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_mano.get(indice_arry);
+        
+        ArrayList_radiobutton_mano.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
         
     }
     
-    public RadioButton SWAP_REMOVE(RadioButton radiobutton){
+    public void SWAP_REMOVE(int indice_arry, Cimitero campo){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_mano.get(indice_arry);
+        
+        ArrayList_radiobutton_mano.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
         
     }
-*/    
+    
+    public RadioButton SWAP_ADD(int indice_arry, RadioButton campo){
+        
+        RadioButton appoggio = new RadioButton();
+        appoggio = ArrayList_radiobutton_mano.get(indice_arry);
+        
+        ArrayList_radiobutton_mano.set(indice_arry, campo);
+        
+        return appoggio;
+        
+    }
+
 
     
     public boolean add(RadioButton radiobutton){

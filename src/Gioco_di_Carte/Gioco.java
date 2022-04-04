@@ -68,13 +68,13 @@ public class Gioco {
     protected VBox vbox_sotto;
     
     //nomi
-    HBox hbox_bot_destra;
-    HBox hbox_bot_sinistra;
-    HBox hbox_bot;
-    VBox vbox_bot;
+    protected HBox hbox_bot_destra;
+    protected HBox hbox_bot_sinistra;
+    protected HBox hbox_bot;
+    protected VBox vbox_bot;
     
     //Other
-    VBox vbox_mezzo;
+    protected VBox vbox_mezzo;
 
     //Costruttore----
     public Gioco() {
@@ -140,7 +140,7 @@ public class Gioco {
         hbox_cimitero_sotto = new HBox(giocatore_2.getCimitero());
         hbox_cimitero_sotto.setAlignment(Pos.BOTTOM_RIGHT);
         //riga 1
-        hbox1_sotto = new HBox(giocatore_2.getGp_mazzomano());
+        hbox1_sotto = new HBox(giocatore_2.getGp_mazzocampo());
         hbox1_sotto.setSpacing(10);
         HBox.setHgrow(hbox_campo_sotto, Priority.ALWAYS);
         hbox1_sotto.setAlignment(Pos.TOP_CENTER);
