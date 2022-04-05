@@ -132,40 +132,21 @@ public class Mano {
 
 
     
-    public boolean add(RadioButton radiobutton){
-        
-        //rimuove da un gruppo un radiobutton(interfaccia grafica)
-        radiobutton.setToggleGroup(group_radiobutton_mano);
-        
-        //aggiungo il radio button all'arraylist
-        if(this.sizeArrayList_radiobutton_mano()<8){
-            ArrayList_radiobutton_mano.add(radiobutton);
+    public boolean add(Carta carte){
+        if(gestione.size()<8){
+            gestione.add(carte);
             return true;
-            
-        }else{
-            return false;
-            
         }
-        
+        else
+            return false;
+       
     }
     
-    public boolean remove(RadioButton radiobutton){
-        
-        //rimuove da un gruppo un radiobutton(interfaccia grafica)
-        group_radiobutton_mano.getToggles().remove(radiobutton);
-        
-        //elimino l'elemento dall'arraylist dei radio button
-        if(ArrayList_radiobutton_mano.indexOf(radiobutton) != -1){
-            ArrayList_radiobutton_mano.remove(ArrayList_radiobutton_mano.indexOf(radiobutton));
-            return true;
-            
-        }else{
-            return false;
-            
-        }
-        
-        
+    public void remove(int i){
+        gestione.remove(i);
+                  
     }
+    
     
     
 }
