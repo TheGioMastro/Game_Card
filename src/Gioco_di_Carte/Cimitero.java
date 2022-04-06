@@ -15,14 +15,14 @@ public class Cimitero {
     
     //crea l'arraylist in cui inserirre i radiobutton(interfaccia grafica)
     protected ArrayList<RadioButton> ArrayList_radiobutton_cimitero;
-    
+    protected ArrayList<Carta>Cimitero;  
     
     
     //costruttori
     public Cimitero(){
         //parte interfaccia grafica
         ArrayList_radiobutton_cimitero = new ArrayList<RadioButton>(15);
-        
+        Cimitero = new <Carta>ArrayList();
     }
     
     
@@ -91,5 +91,7 @@ public class Cimitero {
         
         
     }
+    
+    
     
 }

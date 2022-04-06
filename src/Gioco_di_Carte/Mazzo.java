@@ -30,11 +30,12 @@ public class Mazzo {
     
     //ArryList per contenere i radiobutton dell'interfaccia grafica
     protected ArrayList<RadioButton> ArrayList_radiobutton_mazzo;
-    
+    protected ArrayList<Carta>Mazzo;
     
     //costruttori
     public Mazzo(){
         ArrayList_radiobutton_mazzo = new ArrayList<RadioButton>(15);
+        Mazzo = new <Carta>ArrayList();
         
         
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
@@ -117,5 +118,10 @@ public class Mazzo {
         ArrayList_radiobutton_mazzo.set(indice_arry, cimitero.SWAP_ADD(indice_arry, appoggio));
         
     }
+    
+    
+
+    
+    
     
 }
