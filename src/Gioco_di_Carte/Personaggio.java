@@ -11,15 +11,14 @@ package Gioco_di_Carte;
 public class Personaggio extends Carta{
     protected String tipo_personaggio;
     protected boolean isAlive;
-    protected boolean canAttack;
+    //protected boolean canAttack;  //sostituito dal flag "ruba_attacco" nella classe magia
     protected int pAttack;
     protected int pDefense;
 
-    public Personaggio(String tipo_personaggio, boolean isAlive, boolean canAttack, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, String immagine) {
+    public Personaggio(String tipo_personaggio, boolean isAlive, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, String immagine) {
         super(nome, descrizione, tipo_carta, immagine);
         this.tipo_personaggio = tipo_personaggio;
         this.isAlive = isAlive;
-        this.canAttack = canAttack;
         this.pAttack = pAttack;
         this.pDefense = pDefense;
     }
@@ -30,10 +29,6 @@ public class Personaggio extends Carta{
 
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
-    }
-
-    public void setCanAttack(boolean canAttack) {
-        this.canAttack = canAttack;
     }
 
     public void setpAttack(int pAttack) {
@@ -52,10 +47,6 @@ public class Personaggio extends Carta{
         return isAlive;
     }
 
-    public boolean isCanAttack() {
-        return canAttack;
-    }
-
     public int getpAttack() {
         return pAttack;
     }
@@ -63,12 +54,12 @@ public class Personaggio extends Carta{
     public int getpDefense() {
         return pDefense;
     }
-
+    
     public boolean attacca(Personaggio attaccato){
-        
+        return attaccato.difesa(pAttack) < 0;
     }
     
-    public int difesa(){
-        
+    public int difesa(int pAttack){
+        return this.pDefense - pAttack;
     }
 }
