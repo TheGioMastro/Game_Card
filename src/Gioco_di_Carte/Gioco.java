@@ -76,7 +76,7 @@ public class Gioco {
     //Other
     protected VBox vbox_mezzo;
 
-    //Costruttore----
+    //Costruttori----
     public Gioco() {
         
         //parte interfaccia garfica
