@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -92,7 +91,10 @@ public class Main3 extends Application{
                         
                         Gioco game = new Gioco();
                         
-                        game.getGiocatore_1().getGiocatore().setNome();
+                        game.getGiocatore_1().getGiocatore().setNome(String.valueOf(nome_giocatore_1));
+                        game.getGiocatore_2().getGiocatore().setNome(String.valueOf(nome_giocatore_2));
+                        game.getGiocatore_1().getGiocatore().setTipo_deck(String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3));
+                        game.getGiocatore_2().getGiocatore().setTipo_deck(String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3));
 
                         //PARTE FINALE GRID
                         //contenitore verticale parte sopra e sotto

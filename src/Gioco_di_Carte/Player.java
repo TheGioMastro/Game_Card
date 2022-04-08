@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 public class Player {
     protected String nome = "Giocatore";
     protected int vita = 4000;
-    protected int tipo_deck;
+    protected int tipo_deck; // 1 == Vampiro / 2 == Licantropo / 3 == Eroe
     
     //Parte interfaccia grafica(contiene il campo per la vita e il nome del giocatore)
     //contiene il nome del giocatore
