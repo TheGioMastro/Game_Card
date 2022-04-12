@@ -4,8 +4,11 @@
  */
 package Gioco_di_Carte;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
@@ -36,7 +39,11 @@ public class Campo {
     Button mazzo;
     Button cimitero;
     
+    //PATH CardProprieties.txt
+    Path relative = Paths.get("FileTXT/CardProprieties.txt");
+    Path absolute = relative.toAbsolutePath();
     
+    String path = absolute.toString();
     
     //Costruttore---------------------------------------------------------------
     public Campo(String nome, int tipo) {
@@ -48,6 +55,23 @@ public class Campo {
         giocatore = new Player(nome, tipo);
         
         //ACQUSIZIONE PROPRIETA CARTE
+        
+        //"C:\\Users\\MSI Gaming\\Documents\\GitHub\\Game_Card\\FileTXT/CardProprieties.txt"
+        try(BufferedReader br = new BufferedReader (new FileReader(path))){
+            StringBuilder fileContents = new StringBuilder();
+            String line = br.readLine();
+            while (line != null) {
+                System.out.println(line);
+                fileContents.append(line);
+                fileContents.append(System.lineSeparator());
+                line = br.readLine();
+            }//end while return fileContents.toString();
+        }//end try
+        catch (IOException e) {
+            System.err.println(e);
+        }//end catch
+
+        
         
         
         
