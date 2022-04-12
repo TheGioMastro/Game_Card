@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 public class Player {
     protected String nome;
     protected int vita;
-    protected int tipo_deck; // 1 == Vampiro / 2 == Licantropo / 3 == Eroe
+    protected String tipo_deck; //Vampiro / Licantropo / Eroe
     
     //Parte interfaccia grafica(contiene il campo per la vita e il nome del giocatore)
     //contiene il nome del giocatore
@@ -27,7 +27,7 @@ public class Player {
     
     
     //Costruttori
-    public Player(String nome, int tipo_deck) {
+    public Player(String nome, String tipo_deck) {
         this.nome = nome;
         this.vita = 4000;
         this.tipo_deck = tipo_deck;
@@ -70,7 +70,7 @@ public class Player {
         this.scritta_giocatore_vita.setText(String.valueOf(vita));
     }
 
-    public void setTipo_deck(int tipo_deck) {
+    public void setTipo_deck(String tipo_deck) {
         this.tipo_deck = tipo_deck;
     }
     //-----------------------------------------
@@ -84,7 +84,7 @@ public class Player {
         return vita;
     }
 
-    public int getTipo_deck() {
+    public String getTipo_deck() {
         return tipo_deck;
     }
 
