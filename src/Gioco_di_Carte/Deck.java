@@ -3,10 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Gioco_di_Carte;
-//Generali Alessandro "Autore"
 /**
  *
- * @author 
+ * @author Generali Alessandro
  */
 public class Deck {
     protected Descrizione[] Insieme_descrizioni = new Descrizione[15];
