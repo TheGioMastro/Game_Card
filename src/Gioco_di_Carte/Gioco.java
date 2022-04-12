@@ -77,7 +77,7 @@ public class Gioco {
     protected VBox vbox_mezzo;
 
     //Costruttori----
-    public Gioco(String nomeG1, String nomeG2, int tipoG1, int tipoG2) {
+    public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
         
         giocatore_1 = new Campo(nomeG1, tipoG1);
         giocatore_2 = new Campo(nomeG2, tipoG2);
