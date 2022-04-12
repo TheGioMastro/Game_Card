@@ -16,7 +16,10 @@ public class Personaggio extends Carta{
     protected int pDefense;
 
     public Personaggio(String tipo_personaggio, boolean isAlive, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, String immagine) {
-        super(nome, descrizione, tipo_carta, immagine);
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.tipo_carta = tipo_carta;
+        this.immagine = immagine;
         this.tipo_personaggio = tipo_personaggio;
         this.isAlive = isAlive;
         this.pAttack = pAttack;

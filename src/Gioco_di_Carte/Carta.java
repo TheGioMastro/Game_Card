@@ -8,18 +8,12 @@ package Gioco_di_Carte;
  *
  * @author Alessandro Poggi
  */
-public class Carta {
+public abstract class Carta {
     protected String nome;
     protected String descrizione;
     protected String tipo_carta;
     protected String immagine;
-
-    public Carta(String nome, String descrizione, String tipo_carta, String immagine) {
-        this.nome = nome;
-        this.descrizione = descrizione;
-        this.tipo_carta = tipo_carta;
-        this.immagine = immagine;
-    }
+    
 
     public void setNome(String nome) {
         this.nome = nome;

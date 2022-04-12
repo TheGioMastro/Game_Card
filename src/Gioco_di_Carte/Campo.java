@@ -60,11 +60,22 @@ public class Campo {
         try(BufferedReader br = new BufferedReader (new FileReader(path))){
             StringBuilder fileContents = new StringBuilder();
             String line = br.readLine();
-            while (line != null) {
+            while (line != "---") {
+                //Lettura Attacco + Difesa
+                while(line != "-"){
+                    line = br.readLine();
+                }
+                
+                //Lettura Magia
+                while(line != "--"){
+                    line = br.readLine();
+                }
+                
+                
                 System.out.println(line);
-                fileContents.append(line);
-                fileContents.append(System.lineSeparator());
-                line = br.readLine();
+                //fileContents.append(line);
+                //fileContents.append(System.lineSeparator());
+                
             }//end while return fileContents.toString();
         }//end try
         catch (IOException e) {
