@@ -89,13 +89,14 @@ public class Main3 extends Application{
                         tipo_deck_giocatore_1.set(String.valueOf(comboBox1.getSelectionModel().getSelectedItem()));
                         tipo_deck_giocatore_2.set(String.valueOf(comboBox2.getSelectionModel().getSelectedItem()));
                         
-                        Gioco game = new Gioco();
+                        Gioco game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3), String.valueOf(comboBox2).equals("Vampiro")?1:(String.valueOf(comboBox2).equals("Licantropo")?2:3));
                         
+                        /*
                         game.getGiocatore_1().getGiocatore().setNome(String.valueOf(nome_giocatore_1));
                         game.getGiocatore_2().getGiocatore().setNome(String.valueOf(nome_giocatore_2));
                         game.getGiocatore_1().getGiocatore().setTipo_deck(String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3));
                         game.getGiocatore_2().getGiocatore().setTipo_deck(String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3));
-
+                        */
                         //PARTE FINALE GRID
                         //contenitore verticale parte sopra e sotto
                         VBox vbox_tot = new VBox(game.getVbox_top(), game.getVbox_sopra(), game.getVbox_mezzo(), game.getVbox_sotto(), game.getVbox_bot());
