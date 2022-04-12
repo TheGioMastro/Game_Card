@@ -17,8 +17,8 @@ import javafx.scene.text.Font;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Gioco {
-    protected Campo giocatore_1 = new Campo(); //CAMPO SOPRA
-    protected Campo giocatore_2 = new Campo(); //CAMPO SOTTO
+    protected Campo giocatore_1; //CAMPO SOPRA
+    protected Campo giocatore_2; //CAMPO SOTTO
     
     //Parte interfaccia grafica(componimento interfaccia campo ecc...)
     //PARTE SOPRA---------------------------------------------------------------
@@ -77,7 +77,10 @@ public class Gioco {
     protected VBox vbox_mezzo;
 
     //Costruttori----
-    public Gioco() {
+    public Gioco(String nomeG1, String nomeG2, int tipoG1, int tipoG2) {
+        
+        giocatore_1 = new Campo(nomeG1, tipoG1);
+        giocatore_2 = new Campo(nomeG2, tipoG2);
         
         //parte interfaccia garfica
         //---------------------------------PARTE-SOPRA--------------------------
@@ -229,7 +232,7 @@ public class Gioco {
         vbox_top = new VBox(hbox_top);
         vbox_top.setAlignment(Pos.CENTER);
     }
-    //---------------
+    //--------------------------------------------------------------------------------------------------------------
     
     //setter----------------------------------------
     public void setGiocatore_1(Campo giocatore_1) {

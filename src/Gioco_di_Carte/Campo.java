@@ -20,11 +20,11 @@ import javafx.scene.layout.GridPane;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Campo {
-    protected Deck dck = new Deck();
-    protected Mano man = new Mano();
-    protected MazzoCampo mazCam = new MazzoCampo();
-    protected Cimitero cim = new Cimitero();
-    protected Player giocatore = new Player();
+    protected Deck dck;
+    protected Mano man;
+    protected MazzoCampo mazCam;
+    protected Cimitero cim;
+    protected Player giocatore;
     
     //Parte interfaccia grafica(impostazione grid mano e mazzocampo + riempimento deck e creazione cimitero)
     //Grid mazzomano
@@ -38,8 +38,22 @@ public class Campo {
     
     
     
-    //Costruttore
-    public Campo() {
+    //Costruttore---------------------------------------------------------------
+    public Campo(String nome, int tipo) {
+        //Istanziamento Oggetti
+        dck = new Deck();
+        man = new Mano();
+        mazCam = new MazzoCampo();
+        cim = new Cimitero();
+        giocatore = new Player(nome, tipo);
+        
+        //ACQUSIZIONE PROPRIETA CARTE
+        
+        
+        
+        //---------------------------
+        
+        
         //parte interfaccia grafica
         gp_mazzomano = new GridPane();
         gp_mazzocampo = new GridPane();
@@ -87,7 +101,7 @@ public class Campo {
         cimitero.setDisable(true);
         
     }
-    //------------
+    //------------------------------------------------------------------------------------
     
     //Setter------------------------------------
     public void setDck(Deck dck) {

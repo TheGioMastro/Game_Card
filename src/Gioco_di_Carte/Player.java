@@ -13,8 +13,8 @@ import javafx.scene.text.Font;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Player {
-    protected String nome = "Giocatore";
-    protected int vita = 4000;
+    protected String nome;
+    protected int vita;
     protected int tipo_deck; // 1 == Vampiro / 2 == Licantropo / 3 == Eroe
     
     //Parte interfaccia grafica(contiene il campo per la vita e il nome del giocatore)
@@ -27,9 +27,9 @@ public class Player {
     
     
     //Costruttori
-    public Player(String nome, int vita, int tipo_deck) {
+    public Player(String nome, int tipo_deck) {
         this.nome = nome;
-        this.vita = vita;
+        this.vita = 4000;
         this.tipo_deck = tipo_deck;
         
         //Parte interfaccia grafica(istanziamento)
