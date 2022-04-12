@@ -89,7 +89,7 @@ public class Main3 extends Application{
                         tipo_deck_giocatore_1.set(String.valueOf(comboBox1.getSelectionModel().getSelectedItem()));
                         tipo_deck_giocatore_2.set(String.valueOf(comboBox2.getSelectionModel().getSelectedItem()));
                         
-                        Gioco game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3), String.valueOf(comboBox2).equals("Vampiro")?1:(String.valueOf(comboBox2).equals("Licantropo")?2:3));
+                        Gioco game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), comboBox1, comboBox2);
                         
                         /*
                         game.getGiocatore_1().getGiocatore().setNome(String.valueOf(nome_giocatore_1));
