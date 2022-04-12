@@ -39,14 +39,16 @@ public class Campo {
     Button mazzo;
     Button cimitero;
     
-    //PATH CardProprieties.txt
-    Path relative = Paths.get("FileTXT/CardProprieties.txt");
-    Path absolute = relative.toAbsolutePath();
-    
-    String path = absolute.toString();
-    
     //Costruttore---------------------------------------------------------------
-    public Campo(String nome, int tipo) {
+    public Campo(String nome, String tipo) {
+        //Variabili
+        Path relative = Paths.get("FileTXT/" + tipo + ".txt");
+        Path absolute = relative.toAbsolutePath();
+        String path = absolute.toString();
+        int aP; //Valore Attacco
+        int dP; //Valore Vita
+        int nIndice; //Indice carta magia
+        
         //Istanziamento Oggetti
         dck = new Deck();
         man = new Mano();
@@ -54,39 +56,36 @@ public class Campo {
         cim = new Cimitero();
         giocatore = new Player(nome, tipo);
         
-        //ACQUSIZIONE PROPRIETA CARTE
-        
-        //"C:\\Users\\MSI Gaming\\Documents\\GitHub\\Game_Card\\FileTXT/CardProprieties.txt"
+        //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
         try(BufferedReader br = new BufferedReader (new FileReader(path))){
             StringBuilder fileContents = new StringBuilder();
-            String line = br.readLine();
-            while (line != "---") {
-                //Lettura Attacco + Difesa
-                while(line != "-"){
-                    line = br.readLine();
-                }
-                
-                //Lettura Magia
-                while(line != "--"){
-                    line = br.readLine();
-                }
-                
-                
-                System.out.println(line);
-                //fileContents.append(line);
-                //fileContents.append(System.lineSeparator());
-                
-            }//end while return fileContents.toString();
-        }//end try
-        catch (IOException e) {
+            
+            //Personaggi
+            do{
+                nome = br.readLine();
+                aP = Integer.parseInt(br.readLine());
+                dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
+                /*chiamata metodo celo*/
+            }while(nome != "-");
+            
+            //Magia
+            do{
+                nome = br.readLine();
+                nIndice = Integer.parseInt(br.readLine());
+                /*chiamata metodo celo*/
+            }while(nome != "-");
+            
+            nome = br.readLine();
+            
+            if(nome == "--"){
+                br.close();
+            }
+            
+        }catch (IOException e){
             System.err.println(e);
-        }//end catch
-
+        }
         
-        
-        
-        
-        //---------------------------
+        //---------------------------------------------------------------------
         
         
         //parte interfaccia grafica
