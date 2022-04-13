@@ -99,7 +99,7 @@ public class Main3 extends Application{
                         */
                         //PARTE FINALE GRID
                         //contenitore verticale parte sopra e sotto
-                        VBox vbox_tot = new VBox(game.getVbox_top(), game.getVbox_sopra(), game.getVbox_mezzo(), game.getVbox_sotto(), game.getVbox_bot());
+                        VBox vbox_tot = new VBox(game.getGrafica().getVbox_top(), game.getGrafica().getVbox_sopra(), game.getGrafica().getVbox_mezzo(), game.getGrafica().getVbox_sotto(), game.getGrafica().getVbox_bot());
                         vbox_tot.setAlignment(Pos.CENTER);
 
 
