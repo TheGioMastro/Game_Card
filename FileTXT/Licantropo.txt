@@ -28,7 +28,7 @@ difesa4
 difesa5
 100
 300
--
+ciao
 magia1
 1
 magia2

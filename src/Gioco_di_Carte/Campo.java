@@ -70,15 +70,16 @@ public class Campo {
                 nome = br.readLine();
                 System.out.println(nome);
                 
-                if(nome != "-"){
+                if(nome != "ciao"){
                     aP = Integer.parseInt(br.readLine());
                     System.out.println(aP);
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
                     System.out.println(dP);
                     /*chiamata metodo celo*/
                 }
-            }while(nome != "-");
+            }while(nome != "ciao");
             
+            System.out.println("CIAO");
             //Magia
             do{
                 nome = br.readLine();
