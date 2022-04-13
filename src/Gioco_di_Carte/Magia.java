@@ -28,8 +28,6 @@ public class Magia extends Carta{
         this.indice_magia = indice_magia;
     }
     
-    //i è l'indice in cui si trova la carta da distruggere
-    //carte è un ArrayList generico dove in base al caso, corrisponde alle carte in campo o a quelle in mano
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){
         switch(indice_magia){
             case 1 -> doppio_attacco = true;
