@@ -60,7 +60,6 @@ public class Campo {
         cim = new Cimitero();
         giocatore = new Player(nome, tipo);
         
-        System.out.println("arriva");
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
         try(BufferedReader br = new BufferedReader (new FileReader(path))){
             StringBuilder fileContents = new StringBuilder();
@@ -85,17 +84,14 @@ public class Campo {
                 nome = br.readLine();
                 System.out.println(nome);
                 
-                if(nome != "-"){
+                if(!nome.equalsIgnoreCase("ciaociao")){
                     nIndice = Integer.parseInt(br.readLine());
                     System.out.println(nIndice);
                     /*chiamata metodo celo*/
                 }
-            }while(nome != "-");
-            
-            nome = br.readLine();
-            System.out.println(nome);
-            
-            if(nome == "--"){
+            }while(!nome.equalsIgnoreCase("ciaociao"));
+
+            if(!nome.equalsIgnoreCase("ciaociao")){
                 br.close();
             }
             
