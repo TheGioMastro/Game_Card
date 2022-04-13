@@ -31,10 +31,13 @@ public class MazzoCampo {
     
     //crea il gruppo in cui contenere i radiobutton(interfaccia grafica)
     protected ToggleGroup group_radiobutton_mazzocampo;
+    
     //crea l'arraylist in cui inserirre i radiobutton
     protected ArrayList<RadioButton> ArrayList_radiobutton_mazzocampo;
+    
     //array list mazzocampo
-    public ArrayList<Carta> MazzoCampo;
+    protected ArrayList<Carta> MazzoCampo;
+    
     //costruttori
     public MazzoCampo(){
         //interfaccia grafica
@@ -74,50 +77,24 @@ public class MazzoCampo {
         
         
         //FINE PARTE TEMPORANEA
-        MazzoCampo = new ArrayList<Carta>(15);
+        MazzoCampo = new ArrayList<Carta>(6);
     }
     
     
     
     //metodi
+    //      size()
     public int sizeArrayList_radiobutton_mazzocampo(){
         return ArrayList_radiobutton_mazzocampo.size();
         
     }
-    
+    //      get()
     public RadioButton get_ArrayList_radiobutton_mazzocampo(int i){
         return ArrayList_radiobutton_mazzocampo.get(i);
         
     }
     
-    public boolean add(RadioButton radiobutton){
-        
-        //rimuove da un gruppo un radiobutton(interfaccia grafica)
-        radiobutton.setToggleGroup(group_radiobutton_mazzocampo);
-        
-        //aggiungo il radio button all'arraylist
-        if(this.sizeArrayList_radiobutton_mazzocampo()<6){
-            ArrayList_radiobutton_mazzocampo.add(radiobutton);
-            return true;
-            
-        }else{
-            return false;
-            
-        }
-        
-    }
-    
     //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
-    
-    public void SWAP_REMOVE(int indice_arry, Mano mano){
-        
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_mazzocampo.get(indice_arry);
-        
-        ArrayList_radiobutton_mazzocampo.set(indice_arry, mano.SWAP_ADD(indice_arry, appoggio));
-        
-    }
-    
     public void SWAP_REMOVE(int indice_arry, Cimitero campo){
         
         RadioButton appoggio = new RadioButton();
@@ -138,55 +115,22 @@ public class MazzoCampo {
         
     }
     
-    public boolean remove(RadioButton radiobutton){
-        
-        //rimuove da un gruppo un radiobutton(interfaccia grafica)
-        group_radiobutton_mazzocampo.getToggles().remove(radiobutton);
-        
-        //elimino l'elemento dall'arraylist dei radio button
-        if(ArrayList_radiobutton_mazzocampo.indexOf(radiobutton) != -1){
-            ArrayList_radiobutton_mazzocampo.remove(ArrayList_radiobutton_mazzocampo.indexOf(radiobutton));
-            return true;
-            
-        }else{
+    public boolean add(Carta c1){
+        if(this.Size()>=6){
             return false;
-            
-        }
-        
-        
-    }
-    
-    public void add(Personaggio C){
-        
-        if(Mazzo.Size>15){
-            System.out.print("Error");
         }else{
-            
-        MazzoCampo.add(C);
-    
-        }
-    }
-    public void add(Magia C){
-        
-        if(Mazzo.Size>15){
-            System.out.print("Error");
-        }else{
-            
-        MazzoCampo.add(C);
-    
+            MazzoCampo.add(c1);
+            return true;
         }
     }
     
     //grandezza mazzoCampo
     public int Size(){
-        return MazzoCampo.size;
-    }
-    //get
-    public Personaggio Get(int i){
-        return MazzoCampo.get(i);
+        return MazzoCampo.size();
     }
     
-     public Magia Get(int i){
+    //get
+    public Carta Get(int i){
         return MazzoCampo.get(i);
     }
     
