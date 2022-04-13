@@ -63,26 +63,31 @@ public class Campo {
             //Personaggi
             do{
                 nome = br.readLine();
+                System.out.println(nome);
                 
                 if(nome != "-"){
                     aP = Integer.parseInt(br.readLine());
+                    System.out.println(aP);
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
+                    System.out.println(dP);
                     /*chiamata metodo celo*/
                 }
-                
             }while(nome != "-");
             
             //Magia
             do{
                 nome = br.readLine();
+                System.out.println(nome);
                 
                 if(nome != "-"){
                     nIndice = Integer.parseInt(br.readLine());
+                    System.out.println(nIndice);
                     /*chiamata metodo celo*/
                 }
             }while(nome != "-");
             
             nome = br.readLine();
+            System.out.println(nome);
             
             if(nome == "--"){
                 br.close();
