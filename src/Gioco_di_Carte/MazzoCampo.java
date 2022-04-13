@@ -33,8 +33,8 @@ public class MazzoCampo {
     protected ToggleGroup group_radiobutton_mazzocampo;
     //crea l'arraylist in cui inserirre i radiobutton
     protected ArrayList<RadioButton> ArrayList_radiobutton_mazzocampo;
-    
-    
+    //array list mazzocampo
+    public ArrayList<Carta> MazzoCampo;
     //costruttori
     public MazzoCampo(){
         //interfaccia grafica
@@ -74,7 +74,7 @@ public class MazzoCampo {
         
         
         //FINE PARTE TEMPORANEA
-        
+        MazzoCampo = new ArrayList<Carta>(15);
     }
     
     
@@ -154,6 +154,40 @@ public class MazzoCampo {
         }
         
         
+    }
+    
+    public void add(Personaggio C){
+        
+        if(Mazzo.Size>15){
+            System.out.print("Error");
+        }else{
+            
+        MazzoCampo.add(C);
+    
+        }
+    }
+    public void add(Magia C){
+        
+        if(Mazzo.Size>15){
+            System.out.print("Error");
+        }else{
+            
+        MazzoCampo.add(C);
+    
+        }
+    }
+    
+    //grandezza mazzoCampo
+    public int Size(){
+        return MazzoCampo.size;
+    }
+    //get
+    public Personaggio Get(int i){
+        return MazzoCampo.get(i);
+    }
+    
+     public Magia Get(int i){
+        return MazzoCampo.get(i);
     }
     
 }
