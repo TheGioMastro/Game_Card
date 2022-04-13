@@ -27,7 +27,7 @@ public class Cimitero {
     
     
     //metodi
-    public int sizeArrayList_radiobutton_cimitero(){
+    public int SizeArrayList_radiobutton_cimitero(){
         return ArrayList_radiobutton_cimitero.size();
         
     }
@@ -63,10 +63,10 @@ public class Cimitero {
         
     }
     
-    public boolean add(RadioButton radiobutton){
+    public boolean Add(RadioButton radiobutton){
         
         //aggiungo il radio button all'arraylist
-        if(this.sizeArrayList_radiobutton_cimitero()<15){
+        if(this.SizeArrayList_radiobutton_cimitero()<15){
             ArrayList_radiobutton_cimitero.add(radiobutton);
             return true;
             
@@ -77,53 +77,32 @@ public class Cimitero {
         
     }
     
-    public boolean remove(RadioButton radiobutton){
-        
+    public boolean Remove(RadioButton radiobutton){
         //elimino l'elemento dall'arraylist dei radio button
         if(ArrayList_radiobutton_cimitero.indexOf(radiobutton) != -1){
             ArrayList_radiobutton_cimitero.remove(ArrayList_radiobutton_cimitero.indexOf(radiobutton));
             return true;
-            
         }else{
             return false;
-            
-        }
-        
-        
-    }
-    
-    public void add(Personaggio C){
-        
-        if(Mazzo.Size>15){
-            System.out.print("Error");
-        }else{
-            
-        Cimitero.add(C);
-    
         }
     }
-    public void add(Magia C){
+    
+    public void Add(Carta C1){
         
-        if(Mazzo.Size>15){
+        if(this.Size()>15){
             System.out.print("Error");
         }else{
-            
-        Cimitero.add(C);
-    
+            Cimitero.add(C1);
         }
     }
     
     //grandezza Cimitero
     public int Size(){
-        return Cimitero.size;
+        return Cimitero.size();
     }
+    
     //get
-    public Personaggio Get(int i){
+    public Carta Get(int i){
         return Cimitero.get(i);
     }
-    
-     public Magia Get(int i){
-        return Cimitero.get(i);
-    }
-    
 }
