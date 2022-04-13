@@ -36,13 +36,17 @@ public class Campo {
     protected GridPane gp_mazzocampo;
     
     //bottoni
-    Button mazzo;
-    Button cimitero;
+    protected Button mazzo;
+    protected Button cimitero;
     
     //Costruttore---------------------------------------------------------------
     public Campo(String nome, String tipo) {
+        
+                System.out.println("ciao");
         //Variabili
         Path relative = Paths.get("FileTXT/" + tipo + ".txt");
+        
+                System.out.println("ciao");
         Path absolute = relative.toAbsolutePath();
         String path = absolute.toString();
         int aP; //Valore Attacco
@@ -56,6 +60,7 @@ public class Campo {
         cim = new Cimitero();
         giocatore = new Player(nome, tipo);
         
+        System.out.println("arriva");
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
         try(BufferedReader br = new BufferedReader (new FileReader(path))){
             StringBuilder fileContents = new StringBuilder();
