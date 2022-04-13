@@ -36,13 +36,17 @@ public class Campo {
     protected GridPane gp_mazzocampo;
     
     //bottoni
-    Button mazzo;
-    Button cimitero;
+    protected Button mazzo;
+    protected Button cimitero;
     
     //Costruttore---------------------------------------------------------------
     public Campo(String nome, String tipo) {
+        
+                System.out.println("ciao");
         //Variabili
         Path relative = Paths.get("FileTXT/" + tipo + ".txt");
+        
+                System.out.println("ciao");
         Path absolute = relative.toAbsolutePath();
         String path = absolute.toString();
         int aP; //Valore Attacco
@@ -56,6 +60,7 @@ public class Campo {
         cim = new Cimitero();
         giocatore = new Player(nome, tipo);
         
+        System.out.println("arriva");
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
         try(BufferedReader br = new BufferedReader (new FileReader(path))){
             StringBuilder fileContents = new StringBuilder();
@@ -63,19 +68,31 @@ public class Campo {
             //Personaggi
             do{
                 nome = br.readLine();
-                aP = Integer.parseInt(br.readLine());
-                dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
-                /*chiamata metodo celo*/
+                System.out.println(nome);
+                
+                if(nome != "-"){
+                    aP = Integer.parseInt(br.readLine());
+                    System.out.println(aP);
+                    dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
+                    System.out.println(dP);
+                    /*chiamata metodo celo*/
+                }
             }while(nome != "-");
             
             //Magia
             do{
                 nome = br.readLine();
-                nIndice = Integer.parseInt(br.readLine());
-                /*chiamata metodo celo*/
+                System.out.println(nome);
+                
+                if(nome != "-"){
+                    nIndice = Integer.parseInt(br.readLine());
+                    System.out.println(nIndice);
+                    /*chiamata metodo celo*/
+                }
             }while(nome != "-");
             
             nome = br.readLine();
+            System.out.println(nome);
             
             if(nome == "--"){
                 br.close();
