@@ -15,14 +15,14 @@ public class Cimitero {
     
     //crea l'arraylist in cui inserirre i radiobutton(interfaccia grafica)
     protected ArrayList<RadioButton> ArrayList_radiobutton_cimitero;
-    
+    public ArrayList<Carta> Cimitero;
     
     
     //costruttori
     public Cimitero(){
         //parte interfaccia grafica
         ArrayList_radiobutton_cimitero = new ArrayList<RadioButton>(15);
-        
+        Cimitero = new ArrayList<Carta>(15);
     }
     
     
@@ -90,6 +90,40 @@ public class Cimitero {
         }
         
         
+    }
+    
+    public void add(Personaggio C){
+        
+        if(Mazzo.Size>15){
+            System.out.print("Error");
+        }else{
+            
+        Cimitero.add(C);
+    
+        }
+    }
+    public void add(Magia C){
+        
+        if(Mazzo.Size>15){
+            System.out.print("Error");
+        }else{
+            
+        Cimitero.add(C);
+    
+        }
+    }
+    
+    //grandezza Cimitero
+    public int Size(){
+        return Cimitero.size;
+    }
+    //get
+    public Personaggio Get(int i){
+        return Cimitero.get(i);
+    }
+    
+     public Magia Get(int i){
+        return Cimitero.get(i);
     }
     
 }
