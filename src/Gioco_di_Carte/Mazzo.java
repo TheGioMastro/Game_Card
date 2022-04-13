@@ -71,88 +71,59 @@ public class Mazzo {
         //FINE PARTE TEMPORANEA
         
         Mazzo = new ArrayList<Carta>(15);
-        
     }
     
     
     //metodi
     public boolean remove(RadioButton radiobutton){
-        
         //elimino l'elemento dall'arraylist dei radio button
         if(ArrayList_radiobutton_mazzo.indexOf(radiobutton) != -1){
             ArrayList_radiobutton_mazzo.remove(ArrayList_radiobutton_mazzo.indexOf(radiobutton));
             return true;
-            
         }else{
             return false;
             
-        }
-        
-        
+        }   
     }
     
     
     //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
-    
     public void SWAP_REMOVE(int indice_arry, Mano mano){
-        
         RadioButton appoggio = new RadioButton();
         appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
         
         ArrayList_radiobutton_mazzo.set(indice_arry, mano.SWAP_ADD(indice_arry, appoggio));
-        
     }
     
     public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
-        
         RadioButton appoggio = new RadioButton();
         appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
         
         ArrayList_radiobutton_mazzo.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
-        
     }
     
     public void SWAP_REMOVE(int indice_arry, Cimitero cimitero){
-        
         RadioButton appoggio = new RadioButton();
         appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
         
         ArrayList_radiobutton_mazzo.set(indice_arry, cimitero.SWAP_ADD(indice_arry, appoggio));
-        
     }
     
-    //add aggiungi magia/personaggio 
-    public void add(Personaggio C){
-        
-        if(Mazzo.Size>15){
+    public void add(Carta C1){
+        if(this.Size()>=15){
             System.out.print("Error");
         }else{
-            
-        Mazzo.add(C);
-    
-        }
-    }
-    public void add(Magia C){
-        
-        if(Mazzo.Size>15){
-            System.out.print("Error");
-        }else{
-            
-        Mazzo.add(C);
-    
+            Mazzo.add(C1);
         }
     }
     
     //grandezza mazzo
     public int Size(){
-        return Mazzo.size;
-    }
-    //get
-    public Personaggio Get(int i){
-        return Mazzo.get(i);
+        return Mazzo.size();
     }
     
-     public Magia Get(int i){
+    //get
+    public Carta Get(int i){
         return Mazzo.get(i);
     }
 }
