@@ -18,6 +18,7 @@ public class Magia extends Carta{
     protected boolean spirito_indomito = false;
     protected boolean sacca_di_sangue = false;
     protected boolean luna_piena = false;
+    Random rand = new Random();
     
     public Magia(int indice_magia, String nome, String descrizione, String tipo_carta, String immagine) {
         this.nome = nome;
@@ -29,16 +30,17 @@ public class Magia extends Carta{
     
     //i è l'indice in cui si trova la carta da distruggere
     //carte è un ArrayList generico dove in base al caso, corrisponde alle carte in campo o a quelle in mano
-    public void ability(ArrayList carte, ArrayList cimitero, int i){
+    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){
         switch(indice_magia){
             case 1 -> doppio_attacco = true;
             case 2 -> {
-                cimitero.add(carte.get(i));
-                carte.remove(i);    //qui carte corrisponde a quelle in campo
+                cimitero.Add(campo.Get(i));
+                campo.Remove(i);
             }
             case 3 -> {
-                Random rand = new Random();
-                carte.add(cimitero.get(rand.nextInt(cimitero.size() - 1))); //qui carte corrisponde a quelle in mano
+                int numero_random = rand.nextInt(cimitero.Size() - 1);
+                mano.Add(cimitero.Get(numero_random));
+                cimitero.Remove(numero_random);
             }
             case 4 -> ruba_attacco = true;
             case 5 -> spirito_indomito = true;

@@ -115,7 +115,7 @@ public class MazzoCampo {
         
     }
     
-    public boolean add(Carta c1){
+    public boolean Add(Carta c1){
         if(this.Size()>=6){
             return false;
         }else{
@@ -134,4 +134,7 @@ public class MazzoCampo {
         return MazzoCampo.get(i);
     }
     
+    public void Remove(int i){
+        MazzoCampo.remove(i);
+    }
 }

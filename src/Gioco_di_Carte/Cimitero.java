@@ -105,4 +105,8 @@ public class Cimitero {
     public Carta Get(int i){
         return Cimitero.get(i);
     }
+    
+    public void Remove(int i){
+        Cimitero.remove(i);
+    }
 }

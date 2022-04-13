@@ -132,7 +132,7 @@ public class Mano {
 
 
     
-    public boolean add(Carta carte){
+    public boolean Add(Carta carte){
         if(gestione.size()<8){
             gestione.add(carte);
             return true;
@@ -142,7 +142,7 @@ public class Mano {
        
     }
     
-    public void remove(int i){
+    public void Remove(int i){
         gestione.remove(i);
                   
     }
