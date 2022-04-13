@@ -30,7 +30,7 @@ public class Mazzo {
     
     //ArryList per contenere i radiobutton dell'interfaccia grafica
     protected ArrayList<RadioButton> ArrayList_radiobutton_mazzo;
-    
+    public ArrayList<Carta> Mazzo;
     
     //costruttori
     public Mazzo(){
@@ -69,6 +69,9 @@ public class Mazzo {
         
         
         //FINE PARTE TEMPORANEA
+        
+        Mazzo = new ArrayList<Carta>(15);
+        
     }
     
     
@@ -118,4 +121,38 @@ public class Mazzo {
         
     }
     
+    //add aggiungi magia/personaggio 
+    public void add(Personaggio C){
+        
+        if(Mazzo.Size>15){
+            System.out.print("Error");
+        }else{
+            
+        Mazzo.add(C);
+    
+        }
+    }
+    public void add(Magia C){
+        
+        if(Mazzo.Size>15){
+            System.out.print("Error");
+        }else{
+            
+        Mazzo.add(C);
+    
+        }
+    }
+    
+    //grandezza mazzo
+    public int Size(){
+        return Mazzo.size;
+    }
+    //get
+    public Personaggio Get(int i){
+        return Mazzo.get(i);
+    }
+    
+     public Magia Get(int i){
+        return Mazzo.get(i);
+    }
 }
