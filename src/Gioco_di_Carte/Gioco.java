@@ -13,13 +13,21 @@ public class Gioco {
     protected Campo giocatore_1; //CAMPO SOPRA
     protected Campo giocatore_2; //CAMPO SOTTO
     
+    protected int nTurno; 
+    protected int P1attack;
+    protected int p2attack;
+    
+    
     //Grafica del gioco
     protected GraficaGioco grafica;
     
     
-
-    //Costruttori----
+    //Costruttore--------------------------------------------------------------------------------------
     public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
+        
+        this.nTurno = 0;
+        this.P1attack = 0;
+        this.p2attack = 0;
         
         giocatore_1 = new Campo(nomeG1, tipoG1);
         giocatore_2 = new Campo(nomeG2, tipoG2);
@@ -27,7 +35,41 @@ public class Gioco {
         grafica = new GraficaGioco(giocatore_1, giocatore_2);
         
     }
-    //--------------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------
+    
+    public void nextTurno(){
+        /*Turni dispari --> Giocatore 1
+          Turni pari -----> Giocatore 2
+        */
+        
+        int i;
+        int nCarte = 4; //Numero carte da estrarre al primo turno
+        
+        if(nTurno == 0){
+            for(i=0;i<nCarte;i++){
+                giocatore_1.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_1.getMan());
+                giocatore_2.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_2.getMan());
+            }
+        }
+        
+        if(nTurno % 2 == 1){ //Se turno giocatore 1
+            this.P1attack ++;
+            
+            if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
+                giocatore_1.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_1.getMan());
+            }
+            
+        //Turno Giocatore 2
+        }else{
+            this.p2attack ++;
+            
+            if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
+                giocatore_2.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_2.getMan());
+            }
+        }
+        
+        this.nTurno ++;
+    }
     
     //setter----------------------------------------
     public void setGiocatore_1(Campo giocatore_1) {
