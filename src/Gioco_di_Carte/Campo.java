@@ -30,6 +30,7 @@ public class Campo {
     protected Mazzo mazz;
     protected Player giocatore;
     
+    
     //Parte interfaccia grafica(impostazione grid mano e mazzocampo + riempimento deck e creazione cimitero)
     //Grid mazzomano
     protected GridPane gp_mazzomano;
@@ -40,7 +41,7 @@ public class Campo {
     protected Button mazzo;
     protected Button cimitero;
     
-    //Costruttore---------------------------------------------------------------
+    //Costruttore--------------------------------------------------------------------------------------------------------------------------
     public Campo(String nome, String tipo) {
         //Variabili
         Path relative = Paths.get("FileTXT/" + tipo + ".txt");
@@ -92,8 +93,8 @@ public class Campo {
         }catch (IOException e){
             System.err.println(e);
         }
-        
         //---------------------------------------------------------------------
+        
         
         
         //parte interfaccia grafica
@@ -143,7 +144,7 @@ public class Campo {
         cimitero.setDisable(true);
         
     }
-    //------------------------------------------------------------------------------------
+    //FINE COSTRUTTORE---------------------------------------------------------------------------------------------------------------
     
     //Setter------------------------------------
     public void setDck(Deck dck) {
@@ -164,6 +165,10 @@ public class Campo {
 
     public void setGiocatore(Player giocatore) {
         this.giocatore = giocatore;
+    }
+
+    public void setMazz(Mazzo mazz) {
+        this.mazz = mazz;
     }
     //--------------------------------------------
     
@@ -187,6 +192,10 @@ public class Campo {
     public Player getGiocatore() {
         return giocatore;
     }
+
+    public Mazzo getMazz() {
+        return mazz;
+    }
     
     public GridPane getGp_mazzomano() {
         return gp_mazzomano;
@@ -205,8 +214,4 @@ public class Campo {
     }
     //------------------------------
 
-    
-    
-    
-    
 }
