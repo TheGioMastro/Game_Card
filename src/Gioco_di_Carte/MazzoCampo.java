@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -62,18 +63,7 @@ public class MazzoCampo {
         
         int i;
         
-        //popola tutto l'arraylist con gli elementi
-        for(i=0; i<6; i++){
-            //aggiunta dello stile a tutti i radiobutton
-            ArrayList_radiobutton_mazzocampo.add(i, new RadioButton());
-            ArrayList_radiobutton_mazzocampo.get(i).setToggleGroup(group_radiobutton_mazzocampo);
-            ArrayList_radiobutton_mazzocampo.get(i).setPadding(new Insets(5));
-            ArrayList_radiobutton_mazzocampo.get(i).setGraphic(new ImageView(image1));
-            ArrayList_radiobutton_mazzocampo.get(i).getStyleClass().remove("radio-button");
-            ArrayList_radiobutton_mazzocampo.get(i).getStyleClass().add("toggle-button");
-            ArrayList_radiobutton_mazzocampo.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-            ArrayList_radiobutton_mazzocampo.get(i).setBorder(Border.EMPTY);
-        }
+        
         
         
         //FINE PARTE TEMPORANEA
@@ -94,24 +84,22 @@ public class MazzoCampo {
         
     }
     
-    //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
+    //Per spostare 
+    //fatto
     public void SWAP_REMOVE(int indice_arry, Cimitero campo){
-        
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_mazzocampo.get(indice_arry);
-        
-        ArrayList_radiobutton_mazzocampo.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
+        group_radiobutton_mazzocampo.getToggles().remove(ArrayList_radiobutton_mazzocampo.get(indice_arry));
+        campo.SWAP_ADD(MazzoCampo.get(indice_arry), ArrayList_radiobutton_mazzocampo.get(indice_arry));
+        ArrayList_radiobutton_mazzocampo.remove(indice_arry);
+        MazzoCampo.remove(indice_arry);
         
     }
     
-    public RadioButton SWAP_ADD(int indice_arry, RadioButton campo){
+    //fatto
+    public void SWAP_ADD(Carta carta, RadioButton campo){
         
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_mazzocampo.get(indice_arry);
-        
-        ArrayList_radiobutton_mazzocampo.set(indice_arry, campo);
-        
-        return appoggio;
+        MazzoCampo.add(carta);
+        campo.setToggleGroup(group_radiobutton_mazzocampo);
+        ArrayList_radiobutton_mazzocampo.add(campo);
         
     }
     
