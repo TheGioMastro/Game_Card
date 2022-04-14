@@ -27,6 +27,7 @@ public class Campo {
     protected Mano man;
     protected MazzoCampo mazCam;
     protected Cimitero cim;
+    protected Mazzo mazz;
     protected Player giocatore;
     
     //Parte interfaccia grafica(impostazione grid mano e mazzocampo + riempimento deck e creazione cimitero)
@@ -41,12 +42,8 @@ public class Campo {
     
     //Costruttore---------------------------------------------------------------
     public Campo(String nome, String tipo) {
-        
-                System.out.println("ciao");
         //Variabili
         Path relative = Paths.get("FileTXT/" + tipo + ".txt");
-        
-                System.out.println("ciao");
         Path absolute = relative.toAbsolutePath();
         String path = absolute.toString();
         int aP; //Valore Attacco
@@ -58,6 +55,7 @@ public class Campo {
         man = new Mano();
         mazCam = new MazzoCampo();
         cim = new Cimitero();
+        mazz = new Mazzo();
         giocatore = new Player(nome, tipo);
         
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
@@ -67,14 +65,12 @@ public class Campo {
             //Personaggi
             do{
                 nome = br.readLine();
-                System.out.println(nome);
                 
                 if(!nome.equalsIgnoreCase("-")){
                     aP = Integer.parseInt(br.readLine());
-                    System.out.println(aP);
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
-                    System.out.println(dP);
-                    /*chiamata metodo celo*/
+                    
+                    mazz.addPersonaggio(nome, aP, dP);
                 }
             }while(!nome.equalsIgnoreCase("-"));
             
@@ -86,7 +82,8 @@ public class Campo {
                 if(!nome.equalsIgnoreCase("--")){
                     nIndice = Integer.parseInt(br.readLine());
                     System.out.println(nIndice);
-                    /*chiamata metodo celo*/
+                    
+                    mazz.addMagia(nome, nIndice);
                 }
             }while(!nome.equalsIgnoreCase("--"));
 
