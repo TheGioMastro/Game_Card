@@ -69,31 +69,28 @@ public class Campo {
                 nome = br.readLine();
                 System.out.println(nome);
                 
-                if(!nome.equalsIgnoreCase("ciao")){
+                if(!nome.equalsIgnoreCase("-")){
                     aP = Integer.parseInt(br.readLine());
                     System.out.println(aP);
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
                     System.out.println(dP);
                     /*chiamata metodo celo*/
                 }
-            }while(!nome.equalsIgnoreCase("ciao"));
+            }while(!nome.equalsIgnoreCase("-"));
             
-            System.out.println("CIAO");
             //Magia
             do{
                 nome = br.readLine();
                 System.out.println(nome);
                 
-                if(!nome.equalsIgnoreCase("ciaociao")){
+                if(!nome.equalsIgnoreCase("--")){
                     nIndice = Integer.parseInt(br.readLine());
                     System.out.println(nIndice);
                     /*chiamata metodo celo*/
                 }
-            }while(!nome.equalsIgnoreCase("ciaociao"));
+            }while(!nome.equalsIgnoreCase("--"));
 
-            if(!nome.equalsIgnoreCase("ciaociao")){
-                br.close();
-            }
+            br.close();
             
         }catch (IOException e){
             System.err.println(e);
