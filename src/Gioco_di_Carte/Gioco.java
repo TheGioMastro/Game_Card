@@ -55,7 +55,7 @@ public class Gioco {
         if(nTurno % 2 == 1){ //Se turno giocatore 1
             this.P1attack ++;
             
-            if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
+            if(giocatore_1.getMan().sizeGestione() < 8 && giocatore_1.getMazz().Size() > 0){ //controlla spazio nella mano  e ci sono ancora carte pesca
                 giocatore_1.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_1.getMan());
             }
             
@@ -63,7 +63,7 @@ public class Gioco {
         }else{
             this.p2attack ++;
             
-            if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
+            if(giocatore_2.getMan().sizeGestione() < 8 && giocatore_2.getMazz().Size() > 0){
                 giocatore_2.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_2.getMan());
             }
         }
