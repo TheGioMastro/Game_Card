@@ -30,7 +30,7 @@ public class Mazzo {
     
     //ArryList per contenere i radiobutton dell'interfaccia grafica
     protected ArrayList<RadioButton> ArrayList_radiobutton_mazzo;
-    public ArrayList<Carta> Mazzo;
+    protected ArrayList<Carta> Mazzo;
     
     //costruttori
     public Mazzo(){
@@ -118,7 +118,7 @@ public class Mazzo {
             return true;
         }
     }
-    
+
     //grandezza mazzo
     public int Size(){
         return Mazzo.size();
@@ -127,5 +127,9 @@ public class Mazzo {
     //get
     public Carta Get(int i){
         return Mazzo.get(i);
+    }
+    
+    public boolean Remove(Carta c1){
+        return Mazzo.remove(c1);
     }
 }
