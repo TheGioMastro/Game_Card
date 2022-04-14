@@ -15,13 +15,13 @@ public class Personaggio extends Carta{
     protected int pAttack;
     protected int pDefense;
 
-    public Personaggio(String tipo_personaggio, boolean isAlive, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, String immagine) {
+    public Personaggio(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
-        this.immagine = immagine;
+        this.immagine = nome + "xxx";
         this.tipo_personaggio = tipo_personaggio;
-        this.isAlive = isAlive;
+        this.isAlive = true;
         this.pAttack = pAttack;
         this.pDefense = pDefense;
     }
