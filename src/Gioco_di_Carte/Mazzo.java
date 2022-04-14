@@ -109,11 +109,25 @@ public class Mazzo {
         ArrayList_radiobutton_mazzo.set(indice_arry, cimitero.SWAP_ADD(indice_arry, appoggio));
     }
     
-    public void add(Carta C1){
+    public boolean addMagia(String nome, int i){
+        String descr = "";
         if(this.Size()>=15){
-            System.out.print("Error");
+            return false;
+            
         }else{
-            Mazzo.add(C1);
+            Mazzo.add(new Magia(i, nome, descr, "Magia"));
+            return true;
+        }
+    }
+    
+    public boolean addPersonaggio(String nome, int attacco, int difesa){
+        String descr = "";
+        if(this.Size()>=15){
+            return false;
+            
+        }else{
+            Mazzo.add(new Personaggio((attacco>difesa)?"Attacco":"Difesa", attacco, difesa, nome, descr, "Personaggio"));
+            return true;
         }
     }
     

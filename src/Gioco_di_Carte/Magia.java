@@ -20,11 +20,11 @@ public class Magia extends Carta{
     protected boolean luna_piena = false;
     Random rand = new Random();
     
-    public Magia(int indice_magia, String nome, String descrizione, String tipo_carta, String immagine) {
+    public Magia(int indice_magia, String nome, String descrizione, String tipo_carta) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
-        this.immagine = immagine;
+        this.immagine = nome + "xxx";
         this.indice_magia = indice_magia;
     }
     
