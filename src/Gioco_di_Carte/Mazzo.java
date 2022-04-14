@@ -141,7 +141,6 @@ public class Mazzo {
         return Mazzo.get(i);
     }
     
-    
     public boolean Remove(Carta c1){
         return Mazzo.remove(c1);
     }
