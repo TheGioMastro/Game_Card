@@ -42,7 +42,7 @@ public class Mano {
         
         //PARTE INTERFACCIA GRAFICA
         group_radiobutton_mano = new ToggleGroup();
-        ArrayList_radiobutton_mano = new ArrayList<RadioButton>(8);
+        ArrayList_radiobutton_mano = new ArrayList<RadioButton>();
         
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
@@ -63,18 +63,6 @@ public class Mano {
         
         int i;
         
-        //popola tutto l'arraylist con gli elementi
-        for(i=0; i<8; i++){
-            //aggiunta dello stile a tutti i radiobutton
-            ArrayList_radiobutton_mano.add(i, new RadioButton());
-            ArrayList_radiobutton_mano.get(i).setToggleGroup(group_radiobutton_mano);
-            ArrayList_radiobutton_mano.get(i).setPadding(new Insets(5));
-            ArrayList_radiobutton_mano.get(i).setGraphic(new ImageView(image1));
-            ArrayList_radiobutton_mano.get(i).getStyleClass().remove("radio-button");
-            ArrayList_radiobutton_mano.get(i).getStyleClass().add("toggle-button");
-            ArrayList_radiobutton_mano.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-            ArrayList_radiobutton_mano.get(i).setBorder(Border.EMPTY);
-        }
         
         
         //FINE PARTE TEMPORANEA

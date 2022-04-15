@@ -43,7 +43,7 @@ public class MazzoCampo {
     public MazzoCampo(){
         //interfaccia grafica
         group_radiobutton_mazzocampo = new ToggleGroup();
-        ArrayList_radiobutton_mazzocampo = new ArrayList<RadioButton>(6);
+        ArrayList_radiobutton_mazzocampo = new ArrayList<RadioButton>();
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
         //IMAGE-----------------------------------------------------------------

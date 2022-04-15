@@ -112,6 +112,8 @@ public class Main3 extends Application{
                         primaryStage.setMaximized(true);
                         
                         vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+                        
+                        game.nextTurno();
                     }else{
 
                     }

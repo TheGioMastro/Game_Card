@@ -45,27 +45,44 @@ public class Gioco {
         int i;
         int nCarte = 4; //Numero carte da estrarre al primo turno
         
-        if(nTurno == 0){
+        if(nTurno == 0){//Turno Giocatore 2
             for(i=0;i<nCarte;i++){
-                giocatore_1.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_1.getMan());
-                giocatore_2.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_2.getMan());
+                giocatore_1.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_1.getMan());
+                giocatore_2.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_2.getMan());
             }
-        }
-        
-        if(nTurno % 2 == 1){ //Se turno giocatore 1
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_1, giocatore_2);
+            grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
+            
+        }else if(nTurno == 1){//Turno Giocatore 1
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_1, giocatore_2);
+            grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
+            
+        }else if(nTurno % 2 == 1){//Turno Giocatore 1
             this.P1attack ++;
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
-                giocatore_1.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_1.getMan());
+                giocatore_1.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_1.getMan());
             }
             
-        //Turno Giocatore 2
-        }else{
+            //reload grafica
+            grafica.reload_GUI(giocatore_1);
+            grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
+            
+        }else{//Turno Giocatore 2
             this.p2attack ++;
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
-                giocatore_2.getMazz().SWAP_REMOVE(i = (int)Math.random() % 15, giocatore_2.getMan());
+                giocatore_2.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_2.getMan());
             }
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_2);
+            grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
+            
         }
         
         this.nTurno ++;
