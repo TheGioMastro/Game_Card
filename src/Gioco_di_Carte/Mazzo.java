@@ -88,26 +88,14 @@ public class Mazzo {
     
     
     //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
+    //fatto
     public void SWAP_REMOVE(int indice_arry, Mano mano){
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
         
-        ArrayList_radiobutton_mazzo.set(indice_arry, mano.SWAP_ADD(indice_arry, appoggio));
+        mano.SWAP_ADD(Mazzo.get(indice_arry), ArrayList_radiobutton_mazzo.get(indice_arry));
+        ArrayList_radiobutton_mazzo.remove(indice_arry);
+        Mazzo.remove(indice_arry);
     }
-    
-    public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
-        
-        ArrayList_radiobutton_mazzo.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
-    }
-    
-    public void SWAP_REMOVE(int indice_arry, Cimitero cimitero){
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_mazzo.get(indice_arry);
-        
-        ArrayList_radiobutton_mazzo.set(indice_arry, cimitero.SWAP_ADD(indice_arry, appoggio));
-    }
+   
     
     public boolean addMagia(String nome, int i){
         String descr = "";

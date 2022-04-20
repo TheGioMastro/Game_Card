@@ -4,7 +4,6 @@
  */
 package Gioco_di_Carte;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**

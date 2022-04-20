@@ -34,32 +34,30 @@ public class Cimitero {
     
     //Per scambiare due radiobutton si effettua la chiamata a SWAP_REMOVE dalla classe da cui togliere l'immagine e si passa l'oggetto ac ui dare la card
     
+    //fatto
     public void SWAP_REMOVE(int indice_arry, Mano mano){
         
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_cimitero.get(indice_arry);
-        
-        ArrayList_radiobutton_cimitero.set(indice_arry, mano.SWAP_ADD(indice_arry, appoggio));
+        mano.SWAP_ADD(Cimitero.get(indice_arry), ArrayList_radiobutton_cimitero.get(indice_arry));
+        ArrayList_radiobutton_cimitero.remove(indice_arry);
+        Cimitero.remove(indice_arry);
         
     }
     
+    //fatto
     public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
         
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_cimitero.get(indice_arry);
+        campo.SWAP_ADD(Cimitero.get(indice_arry), ArrayList_radiobutton_cimitero.get(indice_arry));
         
-        ArrayList_radiobutton_cimitero.set(indice_arry, campo.SWAP_ADD(indice_arry, appoggio));
+        ArrayList_radiobutton_cimitero.remove(indice_arry);
+        Cimitero.remove(indice_arry);
         
     }
     
-    public RadioButton SWAP_ADD(int indice_arry, RadioButton campo){
+    //fatto
+    public void SWAP_ADD(Carta carta, RadioButton campo){
         
-        RadioButton appoggio = new RadioButton();
-        appoggio = ArrayList_radiobutton_cimitero.get(indice_arry);
-        
-        ArrayList_radiobutton_cimitero.set(indice_arry, campo);
-        
-        return appoggio;
+        Cimitero.add(carta);
+        ArrayList_radiobutton_cimitero.add(campo);
         
     }
     
@@ -109,4 +107,14 @@ public class Cimitero {
     public void Remove(int i){
         Cimitero.remove(i);
     }
+
+    public ArrayList<RadioButton> getArrayList_radiobutton_cimitero() {
+        return ArrayList_radiobutton_cimitero;
+    }
+
+    public ArrayList<Carta> getCimitero() {
+        return Cimitero;
+    }
+    
+    
 }

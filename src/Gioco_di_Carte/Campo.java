@@ -101,14 +101,6 @@ public class Campo {
         gp_mazzomano = new GridPane();
         gp_mazzocampo = new GridPane();
         
-        for(int i=0; i<8; i++){
-            gp_mazzomano.add(man.get_ArrayList_radiobutton_mano(i), i, 0);
-            
-        }
-        for(int i=0; i<6; i++){
-            gp_mazzocampo.add(mazCam.get_ArrayList_radiobutton_mazzocampo(i), i, 0);
-            
-        }
         
         gp_mazzomano.setHgap(10);
         gp_mazzomano.setVgap(10);

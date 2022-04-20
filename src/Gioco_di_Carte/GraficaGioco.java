@@ -252,4 +252,83 @@ public class GraficaGioco {
         return vbox_mezzo;
     }
     
+    //altri metodi
+    
+    //PER RICARICARE LA GRAFICA
+    public void reload_CAMPO(Campo g){
+        int i;
+        
+        g.getGp_mazzocampo().getChildren().removeAll();
+        
+        for(i=0; i<g.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+            g.getGp_mazzocampo().add(g.getMazCam().get_ArrayList_radiobutton_mazzocampo(i), i, 0);;
+            
+        }
+    }
+    
+    
+    public void reload_MANO(Campo g){
+        int i;
+        
+        g.getGp_mazzomano().getChildren().clear();
+        
+        for(i=0; i<g.getMan().sizeArrayList_radiobutton_mano(); i++){
+            g.getGp_mazzomano().add(g.getMan().get_ArrayList_radiobutton_mano(i), i, 0);;
+            
+        }
+        
+    }
+    
+    public void reload_GUI(Campo g1, Campo g2){
+        reload_CAMPO(g1);
+        reload_MANO(g1);
+        
+        reload_CAMPO(g2);
+        reload_MANO(g2);
+        
+    }
+    
+    public void reload_GUI(Campo g){
+        reload_CAMPO(g);
+        reload_MANO(g);
+        
+    }
+    
+    //PER NON RENDERE CLOCKABILI LE CARTE NEL TURNO AVVERSARIO
+    public void hide_CAMPO(Campo g, boolean v){
+        int i;
+
+        for(i=0; i<g.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+            g.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).setDisable(v);
+        }
+        
+    }
+    
+    
+    public void hide_MANO(Campo g, boolean v){
+        int i;
+        
+        for(i=0; i<g.getMan().sizeArrayList_radiobutton_mano(); i++){
+            g.getMan().get_ArrayList_radiobutton_mano(i).setDisable(v);
+        }
+        
+    }
+    
+    public void hide_GUI(Campo g1, boolean v1, Campo g2, boolean v2){
+        hide_CAMPO(g1, v1);
+        hide_MANO(g1, v1);
+        
+        hide_CAMPO(g2, v2);
+        hide_MANO(g2, v2);
+        
+    }
+    
+    public void hide_GUI(Campo g, boolean v){
+        hide_CAMPO(g, v);
+        hide_MANO(g, v);
+        
+    }
+    
+    
+    
 }

@@ -39,10 +39,10 @@ public class Main3 extends Application{
         
         
         //non so perchè ma serve per il multithreading altrimenti l'assegnazione con =
-        final AtomicReference<String> nome_giocatore_1 = new AtomicReference<String>();
-        final AtomicReference<String> nome_giocatore_2 = new AtomicReference<String>();
-        final AtomicReference<String> tipo_deck_giocatore_1 = new AtomicReference<String>();
-        final AtomicReference<String> tipo_deck_giocatore_2 = new AtomicReference<String>();
+        final AtomicReference<String> nome_giocatore_1 = new AtomicReference<>();
+        final AtomicReference<String> nome_giocatore_2 = new AtomicReference<>();
+        final AtomicReference<String> tipo_deck_giocatore_1 = new AtomicReference<>();
+        final AtomicReference<String> tipo_deck_giocatore_2 = new AtomicReference<>();
         
         
         //Finestra iniziale per richiedere il tipo di deck e i nomi dei giocatori
@@ -112,6 +112,8 @@ public class Main3 extends Application{
                         primaryStage.setMaximized(true);
                         
                         vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+                        
+                        game.nextTurno();
                     }else{
 
                     }
