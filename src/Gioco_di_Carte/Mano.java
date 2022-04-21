@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 /**
  *
- * @author Alessandro Genrali & interfaccia grafica Giorgio Mastrogiovanni
+ * @author Alessandro Generali & interfaccia grafica Giorgio Mastrogiovanni
  */
 public class Mano {
     protected ArrayList<Carta> gestione;
@@ -111,6 +111,10 @@ public class Mano {
         else
             return false;
        
+    }
+    
+    public Carta getCarta(int i){
+        return gestione.get(i);
     }
     
     public void Remove(int i){
