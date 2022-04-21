@@ -89,7 +89,7 @@ public class Mazzo {
             MenuItem menuItem1 = new MenuItem("Metti in campo");
 
             menuItem1.setOnAction((event) -> {
-                
+                gioco.moveToMano(i);
             });
 
             contextMenu.getItems().addAll(menuItem1);
