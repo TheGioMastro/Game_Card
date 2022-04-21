@@ -11,16 +11,35 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -33,7 +52,7 @@ public class Mazzo {
     protected ArrayList<Carta> Mazzo;
     
     //costruttori
-    public Mazzo(){
+    public Mazzo(Gioco gioco){
         ArrayList_radiobutton_mazzo = new ArrayList<Button>(15);
         
         
@@ -65,6 +84,21 @@ public class Mazzo {
             ArrayList_radiobutton_mazzo.get(i).getStyleClass().add("toggle-button");
             ArrayList_radiobutton_mazzo.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
             ArrayList_radiobutton_mazzo.get(i).setBorder(Border.EMPTY);
+            
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem menuItem1 = new MenuItem("Metti in campo");
+
+            menuItem1.setOnAction((event) -> {
+                
+            });
+
+            contextMenu.getItems().addAll(menuItem1);
+
+            TextArea textArea = new TextArea();
+
+            textArea.setContextMenu(contextMenu);
+            
+        
         }
         
         

@@ -29,8 +29,8 @@ public class Gioco {
         this.P1attack = 0;
         this.p2attack = 0;
         
-        giocatore_1 = new Campo(nomeG1, tipoG1);
-        giocatore_2 = new Campo(nomeG2, tipoG2);
+        giocatore_1 = new Campo(nomeG1, tipoG1, this);
+        giocatore_2 = new Campo(nomeG2, tipoG2, this);
         
         grafica = new GraficaGioco(giocatore_1, giocatore_2);
         

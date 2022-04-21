@@ -42,7 +42,7 @@ public class Campo {
     protected Button cimitero;
     
     //Costruttore--------------------------------------------------------------------------------------------------------------------------
-    public Campo(String nome, String tipo) {
+    public Campo(String nome, String tipo, Gioco gioco) {
         //Variabili
         Path relative = Paths.get("FileTXT/" + tipo + ".txt");
         Path absolute = relative.toAbsolutePath();
@@ -56,7 +56,7 @@ public class Campo {
         man = new Mano();
         mazCam = new MazzoCampo();
         cim = new Cimitero();
-        mazz = new Mazzo();
+        mazz = new Mazzo(gioco);
         giocatore = new Player(nome, tipo);
         
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
