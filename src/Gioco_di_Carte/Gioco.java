@@ -37,6 +37,14 @@ public class Gioco {
     }
     //--------------------------------------------------------------------------------------------------
     
+    public void moveToMano (int i){
+        if(nTurno % 2 == 1){ //Giocatore 1
+            giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
+        }else{
+            giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getMazCam());
+        }
+    }
+    
     public void nextTurno(){
         /*Turni dispari --> Giocatore 1
           Turni pari -----> Giocatore 2
