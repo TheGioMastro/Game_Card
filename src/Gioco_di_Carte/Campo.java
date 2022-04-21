@@ -78,11 +78,9 @@ public class Campo {
             //Magia
             do{
                 nome = br.readLine();
-                System.out.println(nome);
                 
                 if(!nome.equalsIgnoreCase("--")){
                     nIndice = Integer.parseInt(br.readLine());
-                    System.out.println(nIndice);
                     
                     mazz.addMagia(nome, nIndice);
                 }
