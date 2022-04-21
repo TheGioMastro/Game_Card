@@ -50,10 +50,12 @@ public class Mazzo {
     //ArryList per contenere i radiobutton dell'interfaccia grafica
     protected ArrayList<Button> ArrayList_radiobutton_mazzo;
     protected ArrayList<Carta> Mazzo;
+    protected ContextMenu contextMenu;
     
     //costruttori
     public Mazzo(Gioco gioco){
         ArrayList_radiobutton_mazzo = new ArrayList<Button>(15);
+        contextMenu = new ContextMenu();
         
         
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
@@ -72,6 +74,22 @@ public class Mazzo {
         
         Image image1 = new Image(yugiohretro, 100, 146, false, false);
         
+        
+        MenuItem menuItem1 = new MenuItem("Metti in campo");
+        MenuItem menuItem2 = new MenuItem("Attacca");
+
+        menuItem1.setOnAction((event) -> {
+
+            System.out.println(ArrayList_radiobutton_mazzo.indexOf(contextMenu.getOwnerNode()));
+            gioco.moveToMano(ArrayList_radiobutton_mazzo.indexOf(contextMenu.getOwnerNode()));
+        });
+
+        menuItem2.setOnAction((event) -> {
+            //gioco.attack(i);
+        });
+
+        contextMenu.getItems().addAll(menuItem1, menuItem2);
+        
         int i;
         
         //popola tutto l'arraylist con gli elementi
@@ -85,18 +103,10 @@ public class Mazzo {
             ArrayList_radiobutton_mazzo.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
             ArrayList_radiobutton_mazzo.get(i).setBorder(Border.EMPTY);
             
-            ContextMenu contextMenu = new ContextMenu();
-            MenuItem menuItem1 = new MenuItem("Metti in campo");
+            
+            
 
-            menuItem1.setOnAction((event) -> {
-                gioco.moveToMano(i);
-            });
-
-            contextMenu.getItems().addAll(menuItem1);
-
-            TextArea textArea = new TextArea();
-
-            textArea.setContextMenu(contextMenu);
+            ArrayList_radiobutton_mazzo.get(i).setContextMenu(contextMenu);
             
         
         }
