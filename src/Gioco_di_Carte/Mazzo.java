@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.geometry.Insets;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Border;
@@ -29,12 +29,12 @@ import javafx.scene.paint.Color;
 public class Mazzo {
     
     //ArryList per contenere i radiobutton dell'interfaccia grafica
-    protected ArrayList<RadioButton> ArrayList_radiobutton_mazzo;
+    protected ArrayList<Button> ArrayList_radiobutton_mazzo;
     protected ArrayList<Carta> Mazzo;
     
     //costruttori
     public Mazzo(){
-        ArrayList_radiobutton_mazzo = new ArrayList<RadioButton>(15);
+        ArrayList_radiobutton_mazzo = new ArrayList<Button>(15);
         
         
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
@@ -58,7 +58,7 @@ public class Mazzo {
         //popola tutto l'arraylist con gli elementi
         for(i=0; i<15; i++){
             //aggiunta dello stile a tutti i radiobutton
-            ArrayList_radiobutton_mazzo.add(i, new RadioButton());
+            ArrayList_radiobutton_mazzo.add(i, new Button());
             ArrayList_radiobutton_mazzo.get(i).setPadding(new Insets(5));
             ArrayList_radiobutton_mazzo.get(i).setGraphic(new ImageView(image1));
             ArrayList_radiobutton_mazzo.get(i).getStyleClass().remove("radio-button");
@@ -75,7 +75,7 @@ public class Mazzo {
     
     
     //metodi
-    public boolean remove(RadioButton radiobutton){
+    public boolean remove(Button radiobutton){
         //elimino l'elemento dall'arraylist dei radio button
         if(ArrayList_radiobutton_mazzo.indexOf(radiobutton) != -1){
             ArrayList_radiobutton_mazzo.remove(ArrayList_radiobutton_mazzo.indexOf(radiobutton));

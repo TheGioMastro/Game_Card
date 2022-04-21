@@ -5,7 +5,7 @@
 package Gioco_di_Carte;
 
 import java.util.ArrayList;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -14,14 +14,14 @@ import javafx.scene.control.RadioButton;
 public class Cimitero {
     
     //crea l'arraylist in cui inserirre i radiobutton(interfaccia grafica)
-    protected ArrayList<RadioButton> ArrayList_radiobutton_cimitero;
+    protected ArrayList<Button> ArrayList_radiobutton_cimitero;
     public ArrayList<Carta> Cimitero;
     
     
     //costruttori
     public Cimitero(){
         //parte interfaccia grafica
-        ArrayList_radiobutton_cimitero = new ArrayList<RadioButton>(15);
+        ArrayList_radiobutton_cimitero = new ArrayList<Button>(15);
         Cimitero = new ArrayList<Carta>(15);
     }
     
@@ -54,14 +54,14 @@ public class Cimitero {
     }
     
     //fatto
-    public void SWAP_ADD(Carta carta, RadioButton campo){
+    public void SWAP_ADD(Carta carta, Button campo){
         
         Cimitero.add(carta);
         ArrayList_radiobutton_cimitero.add(campo);
         
     }
     
-    public boolean Add(RadioButton radiobutton){
+    public boolean Add(Button radiobutton){
         
         //aggiungo il radio button all'arraylist
         if(this.SizeArrayList_radiobutton_cimitero()<15){
@@ -75,7 +75,7 @@ public class Cimitero {
         
     }
     
-    public boolean Remove(RadioButton radiobutton){
+    public boolean Remove(Button radiobutton){
         //elimino l'elemento dall'arraylist dei radio button
         if(ArrayList_radiobutton_cimitero.indexOf(radiobutton) != -1){
             ArrayList_radiobutton_cimitero.remove(ArrayList_radiobutton_cimitero.indexOf(radiobutton));
@@ -108,7 +108,7 @@ public class Cimitero {
         Cimitero.remove(i);
     }
 
-    public ArrayList<RadioButton> getArrayList_radiobutton_cimitero() {
+    public ArrayList<Button> getArrayList_radiobutton_cimitero() {
         return ArrayList_radiobutton_cimitero;
     }
 

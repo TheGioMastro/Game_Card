@@ -11,8 +11,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
 /**
@@ -21,11 +20,9 @@ import javafx.scene.image.Image;
  */
 public class MazzoCampo {
     
-    //crea il gruppo in cui contenere i radiobutton(interfaccia grafica)
-    protected ToggleGroup group_radiobutton_mazzocampo;
     
     //crea l'arraylist in cui inserirre i radiobutton
-    protected ArrayList<RadioButton> ArrayList_radiobutton_mazzocampo;
+    protected ArrayList<Button> ArrayList_radiobutton_mazzocampo;
     
     //array list mazzocampo
     protected ArrayList<Carta> MazzoCampo;
@@ -33,8 +30,7 @@ public class MazzoCampo {
     //costruttori
     public MazzoCampo(){
         //interfaccia grafica
-        group_radiobutton_mazzocampo = new ToggleGroup();
-        ArrayList_radiobutton_mazzocampo = new ArrayList<RadioButton>();
+        ArrayList_radiobutton_mazzocampo = new ArrayList<Button>();
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
         //IMAGE-----------------------------------------------------------------
@@ -70,7 +66,7 @@ public class MazzoCampo {
         
     }
     //      get()
-    public RadioButton get_ArrayList_radiobutton_mazzocampo(int i){
+    public Button get_ArrayList_radiobutton_mazzocampo(int i){
         return ArrayList_radiobutton_mazzocampo.get(i);
         
     }
@@ -78,7 +74,6 @@ public class MazzoCampo {
     //Per spostare 
     //fatto
     public void SWAP_REMOVE(int indice_arry, Cimitero campo){
-        group_radiobutton_mazzocampo.getToggles().remove(ArrayList_radiobutton_mazzocampo.get(indice_arry));
         campo.SWAP_ADD(MazzoCampo.get(indice_arry), ArrayList_radiobutton_mazzocampo.get(indice_arry));
         ArrayList_radiobutton_mazzocampo.remove(indice_arry);
         MazzoCampo.remove(indice_arry);
@@ -86,10 +81,9 @@ public class MazzoCampo {
     }
     
     //fatto
-    public void SWAP_ADD(Carta carta, RadioButton campo){
+    public void SWAP_ADD(Carta carta, Button campo){
         
         MazzoCampo.add(carta);
-        campo.setToggleGroup(group_radiobutton_mazzocampo);
         ArrayList_radiobutton_mazzocampo.add(campo);
         
     }

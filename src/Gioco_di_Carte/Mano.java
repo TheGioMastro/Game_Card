@@ -10,8 +10,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 /**
  *
@@ -21,10 +20,8 @@ public class Mano {
     protected ArrayList<Carta> gestione;
     
     //Parte imterfaccia grafica
-    //crea il gruppo in cui contenere i radiobutton(interfaccia grafica)
-    protected ToggleGroup group_radiobutton_mano;
     //crea l'arraylist in cui inserirre i radiobutton
-    protected ArrayList<RadioButton> ArrayList_radiobutton_mano;
+    protected ArrayList<Button> ArrayList_radiobutton_mano;
     
     
     
@@ -33,8 +30,7 @@ public class Mano {
         gestione=new <Carta>ArrayList();      
         
         //PARTE INTERFACCIA GRAFICA
-        group_radiobutton_mano = new ToggleGroup();
-        ArrayList_radiobutton_mano = new ArrayList<RadioButton>();
+        ArrayList_radiobutton_mano = new ArrayList<Button>();
         
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
@@ -74,7 +70,7 @@ public class Mano {
         
     }
     
-    public RadioButton get_ArrayList_radiobutton_mano(int i){
+    public Button get_ArrayList_radiobutton_mano(int i){
         return ArrayList_radiobutton_mano.get(i);
         
     }
@@ -83,7 +79,6 @@ public class Mano {
     
     //fatto
     public void SWAP_REMOVE(int indice_arry, MazzoCampo campo){
-        group_radiobutton_mano.getToggles().remove(ArrayList_radiobutton_mano.get(indice_arry));
         campo.SWAP_ADD(gestione.get(indice_arry), ArrayList_radiobutton_mano.get(indice_arry));
         ArrayList_radiobutton_mano.remove(indice_arry);
         gestione.remove(indice_arry);
@@ -91,7 +86,6 @@ public class Mano {
     }
     //fatto
     public void SWAP_REMOVE(int indice_arry, Cimitero campo){
-        group_radiobutton_mano.getToggles().remove(ArrayList_radiobutton_mano.get(indice_arry));
         campo.SWAP_ADD(gestione.get(indice_arry), ArrayList_radiobutton_mano.get(indice_arry));
         ArrayList_radiobutton_mano.remove(indice_arry);
         gestione.remove(indice_arry);
@@ -99,10 +93,9 @@ public class Mano {
     }
     
     //fatto
-    public void SWAP_ADD(Carta carta, RadioButton campo){
+    public void SWAP_ADD(Carta carta, Button campo){
         
         gestione.add(carta);
-        campo.setToggleGroup(group_radiobutton_mano);
         ArrayList_radiobutton_mano.add(campo);
         
         
