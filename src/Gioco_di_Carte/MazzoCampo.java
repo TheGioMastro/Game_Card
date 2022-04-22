@@ -29,7 +29,7 @@ public class MazzoCampo {
     //costruttori
     public MazzoCampo(){
         //interfaccia grafica
-        ArrayList_radiobutton_mazzocampo = new ArrayList<MyButton>();
+        ArrayList_radiobutton_mazzocampo = new ArrayList<MyButton>();//max 6
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
         //IMAGE-----------------------------------------------------------------

@@ -80,7 +80,6 @@ public class Main3 extends Application{
         bottone.setTextFill(Color.web("#F8C66D"));
         bottone.setOnAction(new EventHandler<ActionEvent>() {
             
-            
             @Override
             public void handle(ActionEvent event) {
                     if(giocatore1.getText().length() > 0 && giocatore2.getText().length() > 0 && !String.valueOf(comboBox1.getSelectionModel().getSelectedItem()).equals("null") && !String.valueOf(comboBox2.getSelectionModel().getSelectedItem()).equals("null")){

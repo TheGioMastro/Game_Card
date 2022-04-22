@@ -4,8 +4,12 @@
  */
 package Gioco_di_Carte;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -72,11 +76,15 @@ public class GraficaGioco {
     protected VBox vbox_bot;
     
     //Other
+    protected VBox vbox_mezzo_sinistra;
+    protected VBox vbox_mezzo_centro;
+    protected VBox vbox_mezzo_destra;
     protected VBox vbox_mezzo;
+    protected Button cambio_turno;
     
     
     //COSTRUTTORE
-    public GraficaGioco(Campo giocatore_1, Campo giocatore_2){
+    public GraficaGioco(Campo giocatore_1, Campo giocatore_2, Gioco gioco){
         //parte interfaccia garfica
         //---------------------------------PARTE-SOPRA--------------------------
         //riga 2
@@ -181,9 +189,34 @@ public class GraficaGioco {
         Label scritta_campo = new Label("----Campo----");
         scritta_campo.setFont(new Font("OCR A Extended", 30));
         scritta_campo.setTextFill(Color.web("#F8C66D"));
-        vbox_mezzo = new VBox(scritta_campo);
-        vbox_mezzo.setAlignment(Pos.CENTER);
         
+        //bottone cambio turno
+        cambio_turno = new Button();
+        cambio_turno.setText("TERMINA IL TURNO");
+        cambio_turno.setFont(new Font("Minecraftita", 20));
+        cambio_turno.setTextFill(Color.web("#E8D954"));
+        cambio_turno.setStyle("-fx-background-color: #FF3633; ");
+        
+        cambio_turno.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                gioco.nextTurno();
+            }
+        });
+        
+        vbox_mezzo_sinistra = new VBox();
+        vbox_mezzo_centro = new VBox(scritta_campo);
+        vbox_mezzo_destra = new VBox(cambio_turno);
+        
+        vbox_mezzo_sinistra.setAlignment(Pos.CENTER_LEFT);
+        vbox_mezzo_centro.setAlignment(Pos.CENTER);
+        vbox_mezzo_destra.setAlignment(Pos.CENTER_RIGHT);
+        
+        vbox_mezzo = new VBox(vbox_mezzo_sinistra, vbox_mezzo_centro, vbox_mezzo_destra);
+        
+        
+        vbox_mezzo.setAlignment(Pos.CENTER);
         vbox_mezzo.setSpacing(10);
         VBox.setVgrow(vbox_mezzo, Priority.ALWAYS);
         
