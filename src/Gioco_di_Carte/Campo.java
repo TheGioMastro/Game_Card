@@ -55,12 +55,8 @@ public class Campo {
         man = new Mano();
         mazCam = new MazzoCampo();
         cim = new Cimitero();
-<<<<<<< Updated upstream
-        mazz = new Mazzo(gioco);
         dck = new Deck(mazz);
-=======
         mazz = new Mazzo(gioco, man);
->>>>>>> Stashed changes
         giocatore = new Player(nome, tipo);
         
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
