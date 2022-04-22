@@ -4,7 +4,9 @@
  */
 package Gioco_di_Carte;
 
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -256,12 +258,20 @@ public class GraficaGioco {
     
     //PER RICARICARE LA GRAFICA
     public void reload_CAMPO(Campo g){
-        int i;
+        int i, j;
+        int column = g.getGp_mazzocampo().getColumnCount(), row = g.getGp_mazzocampo().getRowCount();
         
-        g.getGp_mazzocampo().getChildren().removeAll();
+        for(i=0; i< row; i++) {
+            for(j=0; j<column; j++){
+                System.out.println("stoca");
+                g.getGp_mazzocampo().getChildren().remove(g.getGp_mazzocampo().getChildren(i,j));
+            }
+            
+        }
         
         for(i=0; i<g.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
-            g.getGp_mazzocampo().add(g.getMazCam().get_ArrayList_radiobutton_mazzocampo(i), i, 0);;
+            g.getGp_mazzocampo().add(g.getMazCam().get_ArrayList_radiobutton_mazzocampo(i), i, 0);
+            System.out.println("cazzi miei pt.2 " + i);
             
         }
     }
@@ -273,7 +283,7 @@ public class GraficaGioco {
         g.getGp_mazzomano().getChildren().clear();
         
         for(i=0; i<g.getMan().sizeArrayList_radiobutton_mano(); i++){
-            g.getGp_mazzomano().add(g.getMan().get_ArrayList_radiobutton_mano(i), i, 0);;
+            g.getGp_mazzomano().add(g.getMan().get_ArrayList_radiobutton_mano(i), i, 0);
             
         }
         

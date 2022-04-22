@@ -24,7 +24,7 @@ public class MyContextMenu extends ContextMenu{
     
     
     //Costruttori
-    public MyContextMenu(Button bottone, Gioco gioco, ArrayList<Button> ArrayList_radiobutton_mazzo){
+    public MyContextMenu(Button bottone, Gioco gioco, Mano man, ArrayList<Button> ArrayList_radiobutton_mazzo){
         super();
         
         this.bottone = bottone;
@@ -36,7 +36,13 @@ public class MyContextMenu extends ContextMenu{
 
         menuItem1.setOnAction((event) -> {
 
-            gioco.moveToMano(ArrayList_radiobutton_mazzo.indexOf(bottone));
+            System.out.println("1: " + bottone);
+            System.out.println("2: " + man.getArrayList_radiobutton_mano().indexOf(bottone));
+            System.out.println("3: " + man.sizeArrayList_radiobutton_mano());
+            System.out.println("4: " + man.sizeGestione());
+            gioco.moveToMano(man.getArrayList_radiobutton_mano().indexOf(bottone));
+            
+            gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
         });
 
         menuItem2.setOnAction((event) -> {

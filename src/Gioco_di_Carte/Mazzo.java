@@ -52,8 +52,9 @@ public class Mazzo {
     protected ArrayList<Carta> Mazzo;
     
     //costruttori
-    public Mazzo(Gioco gioco){
+    public Mazzo(Gioco gioco, Mano man){
         ArrayList_radiobutton_mazzo = new ArrayList<Button>(15);
+        Mazzo = new ArrayList<Carta>(15);
         
         
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
@@ -87,17 +88,13 @@ public class Mazzo {
             ArrayList_radiobutton_mazzo.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
             ArrayList_radiobutton_mazzo.get(i).setBorder(Border.EMPTY);
             
+            ArrayList_radiobutton_mazzo.get(i).setContextMenu(new MyContextMenu(ArrayList_radiobutton_mazzo.get(i), gioco, man, ArrayList_radiobutton_mazzo));
             
-
-            ArrayList_radiobutton_mazzo.get(i).setContextMenu(new MyContextMenu(ArrayList_radiobutton_mazzo.get(i), gioco, ArrayList_radiobutton_mazzo));
-            
-        
         }
         
         
         //FINE PARTE TEMPORANEA
         
-        Mazzo = new ArrayList<Carta>(15);
     }
     
     

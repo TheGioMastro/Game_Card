@@ -116,6 +116,16 @@ public class Mano {
     public Carta getCarta(int i){
         return gestione.get(i);
     }
+
+    public ArrayList<Carta> getGestione() {
+        return gestione;
+    }
+
+    public ArrayList<Button> getArrayList_radiobutton_mano() {
+        return ArrayList_radiobutton_mano;
+    }
+    
+    
     
     public void Remove(int i){
         gestione.remove(i);
