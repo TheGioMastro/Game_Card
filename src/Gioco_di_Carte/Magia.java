@@ -11,12 +11,7 @@ import java.util.Random;
  * @author Alessandro Poggi
  */
 public class Magia extends Carta{
-    protected int indice_magia;
-    protected boolean doppio_attacco = false;
-    protected boolean ruba_attacco = false;
-    protected boolean spirito_indomito = false;
-    protected boolean sacca_di_sangue = false;
-    protected boolean luna_piena = false;
+    protected int turno;
     Random rand = new Random();
     
     public Magia(int indice_magia, String nome, String descrizione, String tipo_carta) {
@@ -28,6 +23,7 @@ public class Magia extends Carta{
     }
     
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){
+        turno = Gioco.nTurno;
         switch(indice_magia){
             case 1 -> doppio_attacco = true;
             case 2 -> {
@@ -41,7 +37,7 @@ public class Magia extends Carta{
             }
             case 4 -> ruba_attacco = true;
             case 5 -> spirito_indomito = true;
-            case 6 -> sacca_di_sangue = true;
+            case 6 -> brama_sangue = true;
             case 7 -> luna_piena = true;
         }
     }
@@ -50,12 +46,14 @@ public class Magia extends Carta{
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
     //P.S.: non è di fatto finito, lo finirò quando avremo implementato la fine del turno
     public void disability(){
-        switch(indice_magia){
-            case 1 -> doppio_attacco = false;
-            case 4 -> ruba_attacco = false;
-            case 5 -> spirito_indomito = false;
-            case 6 -> sacca_di_sangue = false;
-            case 7 -> luna_piena = false;
+        if(turno + 1 == Gioco.nTurno){
+            switch(indice_magia){
+                case 1 -> doppio_attacco = false;
+                case 4 -> ruba_attacco = false;
+                case 5 -> spirito_indomito = false;
+                case 6 -> brama_sangue = false;
+                case 7 -> luna_piena = false;
+            }
         }
     }
 }

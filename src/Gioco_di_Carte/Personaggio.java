@@ -9,12 +9,6 @@ package Gioco_di_Carte;
  * @author Alessandro Poggi
  */
 public class Personaggio extends Carta{
-    protected String tipo_personaggio;
-    protected boolean isAlive;
-    //protected boolean canAttack;  //sostituito dal flag "ruba_attacco" nella classe magia
-    protected int pAttack;
-    protected int pDefense;
-
     public Personaggio(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta) {
         this.nome = nome;
         this.descrizione = descrizione;

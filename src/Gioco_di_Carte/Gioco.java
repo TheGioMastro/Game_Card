@@ -13,7 +13,7 @@ public class Gioco {
     protected Campo giocatore_1; //CAMPO SOPRA
     protected Campo giocatore_2; //CAMPO SOTTO
     
-    protected int nTurno; 
+    protected static int nTurno; 
     protected int P1attack;
     protected int p2attack;
     
