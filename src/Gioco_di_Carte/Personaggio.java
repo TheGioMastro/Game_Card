@@ -52,8 +52,8 @@ public class Personaggio extends Carta{
         return pDefense;
     }
     
-    public boolean attacca(Personaggio attaccato){
-        return attaccato.difesa(pAttack) < 0;
+    public boolean attacca(Carta attaccato){
+        return attaccato.getPersonaggio().difesa(pAttack) < 0;
     }
     
     public int difesa(int pAttack){
