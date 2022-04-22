@@ -9,6 +9,11 @@ package Gioco_di_Carte;
  * @author Alessandro Poggi
  */
 public class Personaggio extends Carta{
+    protected String tipo_personaggio;
+    protected boolean isAlive;
+    protected int pAttack;
+    protected int pDefense;
+    
     public Personaggio(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta) {
         this.nome = nome;
         this.descrizione = descrizione;
@@ -18,10 +23,6 @@ public class Personaggio extends Carta{
         this.isAlive = true;
         this.pAttack = pAttack;
         this.pDefense = pDefense;
-    }
-
-    public void setTipo(String tipo_personaggio) {
-        this.tipo_personaggio = tipo_personaggio;
     }
 
     public void setIsAlive(boolean isAlive) {

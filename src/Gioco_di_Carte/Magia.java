@@ -11,7 +11,16 @@ import java.util.Random;
  * @author Alessandro Poggi
  */
 public class Magia extends Carta{
+    //attributi
+    protected int indice_magia;
+    protected boolean doppio_attacco = false;
+    protected boolean ruba_attacco = false;
+    protected boolean spirito_indomito = false;
+    protected boolean brama_sangue = false;
+    protected boolean luna_piena = false;
     protected int turno;
+    
+    //oggetti
     Random rand = new Random();
     
     public Magia(int indice_magia, String nome, String descrizione, String tipo_carta) {
@@ -46,7 +55,7 @@ public class Magia extends Carta{
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
     //P.S.: non è di fatto finito, lo finirò quando avremo implementato la fine del turno
     public void disability(){
-        if(turno + 1 == Gioco.nTurno){
+        if(turno + 1 == Gioco.nTurno && indice_magia != 4 || turno + 2 == Gioco.nTurno && indice_magia == 4){
             switch(indice_magia){
                 case 1 -> doppio_attacco = false;
                 case 4 -> ruba_attacco = false;
