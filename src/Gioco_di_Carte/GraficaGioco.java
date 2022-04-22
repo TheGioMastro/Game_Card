@@ -264,7 +264,7 @@ public class GraficaGioco {
         for(i=0; i< row; i++) {
             for(j=0; j<column; j++){
                 System.out.println("stoca");
-                g.getGp_mazzocampo().getChildren().remove(g.getGp_mazzocampo().getChildren(i,j));
+                g.getGp_mazzocampo().getChildren().remove(g.getGp_mazzocampo().getChildren(i,j));//DA CONTINUARE!!!!!!!
             }
             
         }
