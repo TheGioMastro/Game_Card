@@ -25,7 +25,7 @@ public class Gioco {
     //Costruttore--------------------------------------------------------------------------------------
     public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
         
-        this.nTurno = 0;
+        this.nTurno = -1;
         this.P1attack = 0;
         this.p2attack = 0;
         
@@ -49,11 +49,24 @@ public class Gioco {
             giocatore_2.getMan().Remove(i);
         }
     }
+    /*
+    public void attacca(int iAttaccante, int iAttaccato){
+        if(nTurno % 2 == 1){ //Giocatore 1
+            giocatore_1.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_2.getMan().getCarta(iAttaccato));
+            
+        }else{
+            giocatore_2.getMan().getCarta(iAttaccante).attacca(giocatore_1.getMan().getCarta(iAttaccato));
+        }
+    }*/
+    
+    
     
     public void nextTurno(){
         /*Turni dispari --> Giocatore 1
           Turni pari -----> Giocatore 2
         */
+        
+        this.nTurno ++;
         
         int i;
         int nCarte = 4; //Numero carte da estrarre al primo turno
@@ -97,8 +110,6 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
             
         }
-        
-        this.nTurno ++;
     }
     
     //setter----------------------------------------
