@@ -29,12 +29,12 @@ import javafx.scene.paint.Color;
 public class Mazzo {
     
     //ArryList per contenere i radiobutton dell'interfaccia grafica
-    protected ArrayList<Button> ArrayList_radiobutton_mazzo;
+    protected ArrayList<MyButton> ArrayList_radiobutton_mazzo;
     protected ArrayList<Carta> Mazzo;
     
     //costruttori
     public Mazzo(Gioco gioco, Mano man){
-        ArrayList_radiobutton_mazzo = new ArrayList<Button>(15);
+        ArrayList_radiobutton_mazzo = new ArrayList<MyButton>(15);
         Mazzo = new ArrayList<Carta>(15);
         
         
@@ -61,7 +61,7 @@ public class Mazzo {
         //popola tutto l'arraylist con gli elementi
         for(i=0; i<15; i++){
             //aggiunta dello stile a tutti i radiobutton
-            ArrayList_radiobutton_mazzo.add(i, new Button());
+            ArrayList_radiobutton_mazzo.add(i, new MyButton());
             ArrayList_radiobutton_mazzo.get(i).setPadding(new Insets(5));
             ArrayList_radiobutton_mazzo.get(i).setGraphic(new ImageView(image1));
             ArrayList_radiobutton_mazzo.get(i).getStyleClass().remove("radio-button");
@@ -69,7 +69,7 @@ public class Mazzo {
             ArrayList_radiobutton_mazzo.get(i).setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
             ArrayList_radiobutton_mazzo.get(i).setBorder(Border.EMPTY);
             
-            ArrayList_radiobutton_mazzo.get(i).setContextMenu(new MyContextMenu(ArrayList_radiobutton_mazzo.get(i), gioco, man, ArrayList_radiobutton_mazzo));
+            ArrayList_radiobutton_mazzo.get(i).setMycontextmenu(new MyContextMenu(ArrayList_radiobutton_mazzo.get(i), gioco, man, ArrayList_radiobutton_mazzo));
             
         }
         

@@ -13,7 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -38,8 +37,8 @@ public class Campo {
     protected GridPane gp_mazzocampo;
     
     //bottoni
-    protected Button mazzo;
-    protected Button cimitero;
+    protected MyButton mazzo;
+    protected MyButton cimitero;
     
     //Costruttore--------------------------------------------------------------------------------------------------------------------------
     public Campo(String nome, String tipo, Gioco gioco) {
@@ -126,11 +125,11 @@ public class Campo {
         //FINE PARTE TEMPORANEA
         
         //bottoni
-        mazzo = new Button();
+        mazzo = new MyButton();
         mazzo.setGraphic(new ImageView(image1));
         mazzo.setDisable(true);
         
-        cimitero = new Button();
+        cimitero = new MyButton();
         cimitero.setGraphic(new ImageView(image1));
         cimitero.setDisable(true);
         
@@ -196,11 +195,11 @@ public class Campo {
         return gp_mazzocampo;
     }
 
-    public Button getMazzo() {
+    public MyButton getMazzo() {
         return mazzo;
     }
 
-    public Button getCimitero() {
+    public MyButton getCimitero() {
         return cimitero;
     }
     //------------------------------

@@ -262,7 +262,6 @@ public class GraficaGioco {
         
         for(i=0; i<g.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
             g.getGp_mazzocampo().add(g.getMazCam().get_ArrayList_radiobutton_mazzocampo(i), i, 0);
-            System.out.println("cazzi miei pt.2 " + i);
             
         }
     }

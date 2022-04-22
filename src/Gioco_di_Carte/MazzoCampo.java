@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
 /**
@@ -22,7 +21,7 @@ public class MazzoCampo {
     
     
     //crea l'arraylist in cui inserirre i radiobutton
-    protected ArrayList<Button> ArrayList_radiobutton_mazzocampo;
+    protected ArrayList<MyButton> ArrayList_radiobutton_mazzocampo;
     
     //array list mazzocampo
     protected ArrayList<Carta> MazzoCampo;
@@ -30,7 +29,7 @@ public class MazzoCampo {
     //costruttori
     public MazzoCampo(){
         //interfaccia grafica
-        ArrayList_radiobutton_mazzocampo = new ArrayList<Button>();
+        ArrayList_radiobutton_mazzocampo = new ArrayList<MyButton>();
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
         //IMAGE-----------------------------------------------------------------
@@ -66,7 +65,7 @@ public class MazzoCampo {
         
     }
     //      get()
-    public Button get_ArrayList_radiobutton_mazzocampo(int i){
+    public MyButton get_ArrayList_radiobutton_mazzocampo(int i){
         return ArrayList_radiobutton_mazzocampo.get(i);
         
     }
@@ -81,7 +80,7 @@ public class MazzoCampo {
     }
     
     //fatto
-    public void SWAP_ADD(Carta carta, Button campo){
+    public void SWAP_ADD(Carta carta, MyButton campo){
         
         MazzoCampo.add(carta);
         ArrayList_radiobutton_mazzocampo.add(campo);

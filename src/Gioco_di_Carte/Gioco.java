@@ -39,11 +39,13 @@ public class Gioco {
     
     public void moveToMano (int i){
         if(nTurno % 2 == 1){ //Giocatore 1
+            giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMenuItem1().setDisable(true);
             giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
             //giocatore_1.getMazCam().Add(giocatore_1.getMan().getCarta(i));
             //giocatore_1.getMan().Remove(i);
             
         }else{
+            giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMenuItem1().setDisable(true);
             giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getMazCam());
             //giocatore_2.getMazCam().Add(giocatore_2.getMan().getCarta(i));
             //giocatore_2.getMan().Remove(i);

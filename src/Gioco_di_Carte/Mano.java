@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 /**
  *
@@ -21,7 +20,7 @@ public class Mano {
     
     //Parte imterfaccia grafica
     //crea l'arraylist in cui inserirre i radiobutton
-    protected ArrayList<Button> ArrayList_radiobutton_mano;
+    protected ArrayList<MyButton> ArrayList_radiobutton_mano;
     
     
     
@@ -30,7 +29,7 @@ public class Mano {
         gestione=new <Carta>ArrayList();      
         
         //PARTE INTERFACCIA GRAFICA
-        ArrayList_radiobutton_mano = new ArrayList<Button>();
+        ArrayList_radiobutton_mano = new ArrayList<MyButton>();
         
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
@@ -70,7 +69,7 @@ public class Mano {
         
     }
     
-    public Button get_ArrayList_radiobutton_mano(int i){
+    public MyButton get_ArrayList_radiobutton_mano(int i){
         return ArrayList_radiobutton_mano.get(i);
         
     }
@@ -93,7 +92,7 @@ public class Mano {
     }
     
     //fatto
-    public void SWAP_ADD(Carta carta, Button campo){
+    public void SWAP_ADD(Carta carta, MyButton campo){
         
         gestione.add(carta);
         ArrayList_radiobutton_mano.add(campo);
@@ -121,7 +120,7 @@ public class Mano {
         return gestione;
     }
 
-    public ArrayList<Button> getArrayList_radiobutton_mano() {
+    public ArrayList<MyButton> getArrayList_radiobutton_mano() {
         return ArrayList_radiobutton_mano;
     }
     

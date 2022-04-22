@@ -16,15 +16,15 @@ import javafx.scene.control.MenuItem;
 public class MyContextMenu extends ContextMenu{
     
     //Attributi
-    
-    protected Button bottone;
+    //salvo il bottone per far sì che tramite lo stesso bottone si possa ricercare quale oggetto nell'arraylist ha richiamato questo menu(cosa impossibile da fare altrimenti)
+    protected MyButton bottone;
     
     protected MenuItem menuItem1;
     protected MenuItem menuItem2;
     
     
     //Costruttori
-    public MyContextMenu(Button bottone, Gioco gioco, Mano man, ArrayList<Button> ArrayList_radiobutton_mazzo){
+    public MyContextMenu(MyButton bottone, Gioco gioco, Mano man, ArrayList<MyButton> ArrayList_radiobutton_mazzo){
         super();
         
         this.bottone = bottone;
@@ -36,10 +36,6 @@ public class MyContextMenu extends ContextMenu{
 
         menuItem1.setOnAction((event) -> {
 
-            System.out.println("1: " + bottone);
-            System.out.println("2: " + man.getArrayList_radiobutton_mano().indexOf(bottone));
-            System.out.println("3: " + man.sizeArrayList_radiobutton_mano());
-            System.out.println("4: " + man.sizeGestione());
             gioco.moveToMano(man.getArrayList_radiobutton_mano().indexOf(bottone));
             
             gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
@@ -48,10 +44,38 @@ public class MyContextMenu extends ContextMenu{
         menuItem2.setOnAction((event) -> {
             //gioco.attack(ArrayList_radiobutton_mazzo.indexOf(bottone));
         });
+        
+        menuItem2.setDisable(true);
 
         this.getItems().addAll(menuItem1, menuItem2);
         
         
     }
+
+    public Button getBottone() {
+        return bottone;
+    }
+
+    public MenuItem getMenuItem1() {
+        return menuItem1;
+    }
+
+    public MenuItem getMenuItem2() {
+        return menuItem2;
+    }
+
+    public void setBottone(MyButton bottone) {
+        this.bottone = bottone;
+    }
+
+    public void setMenuItem1(MenuItem menuItem1) {
+        this.menuItem1 = menuItem1;
+    }
+
+    public void setMenuItem2(MenuItem menuItem2) {
+        this.menuItem2 = menuItem2;
+    }
+    
+    
         
 }
