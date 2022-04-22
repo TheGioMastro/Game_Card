@@ -30,8 +30,8 @@ public abstract class Carta {
     protected boolean luna_piena = false;
     
     //oggetti
-    Personaggio personaggio;
-    Magia magia;
+    protected Personaggio personaggio;
+    protected Magia magia;
     
     public Carta(){
         if(tipo_carta.equals("Personaggio")){

@@ -55,7 +55,6 @@ public class Campo {
         man = new Mano();
         mazCam = new MazzoCampo();
         cim = new Cimitero();
-        dck = new Deck(mazz);
         mazz = new Mazzo(gioco, man);
         giocatore = new Player(nome, tipo);
         
@@ -93,6 +92,8 @@ public class Campo {
         }
         //---------------------------------------------------------------------
         
+        
+        dck = new Deck(mazz);
         
         
         //parte interfaccia grafica
