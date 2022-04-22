@@ -49,15 +49,15 @@ public class Gioco {
             giocatore_2.getMan().Remove(i);
         }
     }
-    /*
+    
     public void attacca(int iAttaccante, int iAttaccato){
         if(nTurno % 2 == 1){ //Giocatore 1
             giocatore_1.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_2.getMan().getCarta(iAttaccato));
             
         }else{
-            giocatore_2.getMan().getCarta(iAttaccante).attacca(giocatore_1.getMan().getCarta(iAttaccato));
+            giocatore_2.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_1.getMan().getCarta(iAttaccato));
         }
-    }*/
+    }
     
     
     
