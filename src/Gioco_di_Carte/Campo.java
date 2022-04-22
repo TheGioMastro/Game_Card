@@ -52,11 +52,11 @@ public class Campo {
         int nIndice; //Indice carta magia
         
         //Istanziamento Oggetti
-        dck = new Deck();
         man = new Mano();
         mazCam = new MazzoCampo();
         cim = new Cimitero();
         mazz = new Mazzo(gioco);
+        dck = new Deck(mazz);
         giocatore = new Player(nome, tipo);
         
         //ACQUSIZIONE PROPRIETA CARTE------------------------------------------
