@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  *
- * @author Alessandro Poggi
+ * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
  */
 public class Magia extends Carta{
     //attributi
@@ -34,7 +34,11 @@ public class Magia extends Carta{
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){
         turno = Gioco.nTurno;
         switch(indice_magia){
-            case 1 -> doppio_attacco = true;
+            case 1 -> {
+                if(rand.nextBoolean()){
+                    doppio_attacco = true;
+                }
+            }
             case 2 -> {
                 cimitero.Add(campo.Get(i));
                 campo.Remove(i);

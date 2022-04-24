@@ -6,7 +6,7 @@ package Gioco_di_Carte;
 
 /**
  *
- * @author Alessandro Poggi
+ * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
  */
 public abstract class Carta {
     //attributi comuni

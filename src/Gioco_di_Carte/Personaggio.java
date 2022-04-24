@@ -6,7 +6,7 @@ package Gioco_di_Carte;
 
 /**
  *
- * @author Alessandro Poggi
+ * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
  */
 public class Personaggio extends Carta{
     protected String tipo_personaggio;

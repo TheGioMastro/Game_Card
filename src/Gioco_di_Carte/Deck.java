@@ -23,4 +23,8 @@ public class Deck {
     public Carta getCarta(int i){
         return dck[i];
     }
+    
+    public int sizeDeck(){
+        return nCarte;
+    }
 }

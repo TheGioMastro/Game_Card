@@ -129,6 +129,15 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
             
         }
+        
+        for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){
+            if(giocatore_1.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
+                giocatore_1.getDck().getCarta(i).getMagia().disability();
+            }
+            if(giocatore_2.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
+                giocatore_2.getDck().getCarta(i).getMagia().disability();
+            }
+        }
     }
     
     //setter----------------------------------------
