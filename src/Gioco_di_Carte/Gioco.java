@@ -37,11 +37,11 @@ public class Gioco {
     }
     //--------------------------------------------------------------------------------------------------
     
-    public void moveToMano (int i){
+    public void moveToCampo (int i){
         if(nTurno % 2 == 1){ //Giocatore 1
             if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
-                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMenuItem1().setDisable(true);
-                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMenuItem2().setDisable(false);
+                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
+                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable(false);
                 giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
                 //giocatore_1.getMazCam().Add(giocatore_1.getMan().getCarta(i));
                 //giocatore_1.getMan().Remove(i);
@@ -50,8 +50,8 @@ public class Gioco {
             
         }else{
             if(giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
-                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMenuItem1().setDisable(true);
-                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMenuItem2().setDisable(false);
+                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
+                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable(false);
                 giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getMazCam());
                 //giocatore_2.getMazCam().Add(giocatore_2.getMan().getCarta(i));
                 //giocatore_2.getMan().Remove(i);
@@ -165,7 +165,12 @@ public class Gioco {
         return grafica;
     }    
     
+    public static int getnTurno() {
+        return nTurno;
+    }
     //-------------------------------
+
+   
 
     
     

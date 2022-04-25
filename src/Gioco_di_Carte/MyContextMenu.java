@@ -5,8 +5,8 @@
 package Gioco_di_Carte;
 
 import java.util.ArrayList;
-import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 
 /**
@@ -18,64 +18,87 @@ public class MyContextMenu extends ContextMenu{
     //Attributi
     //salvo il bottone per far sì che tramite lo stesso bottone si possa ricercare quale oggetto nell'arraylist ha richiamato questo menu(cosa impossibile da fare altrimenti)
     protected MyButton bottone;
+    protected Gioco gioco;
     
-    protected MenuItem menuItem1;
-    protected MenuItem menuItem2;
+    protected MenuItem mettiInCampo;
+    protected Menu attacca;
     
     
     //Costruttori
     public MyContextMenu(MyButton bottone, Gioco gioco, Mano man, ArrayList<MyButton> ArrayList_radiobutton_mazzo){
         super();
         
+        this.gioco = gioco;
+        
         this.bottone = bottone;
         
         //menu item contextmenu
-        menuItem1 = new MenuItem("Metti in campo");
-        menuItem2 = new MenuItem("Attacca");
+        mettiInCampo = new MenuItem("Metti in campo");
+        attacca = new Menu("Attacca");
         
 
-        menuItem1.setOnAction((event) -> {
+        mettiInCampo.setOnAction((event) -> {
 
-            gioco.moveToMano(man.getArrayList_radiobutton_mano().indexOf(bottone));
+            gioco.moveToCampo(man.getArrayList_radiobutton_mano().indexOf(bottone));
             
             gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
         });
 
-        menuItem2.setOnAction((event) -> {
+        attacca.setOnAction((event) -> {
             //gioco.attack(ArrayList_radiobutton_mazzo.indexOf(bottone));
         });
         
-        menuItem2.setDisable(true);
 
-        this.getItems().addAll(menuItem1, menuItem2);
+        this.getItems().addAll(mettiInCampo, attacca);
         
         
     }
 
-    public Button getBottone() {
+    
+    //getter/setter
+    public MyButton getBottone() {
         return bottone;
     }
 
-    public MenuItem getMenuItem1() {
-        return menuItem1;
+    public MenuItem getMettiInCampo() {
+        return mettiInCampo;
     }
 
-    public MenuItem getMenuItem2() {
-        return menuItem2;
+    public Menu getAttacca() {
+        return attacca;
     }
 
     public void setBottone(MyButton bottone) {
         this.bottone = bottone;
     }
 
-    public void setMenuItem1(MenuItem menuItem1) {
-        this.menuItem1 = menuItem1;
+    public void setMettiInCampo(MenuItem mettiInCampo) {
+        this.mettiInCampo = mettiInCampo;
     }
 
-    public void setMenuItem2(MenuItem menuItem2) {
-        this.menuItem2 = menuItem2;
+    public void setAttacca(Menu attacca) {
+        this.attacca = attacca;
     }
     
-    
+    //other
+    //DEVO RICHIAMARE QUESTO METODO DA QUALCHE PARTE IN CULO AI LUPI
+    public void updateMenuAttacco(){
+        if(gioco.getnTurno() % 2 == 1){//Turno Giocatore 1
+            attacca.getItems().clear();
+            
+            for(int i=0; i<gioco.getGiocatore_1().getMazCam().Size(); i++){
+                MenuItem childMenuItem = new MenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome());
+                attacca.getItems().add(childMenuItem);
+            }
+        }else{//Turno Giocatore 2
+            attacca.getItems().clear();
+            
+            for(int i=0; i<gioco.getGiocatore_2().getMazCam().Size(); i++){
+                MenuItem childMenuItem = new MenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome());
+                attacca.getItems().add(childMenuItem);
+            }
+        }
+    }
+
         
 }
