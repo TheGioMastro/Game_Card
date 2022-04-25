@@ -130,6 +130,7 @@ public class Gioco {
             
         }
         
+        //disattivazione carte magia (deve stare in fondo al next turn)
         for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){
             if(giocatore_1.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
                 giocatore_1.getDck().getCarta(i).getMagia().disability();
