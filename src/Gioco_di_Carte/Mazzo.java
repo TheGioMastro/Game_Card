@@ -104,13 +104,13 @@ public class Mazzo {
     
     
     
-    public boolean addMagia(String nome, int i, Image f1){
+    public boolean addMagia(String nome, Image f1){
         String descr = "";
         if(this.Size()>=15){
             return false;
             
         }else{
-            Carta c1 = new Carta (i, nome, descr, f1);
+            Carta c1 = new Carta (nome, descr, "Magia", f1);
             Mazzo.add(c1);
             return true;
         }

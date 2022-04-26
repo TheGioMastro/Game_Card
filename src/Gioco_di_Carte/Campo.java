@@ -97,7 +97,6 @@ public class Campo {
                 nome = br.readLine();
                 
                 if(!nome.equalsIgnoreCase("--")){
-                    nIndice = Integer.parseInt(br.readLine());
                     
                     //Path relative1 = Paths.get("Carte/"+ nome + ".png");
                     Path relative1 = Paths.get("Carte/void.jpg");
@@ -112,7 +111,7 @@ public class Campo {
         
                     Image image1 = new Image(carta, 100, 146, false, false);
                     
-                    mazz.addMagia(nome, nIndice, image1);
+                    mazz.addMagia(nome, image1);
                     mazz.get_indice_ArrayList_radiobutton_mazzo(i).setGraphic(new ImageView(image1));
                     
                     i++;
