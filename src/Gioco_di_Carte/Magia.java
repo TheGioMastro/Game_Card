@@ -24,11 +24,10 @@ public class Magia extends Carta{
     //oggetti
     Random rand = new Random();
     
-    public Magia(int indice_magia, String nome, String descrizione, String tipo_carta, Image foto) {
+    public Magia(int indice_magia, String nome, String descrizione, Image foto){
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
-        this.indice_magia = indice_magia;
         this.foto = foto;
     }
     

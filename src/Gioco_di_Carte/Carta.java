@@ -21,15 +21,18 @@ public class Carta {
     protected Personaggio personaggio;
     protected Magia magia;
     
+    //costruttore generico
     public Carta(){
     }
     
+    //costruttore carte personaggio
     public Carta(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, Image foto){
         personaggio = new Personaggio(tipo_personaggio, pAttack, pDefense, nome, descrizione, tipo_carta, foto);
     }
     
-    public Carta(int indice_magia, String nome, String descrizione, String tipo_carta, Image foto){
-        magia = new Magia(indice_magia, nome, descrizione, tipo_carta, foto);
+    //costruttore carte magia
+    public Carta(int indice_magia, String nome, String descrizione, Image foto){
+        magia = new Magia(indice_magia, nome, descrizione, foto);
     }
     
     //metodi
