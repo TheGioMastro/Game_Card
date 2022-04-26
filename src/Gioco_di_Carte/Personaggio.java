@@ -4,6 +4,8 @@
  */
 package Gioco_di_Carte;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
@@ -14,15 +16,15 @@ public class Personaggio extends Carta{
     protected int pAttack;
     protected int pDefense;
     
-    public Personaggio(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta) {
+    public Personaggio(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, Image foto) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
-        this.immagine = nome + "xxx";
         this.tipo_personaggio = tipo_personaggio;
         this.isAlive = true;
         this.pAttack = pAttack;
         this.pDefense = pDefense;
+        this.foto = foto;
     }
 
     public void setIsAlive(boolean isAlive) {

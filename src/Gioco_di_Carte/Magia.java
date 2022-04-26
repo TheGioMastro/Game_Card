@@ -5,6 +5,7 @@
 package Gioco_di_Carte;
 
 import java.util.Random;
+import javafx.scene.image.Image;
 
 /**
  *
@@ -23,12 +24,12 @@ public class Magia extends Carta{
     //oggetti
     Random rand = new Random();
     
-    public Magia(int indice_magia, String nome, String descrizione, String tipo_carta) {
+    public Magia(int indice_magia, String nome, String descrizione, String tipo_carta, Image foto) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
-        this.immagine = nome + "xxx";
         this.indice_magia = indice_magia;
+        this.foto = foto;
     }
     
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){

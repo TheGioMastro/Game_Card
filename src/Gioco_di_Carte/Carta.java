@@ -24,12 +24,12 @@ public abstract class Carta {
     public Carta(){
     }
     
-    public Carta(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta){
-        personaggio = new Personaggio(tipo_personaggio, pAttack, pDefense, nome, descrizione, tipo_carta);
+    public Carta(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, Image foto){
+        personaggio = new Personaggio(tipo_personaggio, pAttack, pDefense, nome, descrizione, tipo_carta, foto);
     }
     
-    public Carta(int indice_magia, String nome, String descrizione, String tipo_carta){
-        magia = new Magia(indice_magia, nome, descrizione, tipo_carta);
+    public Carta(int indice_magia, String nome, String descrizione, String tipo_carta, Image foto){
+        magia = new Magia(indice_magia, nome, descrizione, tipo_carta, foto);
     }
     
     //metodi
