@@ -29,14 +29,9 @@ difesa5
 100
 300
 -
-magia1
-1
-magia2
-2
-magia3
-3
-magia4
-4
-magia5
-6
+Doppio Attacco
+Distruggi Carta
+Resuscita Carta
+Ruba Attacco
+Brama Sangue
 --

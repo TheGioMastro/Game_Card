@@ -13,6 +13,10 @@ import javafx.scene.image.Image;
  */
 public class Magia extends Carta{
     //attributi
+    protected String nome;
+    protected String descrizione;
+    protected String tipo_carta;
+    protected Image foto;
     protected int indice_magia;
     protected boolean doppio_attacco = false;
     protected boolean ruba_attacco = false;
@@ -24,11 +28,46 @@ public class Magia extends Carta{
     //oggetti
     Random rand = new Random();
     
-    public Magia(int indice_magia, String nome, String descrizione, Image foto){
+    public Magia(String nome, String descrizione, String tipo_carta, Image foto){
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
         this.foto = foto;
+        
+        if(nome.equals("Doppio Attacco"))
+            indice_magia = 1;
+        else if(nome.equals("Distruggi Carta"))
+            indice_magia = 2;
+        else if(nome.equals("Resuscita Carta"))
+            indice_magia = 3;
+        else if(nome.equals("Ruba Attacco"))
+            indice_magia = 4;
+        else if(nome.equals("Spirito Indomito"))
+            indice_magia = 5;
+        else if(nome.equals("Brama Sangue"))
+            indice_magia = 6;
+        else if(nome.equals("Luna Piena"))
+            indice_magia = 7;
+    }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setTipo(String tipo_carta) {
+        this.tipo_carta = tipo_carta;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
     }
     
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){
