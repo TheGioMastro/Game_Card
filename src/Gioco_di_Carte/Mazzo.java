@@ -102,24 +102,27 @@ public class Mazzo {
     }
    
     
-    public boolean addMagia(String nome, int i){
+    
+    
+    public boolean addMagia(String nome, int i, Image f1){
         String descr = "";
         if(this.Size()>=15){
             return false;
             
         }else{
-            Mazzo.add(new Magia(i, nome, descr, "Magia"));
+            Carta c1 = new Carta (i, nome, descr, f1);
+            Mazzo.add(c1);
             return true;
         }
     }
     
-    public boolean addPersonaggio(String nome, int attacco, int difesa){
+    public boolean addPersonaggio(String tipo, String nome, int attacco, int difesa, Image f1){
         String descr = "";
         if(this.Size()>=15){
             return false;
             
         }else{
-            Mazzo.add(new Personaggio((attacco>difesa)?"Attacco":"Difesa", attacco, difesa, nome, descr, "Personaggio"));
+            Carta c1 = new Carta (tipo, attacco, difesa, nome, descr, "Personaggio", f1);
             return true;
         }
     }
