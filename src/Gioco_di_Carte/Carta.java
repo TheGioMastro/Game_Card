@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
  *
  * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
  */
-public abstract class Carta {
+public class Carta {
     //attributi comuni
     protected String nome;
     protected String descrizione;
