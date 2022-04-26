@@ -60,4 +60,6 @@ public class Personaggio extends Carta{
     public int difesa(int pAttack){
         return this.pDefense - pAttack;
     }
+    
+    
 }

@@ -362,6 +362,27 @@ public class GraficaGioco {
         
     }
     
+    //RELOAD OPZIONI TASTO DESTRO
+    public void reload_tasto_destro(Campo campo){
+        int i;
+        
+        
+        for(i=0; i<campo.getMan().sizeGestione(); i++){
+            campo.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().updateMenuAttacco();
+        }
+        
+        for(i=0; i<campo.getMazCam().Size(); i++){
+            campo.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().updateMenuAttacco();
+        }
+        
+        for(i=0; i<campo.getMazz().Size(); i++){
+            campo.getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().updateMenuAttacco();
+        }
+        
+        for(i=0; i<campo.getCim().Size(); i++){
+            campo.getCim().get_indice_ArrayList_radiobutton_cimitero(i).getMycontextmenu().updateMenuAttacco();
+        }
+    }
     
     
 }

@@ -167,15 +167,15 @@ public class Campo {
         return dck;
     }
 
-    public Mano getMan() {
+    public Mano getMan() {//
         return man;
     }
 
-    public MazzoCampo getMazCam() {
+    public MazzoCampo getMazCam() {//
         return mazCam;
     }
 
-    public Cimitero getCim() {
+    public Cimitero getCim() {//
         return cim;
     }
 
@@ -183,7 +183,7 @@ public class Campo {
         return giocatore;
     }
 
-    public Mazzo getMazz() {
+    public Mazzo getMazz() {//
         return mazz;
     }
     

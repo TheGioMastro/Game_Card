@@ -110,6 +110,10 @@ public class Cimitero {
     public ArrayList<MyButton> getArrayList_radiobutton_cimitero() {
         return ArrayList_radiobutton_cimitero;
     }
+    
+    public MyButton get_indice_ArrayList_radiobutton_cimitero(int i){
+        return ArrayList_radiobutton_cimitero.get(i);
+    }
 
     public ArrayList<Carta> getCimitero() {
         return Cimitero;

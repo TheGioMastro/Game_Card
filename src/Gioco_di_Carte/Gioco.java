@@ -57,6 +57,9 @@ public class Gioco {
                 //giocatore_2.getMan().Remove(i);
             }
         }
+        
+        grafica.reload_tasto_destro(giocatore_1);
+        grafica.reload_tasto_destro(giocatore_2);
     }
     
     public void attacca(int iAttaccante, int iAttaccato){
@@ -89,6 +92,11 @@ public class Gioco {
         
         int i;
         int nCarte = 4; //Numero carte da estrarre al primo turno
+        
+        //reload opzioni tasto destro
+        grafica.reload_tasto_destro(giocatore_1);
+        grafica.reload_tasto_destro(giocatore_2);
+        
         
         if(nTurno == 0){//Turno Giocatore 2
             for(i=0;i<nCarte;i++){

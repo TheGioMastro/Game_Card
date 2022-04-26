@@ -133,6 +133,20 @@ public class Mazzo {
     public Carta Get(int i){
         return Mazzo.get(i);
     }
+
+    public ArrayList<MyButton> getArrayList_radiobutton_mazzo() {
+        return ArrayList_radiobutton_mazzo;
+    }
+    
+    public MyButton get_indice_ArrayList_radiobutton_mazzo(int i){
+        return ArrayList_radiobutton_mazzo.get(i);
+    }
+
+    public ArrayList<Carta> getMazzo() {
+        return Mazzo;
+    }
+    
+    
     
     public boolean Remove(Carta c1){
         return Mazzo.remove(c1);

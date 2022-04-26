@@ -42,6 +42,7 @@ public class MyContextMenu extends ContextMenu{
             gioco.moveToCampo(man.getArrayList_radiobutton_mano().indexOf(bottone));
             
             gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
+            
         });
 
         attacca.setOnAction((event) -> {
@@ -51,6 +52,7 @@ public class MyContextMenu extends ContextMenu{
 
         this.getItems().addAll(mettiInCampo, attacca);
         
+        attacca.setDisable(true);
         
     }
 
@@ -81,21 +83,18 @@ public class MyContextMenu extends ContextMenu{
     }
     
     //other
-    //DEVO RICHIAMARE QUESTO METODO DA QUALCHE PARTE IN CULO AI LUPI
     public void updateMenuAttacco(){
         if(gioco.getnTurno() % 2 == 1){//Turno Giocatore 1
             attacca.getItems().clear();
             
-            for(int i=0; i<gioco.getGiocatore_1().getMazCam().Size(); i++){
-                MenuItem childMenuItem = new MenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome());
-                attacca.getItems().add(childMenuItem);
+            for(int i=0; i<gioco.getGiocatore_2().getMazCam().Size(); i++){
+                attacca.getItems().add(new MenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome()));
             }
         }else{//Turno Giocatore 2
             attacca.getItems().clear();
             
-            for(int i=0; i<gioco.getGiocatore_2().getMazCam().Size(); i++){
-                MenuItem childMenuItem = new MenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome());
-                attacca.getItems().add(childMenuItem);
+            for(int i=0; i<gioco.getGiocatore_1().getMazCam().Size(); i++){
+                attacca.getItems().add(new MenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome()));
             }
         }
     }
