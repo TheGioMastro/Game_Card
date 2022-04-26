@@ -9,7 +9,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -107,9 +106,7 @@ public class GraficaGioco {
         scritta_mazzo_sopra_pesca.setFont(new Font("OCR A Extended", 30));
         scritta_mazzo_sopra_pesca.setTextFill(Color.web("#F8C66D"));
         
-        scritta_mazzo_sopra = new Label("Mano");
-        scritta_mazzo_sopra.setFont(new Font("OCR A Extended", 45));
-        scritta_mazzo_sopra.setTextFill(Color.web("#F8C66D"));
+        scritta_mazzo_sopra = new Label("");
         
         scritta_mazzo_sopra_cimitero = new Label("Cimitero");
         scritta_mazzo_sopra_cimitero.setFont(new Font("OCR A Extended", 30));
@@ -155,9 +152,7 @@ public class GraficaGioco {
         scritta_mazzo_sotto_pesca.setFont(new Font("OCR A Extended", 30));
         scritta_mazzo_sotto_pesca.setTextFill(Color.web("#F8C66D"));
         
-        scritta_mazzo_sotto = new Label("Mano");
-        scritta_mazzo_sotto.setFont(new Font("OCR A Extended", 45));
-        scritta_mazzo_sotto.setTextFill(Color.web("#F8C66D"));
+        scritta_mazzo_sotto = new Label("");
         
         scritta_mazzo_sotto_cimitero = new Label("Cimitero");
         scritta_mazzo_sotto_cimitero.setFont(new Font("OCR A Extended", 30));

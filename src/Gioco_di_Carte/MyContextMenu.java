@@ -87,12 +87,12 @@ public class MyContextMenu extends ContextMenu{
             attacca.getItems().clear();
             
             for(int i=0; i<gioco.getGiocatore_2().getMazCam().Size(); i++){
-                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome(), gioco.getGiocatore_2().getMazCam().Get(i));
+                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome(), gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo(i));
                 attacca.getItems().add(nuovoitem);
                 nuovoitem.setOnAction((event) -> {
                     
                     //RICERCARE I PROBLEMI SI INDICE E POI ELIMINARE I 45 IF INLINE
-                    gioco.attacca((gioco.getnTurno() % 2 == 1)?gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone):gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone) , (gioco.getnTurno() % 2 == 1)?gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()):gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()));
+                    gioco.attacca(gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone), gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()));
                 });
                 
             }
@@ -100,10 +100,10 @@ public class MyContextMenu extends ContextMenu{
             attacca.getItems().clear();
             
             for(int i=0; i<gioco.getGiocatore_1().getMazCam().Size(); i++){
-                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome(), gioco.getGiocatore_1().getMazCam().Get(i));
+                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome(), gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo(i));
                 attacca.getItems().add(nuovoitem);
                 nuovoitem.setOnAction((event) -> {
-                    gioco.attacca((gioco.getnTurno() % 2 == 1)?gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone):gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone), (gioco.getnTurno() % 2 == 1)?gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()):gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()));
+                    gioco.attacca(gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone), gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()));
                 });
             }
         }

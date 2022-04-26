@@ -65,6 +65,8 @@ public class Gioco {
     public void attacca(int iAttaccante, int iAttaccato){
         System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
         if(nTurno % 2 == 1){ //Giocatore 1
+            //DA CORREGGERE-> NON GETMANO MA GETMAZZOCAMPO
+            //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
             giocatore_1.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_2.getMan().getCarta(iAttaccato));
             
         }else{

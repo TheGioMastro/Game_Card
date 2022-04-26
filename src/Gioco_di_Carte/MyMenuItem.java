@@ -13,10 +13,10 @@ import javafx.scene.control.MenuItem;
 public class MyMenuItem extends MenuItem{
     
     //Attributi
-    protected Carta oggetto_da_attaccare;
+    protected MyButton oggetto_da_attaccare;
     
     //Costruttori
-    public MyMenuItem(String nome, Carta item){
+    public MyMenuItem(String nome, MyButton item){
         super(nome);
         
         this.oggetto_da_attaccare = item;
@@ -24,11 +24,11 @@ public class MyMenuItem extends MenuItem{
     
     //metodi
 
-    public Carta getOggetto_da_attaccare() {
+    public MyButton getOggetto_da_attaccare() {
         return oggetto_da_attaccare;
     }
 
-    public void setOggetto_da_attaccare(Carta oggetto_da_attaccare) {
+    public void setOggetto_da_attaccare(MyButton oggetto_da_attaccare) {
         this.oggetto_da_attaccare = oggetto_da_attaccare;
     }
     
