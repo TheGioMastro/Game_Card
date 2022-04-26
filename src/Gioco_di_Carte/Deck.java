@@ -8,15 +8,16 @@ package Gioco_di_Carte;
  * @author Generali Alessandro
  */
 public class Deck {
-    protected Carta[] dck;
     protected final int nCarte = 15;
+    protected Carta[] dck;
+    
     
     public Deck(Mazzo m1){
         int i;
         dck = new Carta[nCarte];
         
         for(i = 0; i < nCarte; i++){
-            dck[0] = m1.Get(i);
+            dck[i] = m1.Get(i);
         }
     }
     
