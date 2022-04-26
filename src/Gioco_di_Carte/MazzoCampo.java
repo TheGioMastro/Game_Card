@@ -69,6 +69,10 @@ public class MazzoCampo {
         return ArrayList_radiobutton_mazzocampo.get(i);
         
     }
+    public ArrayList<MyButton> get_ArrayList_radiobutton_mazzocampo(){
+        return ArrayList_radiobutton_mazzocampo;
+        
+    }
     
     //Per spostare 
     //fatto

@@ -34,8 +34,8 @@ public class Mazzo {
     
     //costruttori
     public Mazzo(Gioco gioco, Mano man){
-        ArrayList_radiobutton_mazzo = new ArrayList<MyButton>(15);
         Mazzo = new ArrayList<Carta>(15);
+        ArrayList_radiobutton_mazzo = new ArrayList<MyButton>(15);
         
         
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto

@@ -63,6 +63,7 @@ public class Gioco {
     }
     
     public void attacca(int iAttaccante, int iAttaccato){
+        System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
         if(nTurno % 2 == 1){ //Giocatore 1
             giocatore_1.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_2.getMan().getCarta(iAttaccato));
             
