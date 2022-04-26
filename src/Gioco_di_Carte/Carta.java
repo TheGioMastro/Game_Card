@@ -4,6 +4,8 @@
  */
 package Gioco_di_Carte;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
@@ -13,7 +15,7 @@ public abstract class Carta {
     protected String nome;
     protected String descrizione;
     protected String tipo_carta;
-    protected String immagine;
+    protected Image foto;
     
     //oggetti
     protected Personaggio personaggio;
@@ -43,10 +45,6 @@ public abstract class Carta {
         this.tipo_carta = tipo_carta;
     }
 
-    public void setImmagine(String immagine) {
-        this.immagine = immagine;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -59,10 +57,6 @@ public abstract class Carta {
         return tipo_carta;
     }
 
-    public String getImmagine() {
-        return immagine;
-    }
-    
     public Personaggio getPersonaggio(){
         return personaggio;
     }
