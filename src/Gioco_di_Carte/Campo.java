@@ -43,9 +43,11 @@ public class Campo {
     //Costruttore--------------------------------------------------------------------------------------------------------------------------
     public Campo(String nome, String tipo, Gioco gioco) {
         //Variabili
-        Path relative = Paths.get("FileTXT/" + tipo + ".txt");
+        Path relative = Paths.get("Carte/" + tipo + ".txt");
         Path absolute = relative.toAbsolutePath();
         String path = absolute.toString();
+        
+        
         int aP; //Valore Attacco
         int dP; //Valore Vita
         int nIndice; //Indice carta magia
@@ -69,7 +71,20 @@ public class Campo {
                     aP = Integer.parseInt(br.readLine());
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
                     
-                    mazz.addPersonaggio(nome, aP, dP);
+                    Path relative1 = Paths.get("Carte/"+ nome + ".png");
+                    Path absolute1 = relative1.toAbsolutePath();
+                    
+                    String carta = absolute1.toString();
+                    try {
+                        FileInputStream is1 = new FileInputStream(carta);
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Mazzo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+        
+                    Image image1 = new Image(carta, 100, 146, false, false);
+                    
+                    
+                    mazz.addPersonaggio(tipo, nome, aP, dP, image1);
                 }
             }while(!nome.equalsIgnoreCase("-"));
             
@@ -80,7 +95,20 @@ public class Campo {
                 if(!nome.equalsIgnoreCase("--")){
                     nIndice = Integer.parseInt(br.readLine());
                     
-                    mazz.addMagia(nome, nIndice);
+                    //Path relative1 = Paths.get("Carte/"+ nome + ".png");
+                    Path relative1 = Paths.get("Carte/void.png");
+                    Path absolute1 = relative1.toAbsolutePath();
+                    
+                    String carta = absolute1.toString();
+                    try {
+                        FileInputStream is1 = new FileInputStream(carta);
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(Mazzo.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+        
+                    Image image1 = new Image(carta, 100, 146, false, false);
+                    
+                    mazz.addMagia(nome, nIndice, image1);
                 }
             }while(!nome.equalsIgnoreCase("--"));
 
@@ -104,6 +132,8 @@ public class Campo {
         gp_mazzomano.setVgap(10);
         gp_mazzocampo.setHgap(10);
         gp_mazzocampo.setVgap(10);
+        
+        
         
         
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
