@@ -51,6 +51,7 @@ public class Campo {
         int aP; //Valore Attacco
         int dP; //Valore Vita
         int nIndice; //Indice carta magia
+        int i=0;
         
         //Istanziamento Oggetti
         man = new Mano();
@@ -71,7 +72,7 @@ public class Campo {
                     aP = Integer.parseInt(br.readLine());
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
                     
-                    Path relative1 = Paths.get("Carte/"+ nome + ".png");
+                    Path relative1 = Paths.get("Carte/"+ tipo + "/" + nome + ".png");
                     Path absolute1 = relative1.toAbsolutePath();
                     
                     String carta = absolute1.toString();
@@ -85,6 +86,9 @@ public class Campo {
                     
                     
                     mazz.addPersonaggio(tipo, nome, aP, dP, image1);
+                    mazz.get_indice_ArrayList_radiobutton_mazzo(i).setGraphic(new ImageView(image1));
+                    
+                    i++;
                 }
             }while(!nome.equalsIgnoreCase("-"));
             
@@ -96,7 +100,7 @@ public class Campo {
                     nIndice = Integer.parseInt(br.readLine());
                     
                     //Path relative1 = Paths.get("Carte/"+ nome + ".png");
-                    Path relative1 = Paths.get("Carte/void.png");
+                    Path relative1 = Paths.get("Carte/void.jpg");
                     Path absolute1 = relative1.toAbsolutePath();
                     
                     String carta = absolute1.toString();
@@ -109,6 +113,9 @@ public class Campo {
                     Image image1 = new Image(carta, 100, 146, false, false);
                     
                     mazz.addMagia(nome, nIndice, image1);
+                    mazz.get_indice_ArrayList_radiobutton_mazzo(i).setGraphic(new ImageView(image1));
+                    
+                    i++;
                 }
             }while(!nome.equalsIgnoreCase("--"));
 
@@ -139,7 +146,7 @@ public class Campo {
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
-        Path relative1 = Paths.get("Immagini/void.jpg");
+        Path relative1 = Paths.get("Carte/void.jpg");
         Path absolute1 = relative1.toAbsolutePath();
         
         //convert the file path to string, save as a string and define the width and height
