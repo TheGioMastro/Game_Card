@@ -35,7 +35,7 @@ public class Mano {
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
-        Path relative1 = Paths.get("Immagini/void.jpg");//carta non presente
+        Path relative1 = Paths.get("Carte/void.jpg");//carta non presente
         Path absolute1 = relative1.toAbsolutePath();
         
         //convert the file path to string, save as a string and define the width and height
