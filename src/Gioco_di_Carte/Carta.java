@@ -35,7 +35,7 @@ public class Carta {
     }
     
     //costruttore carte magia
-    public Carta(int indice_magia, String nome, String descrizione, String tipo_carta, Image foto){
+    public Carta(String nome, String descrizione, String tipo_carta, Image foto){
         magia = new Magia(nome, descrizione, tipo_carta, foto);
         this.nome = nome;
         this.descrizione = descrizione;
