@@ -65,12 +65,11 @@ public class Gioco {
     public void attacca(int iAttaccante, int iAttaccato){
         System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
         if(nTurno % 2 == 1){ //Giocatore 1
-            //DA CORREGGERE-> NON GETMANO MA GETMAZZOCAMPO
             //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
-            giocatore_1.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_2.getMan().getCarta(iAttaccato));
+            giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato));
             
-        }else{
-            giocatore_2.getMan().getCarta(iAttaccante).getPersonaggio().attacca(giocatore_1.getMan().getCarta(iAttaccato));
+        }else if (nTurno %2 == 0 && nTurno < 2){ //Giocatore 2
+            giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato));
         }
     }
     
