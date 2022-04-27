@@ -14,7 +14,7 @@ public class Gioco {
     protected Campo giocatore_2; //CAMPO SOTTO
     
     protected static int nTurno; 
-    protected int P1attack;
+    protected int p1attack;
     protected int p2attack;
     
     
@@ -26,8 +26,8 @@ public class Gioco {
     public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
         
         this.nTurno = -1;
-        this.P1attack = 0;
-        this.p2attack = 0;
+        this.p1attack = 1;
+        this.p2attack = 1;
         
         giocatore_1 = new Campo(nomeG1, tipoG1, this);
         giocatore_2 = new Campo(nomeG2, tipoG2, this);
@@ -64,12 +64,14 @@ public class Gioco {
     
     public void attacca(int iAttaccante, int iAttaccato){
         System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
-        if(nTurno % 2 == 1){ //Giocatore 1
+        if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
             //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
             giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato));
+            p1attack--;
             
-        }else if (nTurno %2 == 0 && nTurno < 2){ //Giocatore 2
+        }else if (nTurno %2 == 0 && nTurno < 2 && p2attack > 0){ //Giocatore 2
             giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato));
+            p2attack--;
         }
     }
     
@@ -125,7 +127,7 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
-            this.P1attack ++;
+            this.p1attack ++;
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_1.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_1.getMan());
