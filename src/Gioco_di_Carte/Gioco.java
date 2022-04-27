@@ -41,7 +41,7 @@ public class Gioco {
         if(nTurno % 2 == 1){ //Giocatore 1
             if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
                 giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
-                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable(false);
+                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable((nTurno!=0 && nTurno!=1)?false:true);
                 giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
                 //giocatore_1.getMazCam().Add(giocatore_1.getMan().getCarta(i));
                 //giocatore_1.getMan().Remove(i);
@@ -51,7 +51,7 @@ public class Gioco {
         }else{
             if(giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
                 giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
-                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable(false);
+                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable((nTurno!=0 && nTurno!=1)?false:true);
                 giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getMazCam());
                 //giocatore_2.getMazCam().Add(giocatore_2.getMan().getCarta(i));
                 //giocatore_2.getMan().Remove(i);
@@ -99,9 +99,17 @@ public class Gioco {
         //reload opzioni tasto destro
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
-        
+        if(nTurno == 2){
+            for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+            }
+            for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+            }
+        }
         
         if(nTurno == 0){//Turno Giocatore 2
+            
             for(i=0;i<nCarte;i++){
                 giocatore_1.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_1.getMan());
                 giocatore_2.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_2.getMan());
