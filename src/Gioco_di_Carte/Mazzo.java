@@ -100,8 +100,6 @@ public class Mazzo {
         ArrayList_radiobutton_mazzo.remove(indice_arry);
         Mazzo.remove(indice_arry);
     }
-   
-    
     
     
     public boolean addMagia(String nome, Image f1){
@@ -127,7 +125,11 @@ public class Mazzo {
             return true;
         }
     }
-
+    
+    public boolean Remove(Carta c1){
+        return Mazzo.remove(c1);
+    }
+    
     //grandezza mazzo
     public int Size(){
         return Mazzo.size();
@@ -148,11 +150,5 @@ public class Mazzo {
 
     public ArrayList<Carta> getMazzo() {
         return Mazzo;
-    }
-    
-    
-    
-    public boolean Remove(Carta c1){
-        return Mazzo.remove(c1);
     }
 }
