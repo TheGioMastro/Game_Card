@@ -1,0 +1,37 @@
+distruttore_di_mondi
+300
+100
+dragon
+300
+100
+guardian
+300
+100
+hip_hippo
+300
+100
+kuriboh
+300
+100
+licantropo
+100
+300
+lion
+100
+300
+panda
+100
+300
+snake
+100
+300
+wizard
+100
+300
+-
+Doppio Attacco
+Distruggi Carta
+Resuscita Carta
+Ruba Attacco
+Luna Piena
+--

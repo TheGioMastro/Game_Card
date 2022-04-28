@@ -4,232 +4,166 @@
  */
 package Gioco_di_Carte;
 
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import java.util.Random;
 
 /**
  *
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Gioco {
-    protected Campo giocatore_1 = new Campo(); //CAMPO SOPRA
-    protected Campo giocatore_2 = new Campo(); //CAMPO SOTTO
+    Random rand = new Random();
     
-    //Parte interfaccia grafica(componimento interfaccia campo ecc...)
-    //PARTE SOPRA---------------------------------------------------------------
-    //riga 2
-    protected HBox hbox_campo_sopra;
-    //riga 1
-    protected HBox hbox_mazzo_sopra;
-    protected HBox hbox_mano_sopra;
-    protected HBox hbox_cimitero_sopra;
-    //riga 2
-    protected HBox hbox1_sopra;
-    //riga 1_2
-    protected Label scritta_mazzo_sopra_pesca;
-    protected Label scritta_mazzo_sopra;
-    protected Label scritta_mazzo_sopra_cimitero;
-    protected HBox scritta_mazzo_sopra_hbox;
-    protected HBox hbox1_2_sopra;
-    //riga 1
-    protected HBox hbox2_sopra;
-    //contenitore verticale parte sopra
-    protected VBox vbox_sopra;
+    protected Campo giocatore_1; //CAMPO SOPRA
+    protected Campo giocatore_2; //CAMPO SOTTO
     
-    //nomi
-    HBox hbox_top_destra;
-    HBox hbox_top_sinistra;
-    HBox hbox_top;
-    VBox vbox_top;
+    protected static int nTurno; 
+    protected int p1attack;
+    protected int p2attack;
     
-    //PARTE SOTTO---------------------------------------------------------------
-    //riga 2
-    protected HBox hbox_campo_sotto;
-    //riga 1
-    protected HBox hbox_mazzo_sotto;
-    protected HBox hbox_mano_sotto;
-    protected HBox hbox_cimitero_sotto;
-    //riga 2
-    protected HBox hbox1_sotto;
-    //riga 1_2
-    protected Label scritta_mazzo_sotto_pesca;
-    protected Label scritta_mazzo_sotto;
-    protected Label scritta_mazzo_sotto_cimitero;
-    protected HBox scritta_mazzo_sotto_hbox;
-    protected HBox hbox1_2_sotto;
-    //riga 1
-    protected HBox hbox2_sotto;
-    //contenitore verticale parte sopra
-    protected VBox vbox_sotto;
     
-    //nomi
-    protected HBox hbox_bot_destra;
-    protected HBox hbox_bot_sinistra;
-    protected HBox hbox_bot;
-    protected VBox vbox_bot;
+    //Grafica del gioco
+    protected GraficaGioco grafica;
     
-    //Other
-    protected VBox vbox_mezzo;
-
-    //Costruttore----
-    public Gioco() {
+    
+    //Costruttore--------------------------------------------------------------------------------------
+    public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
         
-        //parte interfaccia garfica
-        //---------------------------------PARTE-SOPRA--------------------------
-        //riga 2
-        hbox_campo_sopra = new HBox(giocatore_1.getGp_mazzomano());
-        hbox_campo_sopra.setAlignment(Pos.CENTER);
-        //riga 1
-        hbox_mazzo_sopra = new HBox(giocatore_1.getMazzo());
-        hbox_mazzo_sopra.setAlignment(Pos.BOTTOM_LEFT);
-        hbox_mano_sopra = new HBox(giocatore_1.getGp_mazzomano());
-        hbox_mano_sopra.setAlignment(Pos.CENTER);
-        hbox_cimitero_sopra = new HBox(giocatore_1.getCimitero());
-        hbox_cimitero_sopra.setAlignment(Pos.BOTTOM_RIGHT);
-        //riga 2
-        hbox1_sopra = new HBox(giocatore_1.getGp_mazzocampo());
-        hbox1_sopra.setSpacing(10);
-        HBox.setHgrow(hbox_campo_sopra, Priority.ALWAYS);
-        hbox1_sopra.setAlignment(Pos.TOP_CENTER);
-        //riga 1_2
-        scritta_mazzo_sopra_pesca = new Label("Pesca");
-        scritta_mazzo_sopra_pesca.setFont(new Font("OCR A Extended", 30));
-        scritta_mazzo_sopra_pesca.setTextFill(Color.web("#F8C66D"));
+        this.nTurno = -1;
+        this.p1attack = 1;
+        this.p2attack = 1;
         
-        scritta_mazzo_sopra = new Label("Mano");
-        scritta_mazzo_sopra.setFont(new Font("OCR A Extended", 45));
-        scritta_mazzo_sopra.setTextFill(Color.web("#F8C66D"));
+        giocatore_1 = new Campo(nomeG1, tipoG1, this);
+        giocatore_2 = new Campo(nomeG2, tipoG2, this);
         
-        scritta_mazzo_sopra_cimitero = new Label("Cimitero");
-        scritta_mazzo_sopra_cimitero.setFont(new Font("OCR A Extended", 30));
-        scritta_mazzo_sopra_cimitero.setTextFill(Color.web("#F8C66D"));
+        grafica = new GraficaGioco(giocatore_1, giocatore_2, this);
         
-        scritta_mazzo_sopra_hbox = new HBox(scritta_mazzo_sopra);
-        scritta_mazzo_sopra_hbox.setSpacing(10);
-        HBox.setHgrow(scritta_mazzo_sopra_hbox, Priority.ALWAYS);
-        scritta_mazzo_sopra_hbox.setAlignment(Pos.CENTER);
-        
-        hbox1_2_sopra = new HBox(scritta_mazzo_sopra_cimitero, scritta_mazzo_sopra_hbox, scritta_mazzo_sopra_pesca);
-        hbox1_2_sopra.setSpacing(10);
-        hbox1_2_sopra.setAlignment(Pos.CENTER);
-        
-        //riga 1
-        hbox2_sopra = new HBox(hbox_cimitero_sopra, hbox_mano_sopra, hbox_mazzo_sopra);
-        hbox2_sopra.setSpacing(10);
-        HBox.setHgrow(hbox_mano_sopra, Priority.ALWAYS);
-        
-        
-        //contenitore verticale parte sopra
-        vbox_sopra = new VBox(hbox2_sopra, hbox1_2_sopra, hbox1_sopra);
-        vbox_sopra.setAlignment(Pos.TOP_CENTER);
-        
-        //---------------------------------PARTE-SOTTO--------------------------
-        //riga 1
-        hbox_campo_sotto = new HBox(giocatore_2.getGp_mazzomano());
-        hbox_campo_sotto.setAlignment(Pos.CENTER);
-        //riga 2
-        hbox_mazzo_sotto = new HBox(giocatore_2.getMazzo());
-        hbox_mazzo_sotto.setAlignment(Pos.BOTTOM_LEFT);
-        hbox_mano_sotto = new HBox(giocatore_2.getGp_mazzomano());
-        hbox_mano_sotto.setAlignment(Pos.CENTER);
-        hbox_cimitero_sotto = new HBox(giocatore_2.getCimitero());
-        hbox_cimitero_sotto.setAlignment(Pos.BOTTOM_RIGHT);
-        //riga 1
-        hbox1_sotto = new HBox(giocatore_2.getGp_mazzocampo());
-        hbox1_sotto.setSpacing(10);
-        HBox.setHgrow(hbox_campo_sotto, Priority.ALWAYS);
-        hbox1_sotto.setAlignment(Pos.TOP_CENTER);
-        //riga 1_2
-        scritta_mazzo_sotto_pesca = new Label("Pesca");
-        scritta_mazzo_sotto_pesca.setFont(new Font("OCR A Extended", 30));
-        scritta_mazzo_sotto_pesca.setTextFill(Color.web("#F8C66D"));
-        
-        scritta_mazzo_sotto = new Label("Mano");
-        scritta_mazzo_sotto.setFont(new Font("OCR A Extended", 45));
-        scritta_mazzo_sotto.setTextFill(Color.web("#F8C66D"));
-        
-        scritta_mazzo_sotto_cimitero = new Label("Cimitero");
-        scritta_mazzo_sotto_cimitero.setFont(new Font("OCR A Extended", 30));
-        scritta_mazzo_sotto_cimitero.setTextFill(Color.web("#F8C66D"));
-        
-        scritta_mazzo_sotto_hbox = new HBox(scritta_mazzo_sotto);
-        scritta_mazzo_sotto_hbox.setSpacing(10);
-        HBox.setHgrow(scritta_mazzo_sotto_hbox, Priority.ALWAYS);
-        scritta_mazzo_sotto_hbox.setAlignment(Pos.CENTER);
-        
-        hbox1_2_sotto = new HBox(scritta_mazzo_sotto_pesca, scritta_mazzo_sotto_hbox, scritta_mazzo_sotto_cimitero);
-        hbox1_2_sotto.setSpacing(10);
-        hbox1_2_sotto.setAlignment(Pos.CENTER);
-        
-        //riga 2
-        hbox2_sotto = new HBox(hbox_mazzo_sotto, hbox_mano_sotto, hbox_cimitero_sotto);
-        hbox2_sotto.setSpacing(10);
-        HBox.setHgrow(hbox_mano_sotto, Priority.ALWAYS);
-        
-        
-        //contenitore verticale parte sotto
-        vbox_sotto = new VBox(hbox1_sotto, hbox1_2_sotto, hbox2_sotto);
-        vbox_sotto.setAlignment(Pos.BOTTOM_CENTER);
-        
-        
-        //FINE GRID GENERALE----------------------------------------------------
-        
-        //contenitore verticale parte centrale(scritta)
-        Label scritta_campo = new Label("----Campo----");
-        scritta_campo.setFont(new Font("OCR A Extended", 30));
-        scritta_campo.setTextFill(Color.web("#F8C66D"));
-        vbox_mezzo = new VBox(scritta_campo);
-        vbox_mezzo.setAlignment(Pos.CENTER);
-        
-        vbox_mezzo.setSpacing(10);
-        VBox.setVgrow(vbox_mezzo, Priority.ALWAYS);
-        
-        //contenitore verticale parte bot(scritta nome e vita giocatore 2)
-        hbox_bot_destra = new HBox(giocatore_2.getGiocatore().getScritta_giocatore_nome(), giocatore_2.getGiocatore().getScritta_giocatore_vita_Stringa(), giocatore_2.getGiocatore().getScritta_giocatore_vita());
-        hbox_bot_destra.setSpacing(20);
-        hbox_bot_destra.setAlignment(Pos.CENTER);
-        hbox_bot_destra.setSpacing(10);
-        HBox.setHgrow(hbox_bot_destra, Priority.ALWAYS);
-        
-        hbox_bot_sinistra = new HBox();
-        hbox_bot_sinistra.setSpacing(20);
-        hbox_bot_sinistra.setAlignment(Pos.CENTER);
-        hbox_bot_sinistra.setSpacing(10);
-        HBox.setHgrow(hbox_bot_sinistra, Priority.ALWAYS);
-        
-        hbox_bot = new HBox(hbox_bot_sinistra, hbox_bot_destra);
-        hbox_bot.setSpacing(20);
-        hbox_bot.setAlignment(Pos.CENTER);
-        
-        vbox_bot = new VBox(hbox_bot);
-        vbox_bot.setAlignment(Pos.CENTER);
-        
-        //contenitore verticale parte top(scritta nome e vita giocatore 1)
-        hbox_top_destra = new HBox(giocatore_1.getGiocatore().getScritta_giocatore_nome(), giocatore_1.getGiocatore().getScritta_giocatore_vita_Stringa(), giocatore_1.getGiocatore().getScritta_giocatore_vita());
-        hbox_top_destra.setSpacing(20);
-        hbox_top_destra.setAlignment(Pos.CENTER);
-        hbox_top_destra.setSpacing(10);
-        HBox.setHgrow(hbox_top_destra, Priority.ALWAYS);
-        
-        hbox_top_sinistra = new HBox();
-        hbox_top_sinistra.setSpacing(20);
-        hbox_top_sinistra.setAlignment(Pos.CENTER);
-        hbox_top_sinistra.setSpacing(10);
-        HBox.setHgrow(hbox_top_sinistra, Priority.ALWAYS);
-        
-        hbox_top = new HBox(hbox_top_destra, hbox_top_sinistra);
-        hbox_top.setSpacing(20);
-        hbox_top.setAlignment(Pos.CENTER);
-        
-        vbox_top = new VBox(hbox_top);
-        vbox_top.setAlignment(Pos.CENTER);
     }
-    //---------------
+    //--------------------------------------------------------------------------------------------------
+    
+    public void moveToCampo (int i){
+        if(nTurno % 2 == 1){ //Giocatore 1
+            if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
+                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
+                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable((nTurno!=0 && nTurno!=1)?false:true);
+                giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
+                //giocatore_1.getMazCam().Add(giocatore_1.getMan().getCarta(i));
+                //giocatore_1.getMan().Remove(i);
+            }
+            
+            
+        }else{
+            if(giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
+                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
+                giocatore_2.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable((nTurno!=0 && nTurno!=1)?false:true);
+                giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getMazCam());
+                //giocatore_2.getMazCam().Add(giocatore_2.getMan().getCarta(i));
+                //giocatore_2.getMan().Remove(i);
+            }
+        }
+        
+        grafica.reload_tasto_destro(giocatore_1);
+        grafica.reload_tasto_destro(giocatore_2);
+    }
+    
+    public void attacca(int iAttaccante, int iAttaccato){
+        System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
+        if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
+            //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
+            giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato));
+            p1attack--;
+            
+        }else if (nTurno %2 == 0 && nTurno < 2 && p2attack > 0){ //Giocatore 2
+            giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato));
+            p2attack--;
+        }
+    }
+    
+    public int checkWinner(){
+        if(giocatore_1.getGiocatore().getVita() > 0 && giocatore_2.getGiocatore().getVita() > 0){
+            return 0; //Nessuno è morto :(
+        }else if(giocatore_1.getGiocatore().getVita() <= 0){
+            return 1; //Giocatore 1 è morto
+        }else if(giocatore_2.getGiocatore().getVita() <= 0){
+            return 2; //Giocatore 2 è morto
+        }
+        return -1;
+    }
+    
+    
+    public void nextTurno(){
+        /*Turni dispari --> Giocatore 1
+          Turni pari -----> Giocatore 2
+        */
+        
+        this.nTurno ++;
+        
+        int i;
+        int nCarte = 4; //Numero carte da estrarre al primo turno
+        
+        //reload opzioni tasto destro
+        grafica.reload_tasto_destro(giocatore_1);
+        grafica.reload_tasto_destro(giocatore_2);
+        if(nTurno == 2){
+            for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+            }
+            for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+            }
+        }
+        
+        if(nTurno == 0){//Turno Giocatore 2
+            
+            for(i=0;i<nCarte;i++){
+                System.out.println(rand.nextInt(giocatore_1.getMazz().Size()));
+                giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
+                giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
+            }
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_1, giocatore_2);
+            grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
+            
+        }else if(nTurno == 1){//Turno Giocatore 1
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_1, giocatore_2);
+            grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
+            
+        }else if(nTurno % 2 == 1){//Turno Giocatore 1
+            this.p1attack ++;
+            
+            if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
+                giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
+            }
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_1);
+            grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
+            
+        }else{//Turno Giocatore 2
+            this.p2attack ++;
+            
+            if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
+                giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
+            }
+            
+            //reload grafica
+            grafica.reload_GUI(giocatore_2);
+            grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
+            
+        }
+        
+        //disattivazione carte magia (deve stare in fondo al next turn)
+        for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){
+            if(giocatore_1.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
+                giocatore_1.getDck().getCarta(i).getMagia().disability();
+            }
+            if(giocatore_2.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
+                giocatore_2.getDck().getCarta(i).getMagia().disability();
+            }
+        }
+    }
     
     //setter----------------------------------------
     public void setGiocatore_1(Campo giocatore_1) {
@@ -250,26 +184,17 @@ public class Gioco {
         return giocatore_2;
     }
     
-    public VBox getVbox_sopra() {
-        return vbox_sopra;
-    }
 
-    public VBox getVbox_top() {
-        return vbox_top;
-    }
-
-    public VBox getVbox_sotto() {
-        return vbox_sotto;
-    }
-
-    public VBox getVbox_bot() {
-        return vbox_bot;
-    }
-
-    public VBox getVbox_mezzo() {
-        return vbox_mezzo;
+    public GraficaGioco getGrafica() {
+        return grafica;
+    }    
+    
+    public static int getnTurno() {
+        return nTurno;
     }
     //-------------------------------
+
+   
 
     
     
