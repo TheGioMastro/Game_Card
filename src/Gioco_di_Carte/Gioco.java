@@ -4,12 +4,15 @@
  */
 package Gioco_di_Carte;
 
+import java.util.Random;
 
 /**
  *
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Gioco {
+    Random rand = new Random();
+    
     protected Campo giocatore_1; //CAMPO SOPRA
     protected Campo giocatore_2; //CAMPO SOTTO
     
@@ -112,8 +115,9 @@ public class Gioco {
         if(nTurno == 0){//Turno Giocatore 2
             
             for(i=0;i<nCarte;i++){
-                giocatore_1.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_1.getMan());
-                giocatore_2.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_2.getMan());
+                System.out.println(rand.nextInt(giocatore_1.getMazz().Size()));
+                giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
+                giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
             }
             
             //reload grafica
@@ -130,7 +134,7 @@ public class Gioco {
             this.p1attack ++;
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
-                giocatore_1.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_1.getMan());
+                giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
             }
             
             //reload grafica
@@ -141,7 +145,7 @@ public class Gioco {
             this.p2attack ++;
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
-                giocatore_2.getMazz().SWAP_REMOVE((int)Math.random() % 15, giocatore_2.getMan());
+                giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
             }
             
             //reload grafica
