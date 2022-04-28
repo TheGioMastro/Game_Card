@@ -109,6 +109,12 @@ public class Main3 extends Application{
                         primaryStage.setMaximized(true);
                         
                         vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+                        int i;
+                        for(i=0; i<game.getGiocatore_1().getMazz().Size(); i++){
+                            game.getGiocatore_1().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setVita();
+                            game.getGiocatore_2().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setVita();
+                        
+                        }
                         
                         game.nextTurno();
                     }else{
