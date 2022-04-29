@@ -55,12 +55,14 @@ public class Personaggio extends Carta{
         return pDefense;
     }
     
-    public boolean attacca(Carta attaccato){
-        return attaccato.getPersonaggio().difesa(pAttack) < 0;
-    }
-    
-    public int difesa(int pAttack){
-        return this.pDefense - pAttack;
+    public boolean attacca(Carta attaccato, Player p1){
+        attaccato.getPersonaggio().setpDefense(attaccato.getPersonaggio().getpDefense() - this.pAttack); 
+        
+        if(attaccato.getPersonaggio().getpDefense() <= 0){
+            return true;
+        }else {
+            return false;
+        }
     }
     
     
