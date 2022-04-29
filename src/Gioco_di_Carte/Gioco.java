@@ -29,8 +29,8 @@ public class Gioco {
     public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
         
         this.nTurno = -1;
-        this.p1attack = 1;
-        this.p2attack = 1;
+        this.p1attack = 0;
+        this.p2attack = 0;
         
         giocatore_1 = new Campo(nomeG1, tipoG1, this);
         giocatore_2 = new Campo(nomeG2, tipoG2, this);
@@ -80,6 +80,8 @@ public class Gioco {
     
     public void attacca(int iAttaccante, int iAttaccato){
         System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
+            System.out.println("pattack1 " + p1attack);
+            System.out.println("pattack2 " + p2attack);
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
             System.out.println("Vita 1: " + giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
@@ -89,7 +91,7 @@ public class Gioco {
                 giocatore_2.getMazCam().SWAP_REMOVE(iAttaccato, giocatore_2.getCim());
             }
             p1attack--;
-            
+            System.out.println("pattack1 " + p1attack);
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
             System.out.println("Vita 2: " + giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             
@@ -98,11 +100,15 @@ public class Gioco {
             }
             
             p2attack--;
+            System.out.println("pattack2 " + p2attack);
         }
         //reload opzioni tasto destro
         grafica.reload_GUI(giocatore_1, giocatore_2);
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
+        
+        //update tasto destro attacco
+        grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
     }
     
     public int checkWinner(){
@@ -157,7 +163,7 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
-            this.p1attack ++;
+            this.p1attack = 1;
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
@@ -168,7 +174,7 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else{//Turno Giocatore 2
-            this.p2attack ++;
+            this.p2attack = 1;
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
@@ -179,6 +185,9 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
             
         }
+        
+        //update tasto destro attacco
+        grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
         
         //disattivazione carte magia (deve stare in fondo al next turn)
         for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){

@@ -379,5 +379,28 @@ public class GraficaGioco {
         }
     }
     
+    //RELOAD ATTACCO TASTO DESTRO
+    public void reload_tasto_destro_attacco(Campo giocatore_1, int p1attack, Campo giocatore_2, int p2attack){
+        //update tasto destro attacco
+        if(p1attack == 0){
+            for(int i = 0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(true);
+            }
+        }else{
+            for(int i = 0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+            }
+        }
+        if(p2attack == 0){
+            for(int i = 0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(true);
+            }
+        }else{
+            for(int i = 0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+            }
+        }
+    }
+    
     
 }

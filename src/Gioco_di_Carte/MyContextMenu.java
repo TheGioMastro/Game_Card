@@ -44,7 +44,7 @@ public class MyContextMenu extends ContextMenu{
         
         
         //menu item contextmenu
-        mettiInCampo = new MenuItem("Metti in campo");
+        mettiInCampo = new MenuItem("");
         attacca = new Menu("Attacca");
         
 
@@ -97,12 +97,14 @@ public class MyContextMenu extends ContextMenu{
         
         if(this.carta_legata_al_bottone.getTipo_Carta().equals("Personaggio")){
             this.haveLife = true;
+            mettiInCampo.setText("Metti in campo");
             this.vita = new MenuItem("Vita: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
             this.vita.setStyle("-fx-background-color: #53CA2B");
             this.getItems().add(vita);
         
         }else{
             this.haveLife = false;
+            mettiInCampo.setText("Usa");
         }
     }
     
