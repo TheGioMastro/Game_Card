@@ -24,6 +24,7 @@ public class Magia extends Carta{
     protected boolean brama_sangue = false;
     protected boolean luna_piena = false;
     protected int turno;
+    int numero_random;
     
     //oggetti
     Random rand = new Random();
@@ -70,7 +71,7 @@ public class Magia extends Carta{
         return descrizione;
     }
     
-    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int i){
+    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero){
         turno = Gioco.nTurno;
         switch(indice_magia){
             case 1 -> {
@@ -79,11 +80,12 @@ public class Magia extends Carta{
                 }
             }
             case 2 -> {
-                cimitero.Add(campo.Get(i));
-                campo.Remove(i);
+                numero_random = rand.nextInt(campo.Size() - 1);
+                cimitero.Add(campo.Get(numero_random));
+                campo.Remove(numero_random);
             }
             case 3 -> {
-                int numero_random = rand.nextInt(cimitero.Size() - 1);
+                numero_random = rand.nextInt(cimitero.Size() - 1);
                 mano.Add(cimitero.Get(numero_random));
                 cimitero.Remove(numero_random);
             }
