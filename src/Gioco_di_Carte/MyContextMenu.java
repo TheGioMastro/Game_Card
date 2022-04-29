@@ -112,7 +112,7 @@ public class MyContextMenu extends ContextMenu{
             attacca.getItems().clear();
             
             for(int i=0; i<gioco.getGiocatore_2().getMazCam().Size(); i++){
-                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome(), gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo(i));
+                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_2().getMazCam().Get(i).getNome(), Integer.toString(gioco.getGiocatore_2().getMazCam().Get(i).getPersonaggio().getpDefense()), gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo(i));
                 attacca.getItems().add(nuovoitem);
                 
                 if(haveLife){
@@ -131,7 +131,7 @@ public class MyContextMenu extends ContextMenu{
             attacca.getItems().clear();
             
             for(int i=0; i<gioco.getGiocatore_1().getMazCam().Size(); i++){
-                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome(), gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo(i));
+                MyMenuItem nuovoitem = new MyMenuItem(gioco.getGiocatore_1().getMazCam().Get(i).getNome(), Integer.toString(gioco.getGiocatore_1().getMazCam().Get(i).getPersonaggio().getpDefense()), gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo(i));
                 attacca.getItems().add(nuovoitem);
                 
                 if(haveLife){
