@@ -80,7 +80,7 @@ public class Magia extends Carta{
                 }
             }
             case 2 -> {
-                numero_random = rand.nextInt(campo.Size() - 1);
+                numero_random = rand.nextInt((campo.Size() == 0)? campo.Size():campo.Size() - 1);
                 cimitero.Add(campo.Get(numero_random));
                 campo.Remove(numero_random);
             }
