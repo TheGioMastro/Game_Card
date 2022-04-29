@@ -55,8 +55,14 @@ public class Personaggio extends Carta{
         return pDefense;
     }
     
-    public boolean attacca(Carta attaccato, Player p1){
+    public boolean attacca(Carta attaccato, Player player_attaccato){
         attaccato.getPersonaggio().setpDefense(attaccato.getPersonaggio().getpDefense() - this.pAttack); 
+        
+        if(attaccato.getPersonaggio().getpDefense() < 0){
+            System.out.println("Vita iniziale: " + player_attaccato.getVita());
+            player_attaccato.setVita(player_attaccato.getVita() + attaccato.getPersonaggio().getpDefense());
+            System.out.println("Vita scalata: " + player_attaccato.getVita());
+        }
         
         if(attaccato.getPersonaggio().getpDefense() <= 0){
             return true;
@@ -65,5 +71,7 @@ public class Personaggio extends Carta{
         }
     }
     
-    
+    public void attacca_diretto(Player player_attaccato){
+        player_attaccato.setVita(player_attaccato.getVita() - this.pAttack);
+    }
 }
