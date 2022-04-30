@@ -118,7 +118,7 @@ public class MyContextMenu extends ContextMenu{
                 attacca.getItems().add(nuovoitem);
                 
                 if(haveLife){
-                    this.vita = new MenuItem("Vita: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
+                    this.vita.setText("Vita: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
                     this.vita.setStyle("-fx-background-color: #53CA2B");
                 }
                 
@@ -137,7 +137,7 @@ public class MyContextMenu extends ContextMenu{
                 attacca.getItems().add(nuovoitem);
                 
                 if(haveLife){
-                    this.vita = new MenuItem("Vita: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
+                    this.vita.setText("Vita: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
                     this.vita.setStyle("-fx-background-color: #53CA2B");
                 }
                 
