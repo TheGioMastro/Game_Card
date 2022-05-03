@@ -29,9 +29,9 @@ wizard
 100
 300
 -
-Doppio Attacco
-Distruggi Carta
-Resuscita Carta
-Ruba Attacco
-Luna Piena
+Doppio_Attacco
+Distruggi_Carta
+Resuscita_Carta
+Ruba_Attacco
+Luna_Piena
 --

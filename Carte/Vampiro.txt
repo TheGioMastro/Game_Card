@@ -29,9 +29,9 @@ difesa5
 100
 300
 -
-Doppio Attacco
-Distruggi Carta
-Resuscita Carta
-Ruba Attacco
-Brama Sangue
+Doppio_Attacco
+Distruggi_Carta
+Resuscita_Carta
+Ruba_Attacco
+Brama_Sangue
 --
