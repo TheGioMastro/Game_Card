@@ -11,13 +11,19 @@ import javafx.scene.image.Image;
  *
  * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
  */
+
+enum Carta_Magia{
+    Doppio_Attacco,
+    Distruggi_Carta,
+    Resuscita_Carta,
+    Ruba_Attacco,
+    Spirito_Indomito,
+    Brama_Sangue,
+    Luna_Piena
+}
+
 public class Magia extends Carta{
     //attributi
-    protected String nome;
-    protected String descrizione;
-    protected String tipo_carta;
-    protected Image foto;
-    protected int indice_magia;
     protected boolean doppio_attacco = false;
     protected boolean ruba_attacco = false;
     protected boolean spirito_indomito = false;
@@ -34,79 +40,100 @@ public class Magia extends Carta{
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
         this.foto = foto;
-        
-        if(nome.equals("Doppio Attacco"))
-            indice_magia = 1;
-        else if(nome.equals("Distruggi Carta"))
-            indice_magia = 2;
-        else if(nome.equals("Resuscita Carta"))
-            indice_magia = 3;
-        else if(nome.equals("Ruba Attacco"))
-            indice_magia = 4;
-        else if(nome.equals("Spirito Indomito"))
-            indice_magia = 5;
-        else if(nome.equals("Brama Sangue"))
-            indice_magia = 6;
-        else if(nome.equals("Luna Piena"))
-            indice_magia = 7;
     }
     
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
-
-    public void setTipo(String tipo_carta) {
-        this.tipo_carta = tipo_carta;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getDescrizione() {
-        return descrizione;
-    }
-    
-    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero){
+    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int index){
         turno = Gioco.nTurno;
-        switch(indice_magia){
-            case 1 -> {
+        
+        System.out.println("Ability");
+        
+        switch(Carta_Magia.valueOf(nome)){
+            case Doppio_Attacco -> {
+                System.out.println("Doppio_Attacco");
                 if(rand.nextBoolean()){
                     doppio_attacco = true;
                 }
+                mano.SWAP_REMOVE(index, cimitero);
             }
-            case 2 -> {
-                numero_random = rand.nextInt((campo.Size() == 0)? campo.Size():campo.Size() - 1);
-                cimitero.Add(campo.Get(numero_random));
-                campo.Remove(numero_random);
+            case Distruggi_Carta -> {
+                System.out.println("Distruggi_Carta");
+                if(campo.Size() > 0){
+                    numero_random = rand.nextInt(campo.Size());
+                    System.out.println("campo.Size(): " + campo.Size() + "\nnumero_random" + numero_random);
+                    cimitero.Add(campo.Get(numero_random));
+                    System.out.println("HERE1");
+                    campo.Remove(numero_random);
+                    System.out.println("HERE2");
+                    mano.SWAP_REMOVE(index, cimitero);
+                    System.out.println("HERE3");
+                }else{
+                    System.out.println("Non ci sono carte in campo da eliminare");  //eliminare questo print a progetto ultimato
+                }
             }
-            case 3 -> {
-                numero_random = rand.nextInt((cimitero.Size() == 0)? cimitero.Size():cimitero.Size() - 1);
-                mano.Add(cimitero.Get(numero_random));
-                cimitero.Remove(numero_random);
+            case Resuscita_Carta -> {
+                System.out.println("Resuscita_Carta");
+                if(cimitero.Size() > 0){
+                    numero_random = rand.nextInt(cimitero.Size());
+                    System.out.println("cimitero.Size(): " + cimitero.Size() + "\nnumero_random" + numero_random);
+                    mano.Add(cimitero.Get(numero_random));
+                    System.out.println("HERE1");
+                    cimitero.Remove(numero_random);
+                    System.out.println("HERE2");
+                    mano.SWAP_REMOVE(index, cimitero);
+                    System.out.println("HERE3");
+                }else{
+                    System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
+                }
             }
-            case 4 -> ruba_attacco = true;
-            case 5 -> spirito_indomito = true;
-            case 6 -> brama_sangue = true;
-            case 7 -> luna_piena = true;
+            case Ruba_Attacco -> {
+                System.out.println("Ruba_Attacco");
+                ruba_attacco = true;
+                mano.SWAP_REMOVE(index, cimitero);
+            }
+            case Spirito_Indomito -> {
+                System.out.println("Spirito_Indomito");
+                spirito_indomito = true;
+                mano.SWAP_REMOVE(index, cimitero);
+            }
+            case Brama_Sangue -> {
+                System.out.println("Brama_Sangue");
+                brama_sangue = true;
+                mano.SWAP_REMOVE(index, cimitero);
+            }
+            case Luna_Piena -> {
+                System.out.println("Luna_Piena");
+                luna_piena = true;
+                mano.SWAP_REMOVE(index, cimitero);
+            }
         }
     }
     
     //disability dovrà essere richiamato alla fine dell'effetto della carta 
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
-    //P.S.: non è di fatto finito, lo finirò quando avremo implementato la fine del turno
     public void disability(){
-        if(turno + 1 == Gioco.nTurno && indice_magia != 4 || turno + 2 == Gioco.nTurno && indice_magia == 4){
-            switch(indice_magia){
-                case 1 -> doppio_attacco = false;
-                case 4 -> ruba_attacco = false;
-                case 5 -> spirito_indomito = false;
-                case 6 -> brama_sangue = false;
-                case 7 -> luna_piena = false;
+        if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.Ruba_Attacco)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.Ruba_Attacco == Carta_Magia.valueOf(nome)))){
+            System.out.println("disability");
+            switch(Carta_Magia.valueOf(nome)){
+                case Doppio_Attacco -> {
+                    System.out.println("Doppio_Attacco");
+                    doppio_attacco = false;
+                }
+                case Ruba_Attacco -> {
+                    System.out.println("Ruba_Attacco");
+                    ruba_attacco = false;
+                }
+                case Spirito_Indomito -> {
+                    System.out.println("Spirito_Indomito");
+                    spirito_indomito = false;
+                }
+                case Brama_Sangue -> {
+                    System.out.println("Brama_Sangue");
+                    brama_sangue = false;
+                }
+                case Luna_Piena -> {
+                    System.out.println("Luna_Piena");
+                    luna_piena = false;
+                }
             }
         }
     }
