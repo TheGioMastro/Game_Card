@@ -44,23 +44,29 @@ public class Gioco {
         if(nTurno % 2 == 1){ //Giocatore 1
             
             if(giocatore_1.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
-                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_1.getMazCam(), giocatore_1.getCim());
-                giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
+                
+                System.out.println(giocatore_1.getMan().getCarta(i).getNome());
+                
+                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), i);
+                //giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
             }else{
                 if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
-                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
-                giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable((nTurno!=0 && nTurno!=1)?false:true);
-                giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
-                //giocatore_1.getMazCam().Add(giocatore_1.getMan().getCarta(i));
-                //giocatore_1.getMan().Remove(i);
+                    giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getMettiInCampo().setDisable(true);
+                    giocatore_1.getMan().get_ArrayList_radiobutton_mano(i).getMycontextmenu().getAttacca().setDisable((nTurno!=0 && nTurno!=1)?false:true);
+                    giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getMazCam());
+                    //giocatore_1.getMazCam().Add(giocatore_1.getMan().getCarta(i));
+                    //giocatore_1.getMan().Remove(i);
                 }
             }
             
         }else{
             
             if(giocatore_2.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
-                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_2.getMazCam(), giocatore_2.getCim());
-                giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
+                
+                System.out.println(giocatore_2.getMan().getCarta(i).getNome());
+                
+                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), i);
+                //giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
             }else{
             
                 if(giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
@@ -80,8 +86,8 @@ public class Gioco {
     
     public void attacca(int iAttaccante, int iAttaccato){
         System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
-            System.out.println("pattack1 " + p1attack);
-            System.out.println("pattack2 " + p2attack);
+        System.out.println("pattack1 " + p1attack);
+        System.out.println("pattack2 " + p2attack);
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
             System.out.println("Vita 1: " + giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
@@ -95,7 +101,7 @@ public class Gioco {
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
             System.out.println("Vita 2: " + giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             
-            if(giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_1.getMazCam().Get(iAttaccato), giocatore_2.getGiocatore())){
+            if(giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_1.getMazCam().Get(iAttaccato), giocatore_1.getGiocatore())){
                 giocatore_1.getMazCam().SWAP_REMOVE(iAttaccato, giocatore_1.getCim());
             }
             
