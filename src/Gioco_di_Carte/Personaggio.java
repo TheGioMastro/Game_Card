@@ -56,7 +56,7 @@ public class Personaggio extends Carta{
     }
     
     public boolean attacca(Carta attaccato, Player player_attaccato){
-        attaccato.getPersonaggio().setpDefense(attaccato.getPersonaggio().getpDefense() - this.pAttack); 
+        attaccato.getPersonaggio().setpDefense(attaccato.getPersonaggio().getpDefense() - this.pAttack);
         
         if(attaccato.getPersonaggio().getpDefense() < 0){
             player_attaccato.setVita(player_attaccato.getVita() + attaccato.getPersonaggio().getpDefense());
