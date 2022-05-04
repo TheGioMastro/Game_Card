@@ -22,8 +22,8 @@ public class MyContextMenu extends ContextMenu{
     protected Gioco gioco;
     protected boolean haveLife;
     
-    ArrayList<MyButton> ArrayList_radiobutton_mazzo;
-    ArrayList<Carta> Mazzo;
+    protected ArrayList<MyButton> ArrayList_radiobutton_mazzo;
+    protected ArrayList<Carta> Mazzo;
     
     protected MenuItem mettiInCampo;
     protected MenuItem attacca_avversario;
