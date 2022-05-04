@@ -12,17 +12,17 @@ import javafx.scene.image.Image;
  * @author Alessandro Poggi <poggialessandro@itis-molinari.eu>
  */
 
-enum Carta_Magia{
-    doppio_attacco,
-    terremoto,
-    resuscita,
-    blocca_attacco,
-    spirito_indomito,
-    brama_sangue,
-    luna_piena
-}
-
 public class Magia extends Carta{
+    protected enum Carta_Magia{
+        doppio_attacco,
+        terremoto,
+        resuscita,
+        blocca_attacco,
+        spirito_indomito,
+        brama_sangue,
+        luna_piena
+    }
+
     //attributi
     protected boolean doppio_attacco = false;
     protected boolean ruba_attacco = false;
