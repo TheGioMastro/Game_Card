@@ -49,14 +49,14 @@ public class Magia extends Carta{
         
         switch(Carta_Magia.valueOf(nome)){
             case doppio_attacco -> {
-                System.out.println("Doppio_Attacco");
+                System.out.println("doppio_attacco");
                 if(rand.nextBoolean()){
                     doppio_attacco = true;
                 }
                 mano.SWAP_REMOVE(index, cimitero);
             }
             case terremoto -> {
-                System.out.println("Distruggi_Carta");
+                System.out.println("terremoto");
                 if(campo.Size() > 0){
                     numero_random = rand.nextInt(campo.Size());
                     System.out.println("campo.Size(): " + campo.Size() + "\nnumero_random" + numero_random);
@@ -71,7 +71,7 @@ public class Magia extends Carta{
                 }
             }
             case resuscita -> {
-                System.out.println("Resuscita_Carta");
+                System.out.println("resuscita");
                 if(cimitero.Size() > 0){
                     numero_random = rand.nextInt(cimitero.Size());
                     System.out.println("cimitero.Size(): " + cimitero.Size() + "\nnumero_random" + numero_random);
@@ -86,22 +86,24 @@ public class Magia extends Carta{
                 }
             }
             case blocca_attacco -> {
-                System.out.println("Ruba_Attacco");
+                System.out.println("blocca_attacco");
                 blocca_attacco = true;
+                for(int i = 0; i < campo.Size(); i++)
+                    campo.Get(i).getPersonaggio().blocca_attacco();     //NON VA BENE, L'ATTACCO NON VA A BUON FINE SI, MA IL TASTO NON SI BLOCCA NEL TASTO DESTRO
                 mano.SWAP_REMOVE(index, cimitero);
             }
             case spirito_indomito -> {
-                System.out.println("Spirito_Indomito");
+                System.out.println("spirito_indomito");
                 spirito_indomito = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
             case brama_sangue -> {
-                System.out.println("Brama_Sangue");
+                System.out.println("brama_sangue");
                 brama_sangue = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
             case luna_piena -> {
-                System.out.println("Luna_Piena");
+                System.out.println("luna_piena");
                 luna_piena = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }

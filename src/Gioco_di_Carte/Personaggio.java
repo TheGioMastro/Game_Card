@@ -15,6 +15,7 @@ public class Personaggio extends Carta{
     protected boolean isAlive;
     protected int pAttack;
     protected int pDefense;
+    protected boolean check = false;
     
     public Personaggio(String tipo_personaggio, int pAttack, int pDefense, String nome, String descrizione, String tipo_carta, Image foto) {
         this.tipo_personaggio = tipo_personaggio;
@@ -56,20 +57,29 @@ public class Personaggio extends Carta{
     }
     
     public boolean attacca(Carta attaccato, Player player_attaccato){
-        attaccato.getPersonaggio().setpDefense(attaccato.getPersonaggio().getpDefense() - this.pAttack);
-        
-        if(attaccato.getPersonaggio().getpDefense() < 0){
-            player_attaccato.setVita(player_attaccato.getVita() + attaccato.getPersonaggio().getpDefense());
-        }
-        
-        if(attaccato.getPersonaggio().getpDefense() <= 0){
-            return true;
-        }else {
+        if(!check){
+            attaccato.getPersonaggio().setpDefense(attaccato.getPersonaggio().getpDefense() - this.pAttack);
+
+            if(attaccato.getPersonaggio().getpDefense() < 0){
+                player_attaccato.setVita(player_attaccato.getVita() + attaccato.getPersonaggio().getpDefense());
+            }
+
+            if(attaccato.getPersonaggio().getpDefense() <= 0){
+                return true;
+            }else {
+                return false;
+            }
+        }else{
+            check = false;
             return false;
         }
     }
     
     public void attacca_diretto(Player player_attaccato){
         player_attaccato.setVita(player_attaccato.getVita() - this.pAttack);
+    }
+    
+    public void blocca_attacco(){
+        check = true;
     }
 }
