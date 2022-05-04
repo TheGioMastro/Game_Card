@@ -4,12 +4,8 @@
  */
 package Gioco_di_Carte;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -221,9 +217,8 @@ public class GraficaGioco {
         String full_screen = absolute1.toString();
         Image Full_Screen = new Image(full_screen, 50, 50, false, false);
         fullscreen.setGraphic(new ImageView(Full_Screen));
-        fullscreen.setFont(new Font("Minecraftita", 20));
-        fullscreen.setTextFill(Color.web("#E8D954"));
         fullscreen.setPadding(Insets.EMPTY);
+        
         fullscreen.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
