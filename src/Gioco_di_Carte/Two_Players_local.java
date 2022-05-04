@@ -62,7 +62,8 @@ public class Two_Players_local {
     protected Scene scene;
     
     //primaryStage
-    protected Stage primaryStage;
+    protected static Stage primaryStage;
+    protected static boolean fullscreen = true;
     
     //GIOCO
     protected Gioco game;
@@ -73,7 +74,8 @@ public class Two_Players_local {
     //Costruttore
     public Two_Players_local(Stage primaryStage){
         this.primaryStage = primaryStage;
-        setFullScreen();
+        primaryStage.setFullScreenExitHint("");
+        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         nome_giocatore_1 = new AtomicReference<>();
         nome_giocatore_2 = new AtomicReference<>();
         tipo_deck_giocatore_1 = new AtomicReference<>();
@@ -140,6 +142,7 @@ public class Two_Players_local {
                         scene = new Scene( vbox_tot, 1400, 600 );
         
                         primaryStage.setScene( scene );
+                        primaryStage.setMaximized(true);
                         setFullScreen();
                         
                         vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -151,8 +154,6 @@ public class Two_Players_local {
                         }
                         
                         game.nextTurno();
-                    }else{
-
                     }
             }
         });
@@ -209,10 +210,13 @@ public class Two_Players_local {
         return scene;
     }
     
-    public void setFullScreen() {
-        primaryStage.setFullScreen(true);
-        primaryStage.setFullScreenExitHint("");
-        primaryStage.setFullScreenExitKeyCombination(KeyCombination.valueOf("Ctrl+B"));
+    public static void setFullScreen() {
+        if(fullscreen){
+            primaryStage.setFullScreen(fullscreen);
+            fullscreen = false;
+        }else{
+            primaryStage.setFullScreen(fullscreen);
+            fullscreen = true;
+        }
     }
-    
 }

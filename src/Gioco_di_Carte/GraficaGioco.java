@@ -4,11 +4,20 @@
  */
 package Gioco_di_Carte;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -80,6 +89,7 @@ public class GraficaGioco {
     protected VBox vbox_mezzo_destra;
     protected VBox vbox_mezzo;
     protected Button cambio_turno;
+    protected Button fullscreen;
     
     
     //COSTRUTTORE
@@ -200,7 +210,34 @@ public class GraficaGioco {
             }
         });
         
-        vbox_mezzo_sinistra = new VBox();
+        //bottone per entrare e uscire dal fullscreen
+        fullscreen = new Button();
+        //IMAGE-----------------------------------------------------------------
+        //get the path of the card file on your system
+        Path relative1 = Paths.get("immagini/fullscreen.png");
+        Path absolute1 = relative1.toAbsolutePath();
+        
+        //convert the file path to string, save as a string and define the width and height
+        String full_screen = absolute1.toString();
+        Image Full_Screen = new Image(full_screen, 50, 50, false, false);
+        fullscreen.setGraphic(new ImageView(Full_Screen));
+        fullscreen.setFont(new Font("Minecraftita", 20));
+        fullscreen.setTextFill(Color.web("#E8D954"));
+        fullscreen.setPadding(Insets.EMPTY);
+        fullscreen.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Two_Players_local.setFullScreen();
+            }
+        });
+        
+        /*
+        GridPane gridpane = new GridPane();
+        gridpane.setRowIndex(fullscreen, 0);
+        gridpane.setColumnIndex(fullscreen, 1);
+        */
+        
+        vbox_mezzo_sinistra = new VBox(fullscreen);
         vbox_mezzo_centro = new VBox(scritta_campo);
         vbox_mezzo_destra = new VBox(cambio_turno);
         
@@ -254,7 +291,8 @@ public class GraficaGioco {
         
         vbox_top = new VBox(hbox_top);
         vbox_top.setAlignment(Pos.CENTER);
-    
+        
+        
     }
     
     
