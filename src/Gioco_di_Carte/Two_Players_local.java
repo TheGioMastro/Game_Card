@@ -148,8 +148,8 @@ public class Two_Players_local {
                         vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
                         int i;
                         for(i=0; i<game.getGiocatore_1().getMazz().Size(); i++){
-                            game.getGiocatore_1().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setStart();
-                            game.getGiocatore_2().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setStart();
+                            game.getGiocatore_1().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setStart(1);
+                            game.getGiocatore_2().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setStart(2);
                         
                         }
                         

@@ -99,9 +99,9 @@ public class MyContextMenu extends ContextMenu{
     }
     
     //other
-    public void setStart(){
-        this.carta_legata_al_bottone = (gioco.getnTurno() % 2 == 1)?Mazzo.get(ArrayList_radiobutton_mazzo.indexOf(bottone)):Mazzo.get(ArrayList_radiobutton_mazzo.indexOf(bottone));
-        this.attacca_avversario.setText("Attacca " + ((gioco.getnTurno() % 2 == 1)?gioco.getGiocatore_2().getGiocatore().getNome():gioco.getGiocatore_1().getGiocatore().getNome()));
+    public void setStart(int i){
+        this.carta_legata_al_bottone = (i == 1)?Mazzo.get(ArrayList_radiobutton_mazzo.indexOf(bottone)):Mazzo.get(ArrayList_radiobutton_mazzo.indexOf(bottone));
+        this.attacca_avversario.setText("Attacca " + ((i == 1)?gioco.getGiocatore_2().getGiocatore().getNome():gioco.getGiocatore_1().getGiocatore().getNome()));
         
         if(this.carta_legata_al_bottone.getTipo_Carta().equals("Personaggio")){
             this.getItems().addAll(mettiInCampo, attacca_avversario, attacca_carte_in_campo);
