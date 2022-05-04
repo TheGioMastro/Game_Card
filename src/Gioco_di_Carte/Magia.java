@@ -25,7 +25,7 @@ public class Magia extends Carta{
 
     //attributi
     protected boolean doppio_attacco = false;
-    protected boolean ruba_attacco = false;
+    protected boolean blocca_attacco = false;
     protected boolean spirito_indomito = false;
     protected boolean brama_sangue = false;
     protected boolean luna_piena = false;
@@ -87,7 +87,7 @@ public class Magia extends Carta{
             }
             case blocca_attacco -> {
                 System.out.println("Ruba_Attacco");
-                ruba_attacco = true;
+                blocca_attacco = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
             case spirito_indomito -> {
@@ -118,9 +118,9 @@ public class Magia extends Carta{
                     System.out.println("Doppio_Attacco");
                     doppio_attacco = false;
                 }
-                case terremoto -> {
+                case blocca_attacco -> {
                     System.out.println("Ruba_Attacco");
-                    ruba_attacco = false;
+                    blocca_attacco = false;
                 }
                 case spirito_indomito -> {
                     System.out.println("Spirito_Indomito");
