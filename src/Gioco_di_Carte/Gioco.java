@@ -169,7 +169,15 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
-            this.p1attack = 1;
+            
+            for(i=0; i < giocatore_1.getCim().Size(); i++){
+                if(giocatore_1.getCim().Get(i).getMagia().check2P(){
+                    this.p1attack = 2;
+                }else{
+                    this.p1attack = 1;
+                }
+            }
+            
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
@@ -180,7 +188,14 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else{//Turno Giocatore 2
-            this.p2attack = 1;
+            
+            for(i=0; i < giocatore_2.getCim().Size(); i++){
+                if(giocatore_2.getCim().Get(i).getMagia().check2P(){
+                    this.p1attack = 2;
+                }else{
+                    this.p1attack = 1;
+                }
+            }
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
