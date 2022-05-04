@@ -19,7 +19,6 @@ public class Gioco {
     protected static int nTurno; 
     protected int p1attack;
     protected int p2attack;
-    private boolean semaphore;
     
     
     //Grafica del gioco
@@ -170,14 +169,12 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
-            semaphore = true;
             this.p1attack = 1;
             for(i=0; i < giocatore_1.getCim().Size(); i++){
-                if(giocatore_1.getCim().Get(i).getMagia().check2P() && semaphore){
-                    this.p1attack = 2;
-                    semaphore = false;
-                }else{
-                    semaphore = false;
+                if(giocatore_1.getCim().Get(i).getTipo_Carta().equals("Magia")){
+                    if(giocatore_1.getCim().Get(i).getMagia().check2P()){
+                        this.p1attack = 2;
+                    }
                 }
             }
             
@@ -191,14 +188,12 @@ public class Gioco {
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
         }else{//Turno Giocatore 2
-            semaphore = true;
-            this.p1attack = 1;
+            this.p2attack = 1;
             for(i=0; i < giocatore_2.getCim().Size(); i++){
-                if(giocatore_2.getCim().Get(i).getMagia().check2P() && semaphore){
-                    this.p1attack = 2;
-                    semaphore = false;
-                }else{
-                    semaphore = false;
+                if(giocatore_2.getCim().Get(i).getTipo_Carta().equals("Magia")){
+                    if(giocatore_2.getCim().Get(i).getMagia().check2P()){
+                        this.p2attack = 2;
+                    }
                 }
             }
             
