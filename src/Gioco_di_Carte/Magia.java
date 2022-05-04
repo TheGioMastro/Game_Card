@@ -42,6 +42,10 @@ public class Magia extends Carta{
         this.foto = foto;
     }
     
+    public boolean check2P(){
+        return doppio_attacco;
+    }
+    
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int index){
         turno = Gioco.nTurno;
         
