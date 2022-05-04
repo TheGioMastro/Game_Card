@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -72,6 +73,7 @@ public class Two_Players_local {
     //Costruttore
     public Two_Players_local(Stage primaryStage){
         this.primaryStage = primaryStage;
+        setFullScreen();
         nome_giocatore_1 = new AtomicReference<>();
         nome_giocatore_2 = new AtomicReference<>();
         tipo_deck_giocatore_1 = new AtomicReference<>();
@@ -138,7 +140,7 @@ public class Two_Players_local {
                         scene = new Scene( vbox_tot, 1400, 600 );
         
                         primaryStage.setScene( scene );
-                        primaryStage.setMaximized(true);
+                        setFullScreen();
                         
                         vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
                         int i;
@@ -207,6 +209,10 @@ public class Two_Players_local {
         return scene;
     }
     
-    
+    public void setFullScreen() {
+        primaryStage.setFullScreen(true);
+        primaryStage.setFullScreenExitHint("");
+        primaryStage.setFullScreenExitKeyCombination(KeyCombination.valueOf("Ctrl+B"));
+    }
     
 }
