@@ -24,7 +24,7 @@ A brief description of what this project does and who it's for
 - Single player mode (da cancellare dopo che poggi se ne va)
 
 ## UML
-![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/_ProgGiocoCarte%20-%20Gruppo.png?raw=true)
+![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML_Progetto_gioco_carte.png?raw=true)
 
 ### Cards
 ### General
