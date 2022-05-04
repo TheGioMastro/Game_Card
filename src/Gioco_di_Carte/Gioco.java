@@ -171,12 +171,12 @@ public class Gioco {
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
             semaphore = true;
+            this.p1attack = 1;
             for(i=0; i < giocatore_1.getCim().Size(); i++){
                 if(giocatore_1.getCim().Get(i).getMagia().check2P() && semaphore){
                     this.p1attack = 2;
                     semaphore = false;
                 }else{
-                    this.p1attack = 1;
                     semaphore = false;
                 }
             }
@@ -192,12 +192,12 @@ public class Gioco {
             
         }else{//Turno Giocatore 2
             semaphore = true;
+            this.p1attack = 1;
             for(i=0; i < giocatore_2.getCim().Size(); i++){
                 if(giocatore_2.getCim().Get(i).getMagia().check2P() && semaphore){
                     this.p1attack = 2;
                     semaphore = false;
                 }else{
-                    this.p1attack = 1;
                     semaphore = false;
                 }
             }
