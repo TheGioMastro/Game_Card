@@ -13,13 +13,13 @@ import javafx.scene.image.Image;
  */
 
 enum Carta_Magia{
-    Doppio_Attacco,
-    Distruggi_Carta,
-    Resuscita_Carta,
-    Ruba_Attacco,
-    Spirito_Indomito,
-    Brama_Sangue,
-    Luna_Piena
+    doppio_attacco,
+    terremoto,
+    resuscita,
+    blocca_attacco,
+    spirito_indomito,
+    brama_sangue,
+    luna_piena
 }
 
 public class Magia extends Carta{
@@ -48,14 +48,14 @@ public class Magia extends Carta{
         System.out.println("Ability");
         
         switch(Carta_Magia.valueOf(nome)){
-            case Doppio_Attacco -> {
+            case doppio_attacco -> {
                 System.out.println("Doppio_Attacco");
                 if(rand.nextBoolean()){
                     doppio_attacco = true;
                 }
                 mano.SWAP_REMOVE(index, cimitero);
             }
-            case Distruggi_Carta -> {
+            case terremoto -> {
                 System.out.println("Distruggi_Carta");
                 if(campo.Size() > 0){
                     numero_random = rand.nextInt(campo.Size());
@@ -70,7 +70,7 @@ public class Magia extends Carta{
                     System.out.println("Non ci sono carte in campo da eliminare");  //eliminare questo print a progetto ultimato
                 }
             }
-            case Resuscita_Carta -> {
+            case resuscita -> {
                 System.out.println("Resuscita_Carta");
                 if(cimitero.Size() > 0){
                     numero_random = rand.nextInt(cimitero.Size());
@@ -85,22 +85,22 @@ public class Magia extends Carta{
                     System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
                 }
             }
-            case Ruba_Attacco -> {
+            case blocca_attacco -> {
                 System.out.println("Ruba_Attacco");
                 ruba_attacco = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
-            case Spirito_Indomito -> {
+            case spirito_indomito -> {
                 System.out.println("Spirito_Indomito");
                 spirito_indomito = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
-            case Brama_Sangue -> {
+            case brama_sangue -> {
                 System.out.println("Brama_Sangue");
                 brama_sangue = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
-            case Luna_Piena -> {
+            case luna_piena -> {
                 System.out.println("Luna_Piena");
                 luna_piena = true;
                 mano.SWAP_REMOVE(index, cimitero);
@@ -111,26 +111,26 @@ public class Magia extends Carta{
     //disability dovrà essere richiamato alla fine dell'effetto della carta 
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
     public void disability(){
-        if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.Ruba_Attacco)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.Ruba_Attacco == Carta_Magia.valueOf(nome)))){
+        if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.blocca_attacco)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.blocca_attacco == Carta_Magia.valueOf(nome)))){
             System.out.println("disability");
             switch(Carta_Magia.valueOf(nome)){
-                case Doppio_Attacco -> {
+                case doppio_attacco -> {
                     System.out.println("Doppio_Attacco");
                     doppio_attacco = false;
                 }
-                case Ruba_Attacco -> {
+                case terremoto -> {
                     System.out.println("Ruba_Attacco");
                     ruba_attacco = false;
                 }
-                case Spirito_Indomito -> {
+                case spirito_indomito -> {
                     System.out.println("Spirito_Indomito");
                     spirito_indomito = false;
                 }
-                case Brama_Sangue -> {
+                case brama_sangue -> {
                     System.out.println("Brama_Sangue");
                     brama_sangue = false;
                 }
-                case Luna_Piena -> {
+                case luna_piena -> {
                     System.out.println("Luna_Piena");
                     luna_piena = false;
                 }
