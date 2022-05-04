@@ -24,11 +24,14 @@ A brief description of what this project does and who it's for
 - Single player mode (da cancellare dopo che poggi se ne va)
 
 ## UML
-![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML_Progetto_gioco_carte.png?raw=true)
+![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/UML_Progetto_gioco_carte.png?raw=true)
 
 ### Cards
+![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/Carte_UML.png?raw=true)
 ### General
+![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/Generale_UML.png?raw=true)
 ### GUI
+![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/Grafica_UML.png?raw=true)
 
 ## Documentation
 
