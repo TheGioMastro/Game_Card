@@ -11,7 +11,7 @@ import java.util.Random;
  * @author Giuliano Tommaso Colombo <colombogiulianotommaso@itis-molinari.eu>
  */
 public class Gioco {
-    Random rand = new Random();
+    protected Random rand = new Random();
     
     protected Campo giocatore_1; //CAMPO SOPRA
     protected Campo giocatore_2; //CAMPO SOTTO
