@@ -30,10 +30,10 @@ public class Magia extends Carta{
     protected boolean brama_sangue = false;
     protected boolean luna_piena = false;
     protected int turno;
-    int numero_random;
+    protected int numero_random;
     
     //oggetti
-    Random rand = new Random();
+    protected Random rand = new Random();
     
     public Magia(String nome, String descrizione, String tipo_carta, Image foto){
         this.nome = nome;
