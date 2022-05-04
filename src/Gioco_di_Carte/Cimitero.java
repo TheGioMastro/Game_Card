@@ -14,7 +14,7 @@ public class Cimitero {
     
     //crea l'arraylist in cui inserirre i radiobutton(interfaccia grafica)
     protected ArrayList<MyButton> ArrayList_radiobutton_cimitero;
-    public ArrayList<Carta> Cimitero;
+    protected ArrayList<Carta> Cimitero;
     
     
     //costruttori
