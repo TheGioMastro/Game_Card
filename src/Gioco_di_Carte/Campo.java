@@ -98,7 +98,7 @@ public class Campo {
                 
                 if(!nome.equalsIgnoreCase("--")){
                     
-                    Path relative1 = Paths.get("Carte/"+ nome + ".png");
+                    Path relative1 = Paths.get("Carte/"+ tipo + "/" + nome + ".png");
                     Path absolute1 = relative1.toAbsolutePath();
                     
                     String carta = absolute1.toString();
