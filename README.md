@@ -9,7 +9,7 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 - [@Gold3nGT](https://www.github.com/gold3ngt) ![forthebadge](https://img.shields.io/badge/Class:-Player,%20Campo,%20Gioco-red?style=flat-square)
 - [@TheGioMastro](https://www.github.com/thegiomastro)  ![forthebadge](https://img.shields.io/badge/Class:-Main-red?style=flat-square) ![forthebadge](https://img.shields.io/badge/Other:-GUI-blue?style=flat-square)
 - [@Poggi](https://www.github.com/poggi19) ![forthebadge](https://img.shields.io/badge/Class:-Carta,%20Magia,%20Personaggio-red?style=flat-square)
-- [@Michele](https://www.github.com/celox56) ![forthebadge](https://img.shields.io/badge/Class:-MazzoCampo,%20Cimitero,%20Mazzo-red?style=flat-square)
+- [@Michele](https://www.github.com/celox56) ![forthebadge](https://img.shields.io/badge/Class:-MazzoCampo,%20Cimitero,%20Mazzo-red?style=flat-square) ![forthebadge](https://img.shields.io/badge/Other:-Grafica Carte-blue?style=flat-square)
 - [@Generali](https://www.github.com/perimetro) ![forthebadge](https://img.shields.io/badge/Class:-Descrizione,%20Deck,%20Mano-red?style=flat-square)
 
 ## Roadmap
