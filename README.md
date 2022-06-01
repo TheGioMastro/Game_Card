@@ -14,11 +14,11 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 ## Roadmap
 
-- Additional support for playing remotly
+- Gioco multiplayer da remoto
 
-- Add more languages support
+- Supporto per lingue aggiuntive
 
-- Single player mode
+- Modalità single player
 
 ## UML
 ![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/UML_Progetto_gioco_carte.png?raw=true)
@@ -32,7 +32,8 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 ## Documentation
 
-Documentation
+
+
 ## Tech Stack
 
 - Java - JDK 16.0.2 
