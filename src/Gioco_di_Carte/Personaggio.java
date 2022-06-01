@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
  */
 public class Personaggio extends Carta{
     protected String tipo_personaggio;
-    protected boolean isAlive;
     protected int pAttack;
     protected int pDefense;
     protected boolean check = false;
@@ -24,12 +23,7 @@ public class Personaggio extends Carta{
         this.nome = nome;
         this.descrizione = descrizione;
         this.tipo_carta = tipo_carta;
-        this.isAlive = true;
         this.foto = foto;
-    }
-
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
     }
 
     public void setpAttack(int pAttack) {
@@ -42,10 +36,6 @@ public class Personaggio extends Carta{
 
     public String getTipo_personaggio() {
         return tipo_personaggio;
-    }
-
-    public boolean isIsAlive() {
-        return isAlive;
     }
 
     public int getpAttack() {
