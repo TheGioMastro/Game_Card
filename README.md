@@ -12,9 +12,6 @@ A brief description of what this project does and who it's for
 - [@Michele](https://www.github.com/celox56) ![forthebadge](https://img.shields.io/badge/Class:-MazzoCampo,%20Cimitero,%20Mazzo-red?style=flat-square)
 - [@Generali](https://www.github.com/perimetro) ![forthebadge](https://img.shields.io/badge/Class:-Descrizione,%20Deck,%20Mano-red?style=flat-square)
 
-### Contributors
-- [@Leaena]()
-
 ## Roadmap
 
 - Additional support for playing remotly
