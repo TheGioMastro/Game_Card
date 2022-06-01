@@ -1,7 +1,7 @@
 
 # Gioco Carte
 
-A brief description of what this project does and who it's for
+Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a differti giochi di carte, tra cui Yu-Gi-Oh e Magic prendendo ispirazione dalle loro meccaniche di gioco principali.
 
 
 ## Authors & Roles
@@ -18,7 +18,7 @@ A brief description of what this project does and who it's for
 
 - Add more languages support
 
-- Single player mode (da cancellare dopo che poggi se ne va)
+- Single player mode
 
 ## UML
 ![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/UML_Progetto_gioco_carte.png?raw=true)
