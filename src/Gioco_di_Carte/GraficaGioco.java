@@ -187,9 +187,9 @@ public class GraficaGioco {
         //FINE GRID GENERALE----------------------------------------------------
         
         //contenitore verticale parte centrale(scritta)
-        Label scritta_campo = new Label("----Campo----");
+        /*Label scritta_campo = new Label("----Campo----");
         scritta_campo.setFont(new Font("OCR A Extended", 30));
-        scritta_campo.setTextFill(Color.web("#F8C66D"));
+        scritta_campo.setTextFill(Color.web("#F8C66D"));*/
         
         //bottone cambio turno
         cambio_turno = new Button();
@@ -233,10 +233,11 @@ public class GraficaGioco {
         */
         
         vbox_mezzo_sinistra = new VBox(fullscreen);
-        vbox_mezzo_centro = new VBox(scritta_campo);
+        vbox_mezzo_centro = new VBox();
         vbox_mezzo_destra = new VBox(cambio_turno);
         
         vbox_mezzo_sinistra.setAlignment(Pos.CENTER_LEFT);
+        
         vbox_mezzo_centro.setAlignment(Pos.CENTER);
         vbox_mezzo_destra.setAlignment(Pos.CENTER_RIGHT);
         
