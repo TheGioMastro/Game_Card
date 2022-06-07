@@ -37,7 +37,6 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 - Meccaniche di gioco:
   - Campo:
-    AAAAA
     - Mazzi:
       - Mano:
         Dove sono contenute tutte le carte che il giocatore ha nella sua mano (8 Carte max).
