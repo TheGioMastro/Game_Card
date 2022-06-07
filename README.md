@@ -32,9 +32,35 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 ## Documentation
 
+- Obbiettivo:
+  Creare un gioco di carte con 3 deck differti cercando di rendere il gioco equilibrato
 
-
-## Tech Stack
+- Meccaniche di gioco:
+  - Campo:
+    AAAAA
+    - Mazzi:
+      - Mano:
+        Dove sono contenute tutte le carte che il giocatore ha nella sua mano (8 Carte max).
+        
+      - Mazzo Campo:
+        Dove sono contenute tutte le carte in gioco del giocatore (6 Carte max).
+        
+      - Cimitero:
+        Dove sono contenute tutte le carte Personaggio morte o Magia utilizzate.
+        
+      - Deck:
+        Dove sono contenute tutte le carte non ancora pescate.
+        
+  - Pesca:
+    Metodo che estrae casualmente una carta dal deck e la aggiunge alla Mano.
+    
+  - Utilizzo Carte Magia:
+    Le carte magia una volta attivate vengono distrutte e il loro effetto viene utilizzato 
+    
+  - Attacco:
+    Dopo aver selezionato una carta dal campo, tramite un menù a tendina, è possibile scegliere il bersaglio a cui verrà scalata dalla vita, l'attacco della carta         attaccante.
+    
+    ## Tech Stack
 
 - Java - JDK 16.0.2 
 - JavaFX - JDK-fx 16.0.2
