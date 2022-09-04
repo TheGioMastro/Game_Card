@@ -43,7 +43,7 @@ public class Gioco {
     public void moveToCampo (int i){
         if(nTurno % 2 == 1){ //Giocatore 1
             
-            if(giocatore_1.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
+            if(giocatore_1.getMan().getCarta(i).getTipo_Carta().equals("Magic")){
                 
                 System.out.println(giocatore_1.getMan().getCarta(i).getNome());
                 
@@ -61,7 +61,7 @@ public class Gioco {
             
         }else{
             
-            if(giocatore_2.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
+            if(giocatore_2.getMan().getCarta(i).getTipo_Carta().equals("Magic")){
                 
                 System.out.println(giocatore_2.getMan().getCarta(i).getNome());
                 

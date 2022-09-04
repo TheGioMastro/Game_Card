@@ -1,4 +1,4 @@
-distruttore_di_mondi
+destroyer_of_worlds
 300
 100
 dragon
@@ -13,7 +13,7 @@ hip_hippo
 kuriboh
 300
 100
-licantropo
+werewolf
 100
 300
 lion
@@ -29,9 +29,9 @@ wizard
 100
 300
 -
-doppio_attacco
-terremoto
-resuscita
-blocca_attacco
-luna_piena
+double_attack
+earthquake
+resurrect
+block_attack
+full_moon
 --

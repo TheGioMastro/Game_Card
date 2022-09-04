@@ -43,7 +43,7 @@ public class Campo {
     //Costruttore--------------------------------------------------------------------------------------------------------------------------
     public Campo(String nome, String tipo, Gioco gioco) {
         //Variabili
-        Path relative = Paths.get("Carte/" + tipo + ".txt");
+        Path relative = Paths.get("Cards/" + tipo + ".txt");
         Path absolute = relative.toAbsolutePath();
         String path = absolute.toString();
         
@@ -72,7 +72,7 @@ public class Campo {
                     aP = Integer.parseInt(br.readLine());
                     dP = Integer.parseInt(br.readLine()); //Integer.ParseInt() Metodo che converte una stringa passata come argomento in un INT primitivo
                     
-                    Path relative1 = Paths.get("Carte/"+ tipo + "/" + nome + ".png");
+                    Path relative1 = Paths.get("Cards/"+ tipo + "/" + nome + ".png");
                     Path absolute1 = relative1.toAbsolutePath();
                     
                     String carta = absolute1.toString();
@@ -98,7 +98,7 @@ public class Campo {
                 
                 if(!nome.equalsIgnoreCase("--")){
                     
-                    Path relative1 = Paths.get("Carte/"+ tipo + "/" + nome + ".png");
+                    Path relative1 = Paths.get("Cards/"+ tipo + "/" + nome + ".png");
                     Path absolute1 = relative1.toAbsolutePath();
                     
                     String carta = absolute1.toString();
@@ -144,7 +144,7 @@ public class Campo {
         //PARTE TEMPORANEA(quando si avranno le specifiche delle carte e le immagini bisognerà cambiare tutto
         //IMAGE-----------------------------------------------------------------
         //get the path of the card file on your system
-        Path relative1 = Paths.get("Carte/void.jpg");
+        Path relative1 = Paths.get("Cards/void.jpg");
         Path absolute1 = relative1.toAbsolutePath();
         
         //convert the file path to string, save as a string and define the width and height

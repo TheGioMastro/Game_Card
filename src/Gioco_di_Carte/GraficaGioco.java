@@ -108,13 +108,13 @@ public class GraficaGioco {
         HBox.setHgrow(hbox_campo_sopra, Priority.ALWAYS);
         hbox1_sopra.setAlignment(Pos.TOP_CENTER);
         //riga 1_2
-        scritta_mazzo_sopra_pesca = new Label("Pesca");
+        scritta_mazzo_sopra_pesca = new Label("Draw");
         scritta_mazzo_sopra_pesca.setFont(new Font("OCR A Extended", 30));
         scritta_mazzo_sopra_pesca.setTextFill(Color.web("#F8C66D"));
         
         scritta_mazzo_sopra = new Label("");
         
-        scritta_mazzo_sopra_cimitero = new Label("Cimitero");
+        scritta_mazzo_sopra_cimitero = new Label("Graveyard");
         scritta_mazzo_sopra_cimitero.setFont(new Font("OCR A Extended", 30));
         scritta_mazzo_sopra_cimitero.setTextFill(Color.web("#F8C66D"));
         
@@ -154,13 +154,13 @@ public class GraficaGioco {
         HBox.setHgrow(hbox_campo_sotto, Priority.ALWAYS);
         hbox1_sotto.setAlignment(Pos.TOP_CENTER);
         //riga 1_2
-        scritta_mazzo_sotto_pesca = new Label("Pesca");
+        scritta_mazzo_sotto_pesca = new Label("Draw");
         scritta_mazzo_sotto_pesca.setFont(new Font("OCR A Extended", 30));
         scritta_mazzo_sotto_pesca.setTextFill(Color.web("#F8C66D"));
         
         scritta_mazzo_sotto = new Label("");
         
-        scritta_mazzo_sotto_cimitero = new Label("Cimitero");
+        scritta_mazzo_sotto_cimitero = new Label("Graveyard");
         scritta_mazzo_sotto_cimitero.setFont(new Font("OCR A Extended", 30));
         scritta_mazzo_sotto_cimitero.setTextFill(Color.web("#F8C66D"));
         
@@ -193,7 +193,7 @@ public class GraficaGioco {
         
         //bottone cambio turno
         cambio_turno = new Button();
-        cambio_turno.setText("TERMINA IL TURNO");
+        cambio_turno.setText("Next turn");
         cambio_turno.setFont(new Font("Minecraftita", 20));
         cambio_turno.setTextFill(Color.web("#E8D954"));
         cambio_turno.setStyle("-fx-background-color: #FF3633; ");
@@ -409,6 +409,7 @@ public class GraficaGioco {
         }
         
         for(i=0; i<campo.getCim().Size(); i++){
+            
             campo.getCim().get_indice_ArrayList_radiobutton_cimitero(i).getMycontextmenu().updateMenuAttacco();
         }
     }

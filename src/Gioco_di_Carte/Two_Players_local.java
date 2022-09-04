@@ -49,9 +49,9 @@ public class Two_Players_local {
     
     //menù a tendina
     protected ObservableList<String> comboItems1;
-    protected ComboBox comboBox1;
+    protected Label text1;
     protected ObservableList<String> comboItems2;
-    protected ComboBox comboBox2;
+    protected Label text2;
     protected Button bottone;
     
     //Grid
@@ -104,10 +104,8 @@ public class Two_Players_local {
         giocatore2_tipo_deck.setFont(new Font("OCR A Extended", 30));
         giocatore2_tipo_deck.setTextFill(Color.web("#F8C66D"));
         
-        comboItems1 = FXCollections.observableArrayList("Vampiro", "Licantropo", "Eroe");
-        comboBox1 = new ComboBox(comboItems1);
-        comboItems2 = FXCollections.observableArrayList("Vampiro", "Licantropo", "Eroe");
-        comboBox2 = new ComboBox(comboItems2);
+        text1 = new Label("Werewolf");
+        text2 = new Label("Werewolf");
         
         bottone = new Button();
         bottone.setText("Invia!");
@@ -118,13 +116,13 @@ public class Two_Players_local {
             
             @Override
             public void handle(ActionEvent event) {
-                    if(giocatore1.getText().length() > 0 && giocatore2.getText().length() > 0 && !String.valueOf(comboBox1.getSelectionModel().getSelectedItem()).equals("null") && !String.valueOf(comboBox2.getSelectionModel().getSelectedItem()).equals("null")){
+                    if(giocatore1.getText().length() > 0 && giocatore2.getText().length() > 0){
                         nome_giocatore_1.set(giocatore1.getText());
                         nome_giocatore_2.set(giocatore2.getText());
-                        tipo_deck_giocatore_1.set(String.valueOf(comboBox1.getSelectionModel().getSelectedItem()));
-                        tipo_deck_giocatore_2.set(String.valueOf(comboBox2.getSelectionModel().getSelectedItem()));
+                        tipo_deck_giocatore_1.set("Werewolf");
+                        tipo_deck_giocatore_2.set("Werewolf");
                         
-                        game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), String.valueOf(comboBox1.getValue()), String.valueOf(comboBox2.getValue()));
+                        game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), "Werewolf", "Werewolf");
                         
                         /*
                         game.getGiocatore_1().getGiocatore().setNome(String.valueOf(nome_giocatore_1));
@@ -166,8 +164,8 @@ public class Two_Players_local {
         grid1.add(giocatore2, 1, 1);
         grid1.add(giocatore1_tipo_deck, 0, 2);
         grid1.add(giocatore2_tipo_deck, 1, 2);
-        grid1.add(comboBox1, 0, 3);
-        grid1.add(comboBox2, 1, 3);
+        grid1.add(text1, 0, 3);
+        grid1.add(text2, 1, 3);
         grid1.add(bottone, 2, 4);
         
         
