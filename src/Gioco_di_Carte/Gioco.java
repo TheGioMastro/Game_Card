@@ -5,6 +5,18 @@
 package Gioco_di_Carte;
 
 import java.util.Random;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 /**
  *
@@ -25,13 +37,20 @@ public class Gioco {
     //Grafica del gioco
     protected GraficaGioco grafica;
     
+    protected Label text;
+    protected VBox vbox;
+    protected HBox hbox;
+    protected Scene scene;
+    protected Stage primaryStage;
     
     //Costruttore--------------------------------------------------------------------------------------
-    public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2) {
+    public Gioco(String nomeG1, String nomeG2, String tipoG1, String tipoG2, Stage primaryStage) {
         
         this.nTurno = -1;
         this.p1attack = 0;
         this.p2attack = 0;
+        
+        this.primaryStage = primaryStage;
         
         giocatore_1 = new Campo(nomeG1, tipoG1, this);
         giocatore_2 = new Campo(nomeG2, tipoG2, this);
@@ -146,36 +165,140 @@ public class Gioco {
         grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
     }
     
-    public int checkWinner(){
+    public void checkWinner(){
+        
         if(giocatore_1.getGiocatore().getVita() > 0 && giocatore_2.getGiocatore().getVita() > 0){
             
             if(giocatore_1.getCim().Size() == 15 && giocatore_2.getCim().Size() < 15){
-                return 1; //Giocatore 1 ha finito le carte
+                //Giocatore 1 ha finito le carte
+                
+                text = new Label("Player " + giocatore_1.getGiocatore().getNome() + " won the game!!!!");
+                text.setFont(new Font("OCR A Extended", 40));
+                text.setTextFill(Color.web("#ffffff"));
+                vbox = new VBox(text);
+                hbox = new HBox(vbox);
+                vbox.setAlignment(Pos.CENTER);
+                hbox.setAlignment(Pos.CENTER);
+
+                hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+                //set the scene and it size
+                scene = new Scene( hbox, 1000, 600 );
+
+                primaryStage.setScene( scene );
                 
             }else if(giocatore_2.getCim().Size() == 15 && giocatore_1.getCim().Size() < 15){
-                return 2; //Giocatore 2 ha finito le carte
+                //Giocatore 2 ha finito le carte
+                 
+                text = new Label("Player " + giocatore_2.getGiocatore().getNome() + " won the game!!!!");
+                text.setFont(new Font("OCR A Extended", 40));
+                text.setTextFill(Color.web("#ffffff"));
+                vbox = new VBox(text);
+                hbox = new HBox(vbox);
+                vbox.setAlignment(Pos.CENTER);
+                hbox.setAlignment(Pos.CENTER);
+
+                hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+                //set the scene and it size
+                scene = new Scene( hbox, 1000, 600 );
+
+                primaryStage.setScene( scene );
                 
             }else if(giocatore_1.getCim().Size() == 15 && giocatore_2.getCim().Size() == 15){
                 if(giocatore_1.getGiocatore().getVita() == giocatore_2.getGiocatore().getVita()){
-                    return 3; // Patta
+                    // Patta
+                    
+                    text = new Label("Draw");
+                    text.setFont(new Font("OCR A Extended", 40));
+                    text.setTextFill(Color.web("#ffffff"));
+                    vbox = new VBox(text);
+                    hbox = new HBox(vbox);
+                    vbox.setAlignment(Pos.CENTER);
+                    hbox.setAlignment(Pos.CENTER);
+
+                    hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+                    //set the scene and it size
+                    scene = new Scene( hbox, 1000, 600 );
+
+                    primaryStage.setScene( scene );
                     
                 }else if(giocatore_1.getGiocatore().getVita() < giocatore_2.getGiocatore().getVita()){
-                    return 1;
+                    
+                    text = new Label("Player " + giocatore_1.getGiocatore().getNome() + " won the game!!!!");
+                    text.setFont(new Font("OCR A Extended", 40));
+                    text.setTextFill(Color.web("#ffffff"));
+                    vbox = new VBox(text);
+                    hbox = new HBox(vbox);
+                    vbox.setAlignment(Pos.CENTER);
+                    hbox.setAlignment(Pos.CENTER);
+
+                    hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+                    //set the scene and it size
+                    scene = new Scene( hbox, 1000, 600 );
+
+                    primaryStage.setScene( scene );
                     
                 }else if(giocatore_1.getGiocatore().getVita() > giocatore_2.getGiocatore().getVita()){
-                    return 2;
+                    
+                    text = new Label("Player " + giocatore_2.getGiocatore().getNome() + " won the game!!!!");
+                    text.setFont(new Font("OCR A Extended", 40));
+                    text.setTextFill(Color.web("#ffffff"));
+                    vbox = new VBox(text);
+                    hbox = new HBox(vbox);
+                    vbox.setAlignment(Pos.CENTER);
+                    hbox.setAlignment(Pos.CENTER);
+
+                    hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+                    //set the scene and it size
+                    scene = new Scene( hbox, 1000, 600 );
+
+                    primaryStage.setScene( scene );
                 }
             }
             
-            return 0; //Nessuno è morto :(
+             //Nessuno è morto :(
             
         }else if(giocatore_1.getGiocatore().getVita() <= 0){
-            return 1; //Giocatore 1 è morto
+            //Giocatore 1 è morto
+            
+            text = new Label("Player " + giocatore_1.getGiocatore().getNome() + " won the game!!!!");
+            text.setFont(new Font("OCR A Extended", 40));
+            text.setTextFill(Color.web("#ffffff"));
+            vbox = new VBox(text);
+            hbox = new HBox(vbox);
+            vbox.setAlignment(Pos.CENTER);
+            hbox.setAlignment(Pos.CENTER);
+
+            hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+            //set the scene and it size
+            scene = new Scene( hbox, 1000, 600 );
+
+            primaryStage.setScene( scene );
             
         }else if(giocatore_2.getGiocatore().getVita() <= 0){
-            return 2; //Giocatore 2 è morto
+            //Giocatore 2 è morto
+            
+            text = new Label("Player " + giocatore_2.getGiocatore().getNome() + " won the game!!!!");
+            text.setFont(new Font("OCR A Extended", 40));
+            text.setTextFill(Color.web("#ffffff"));
+            vbox = new VBox(text);
+            hbox = new HBox(vbox);
+            vbox.setAlignment(Pos.CENTER);
+            hbox.setAlignment(Pos.CENTER);
+
+            hbox.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+            //set the scene and it size
+            scene = new Scene( hbox, 1000, 600 );
+
+            primaryStage.setScene( scene );
         }
-        return -1;
+        //non doveva succè fratellì
     }
     
     

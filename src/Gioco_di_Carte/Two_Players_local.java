@@ -126,7 +126,7 @@ public class Two_Players_local {
                         tipo_deck_giocatore_1.set("Werewolf");
                         tipo_deck_giocatore_2.set("Werewolf");
                         
-                        game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), "Werewolf", "Werewolf");
+                        game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), "Werewolf", "Werewolf", primaryStage);
                         
                         
                         //PARTE FINALE GRID
