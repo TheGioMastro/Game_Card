@@ -74,7 +74,10 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
     Le carte magia una volta attivate vengono distrutte e il loro effetto viene utilizzato 
     
   - Attacco:
-    Dopo aver selezionato una carta dal campo, tramite un menù a tendina, è possibile scegliere il bersaglio a cui verrà scalata dalla vita, l'attacco della carta         attaccante.
+    Dopo aver selezionato una carta dal proprio campo, tramite un menù a tendina, è possibile scegliere la carta avversaria a cui verrà scalata la vita, se i punti         attacco dell'attaccante superato i punti vita del bersaglio la differenza viene scalata al Player possessore della carta bersaglio.
+    
+  - Attacco Diretto:
+    Se nel campo avversario non sono presenti carte è possibile, tramite un menù a tendina, è possibile attaccare direttamente l'avversario scalandogli la sua vita         totale dai punti attacco della carta attaccante.
     
     ## Tech Stack
 
