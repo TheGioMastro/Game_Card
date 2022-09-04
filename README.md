@@ -34,6 +34,23 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 - Obbiettivo:
   Creare un gioco di carte con 3 deck differti cercando di rendere il gioco equilibrato
+  
+- Regole:
+  - Descrizione schermata di gioco:
+      Nel gioco sono presenti 2 campi, 1 per ogni player; per ogni campo è presente una mazzo delle carte che devono ancora essere pescate (Pesca), un mazzo dove sono       presenti tutte le carte morte o utilizzate (Cimitero), un mazzo dove sono presenti le carte in mano al giocatore (Mano) ed infine la sezione Campo dove vengono         posizionate le carte in posizone di difesa.<br>
+      Inoltre sono presenti 2 pulsati il primo dedicato al passaggio del turno al giocatore successivo ed il secondo per impostare o disattivare la modalità schermo         intero (preimpostata di base).
+      
+  - Descrizione carte magia:
+      - Terremoto:
+          Distrugge una carta Personaggio dal campo avversario
+      - Doppio Attacco:
+          Permette di attacare due volte durante lo stesso turno
+      - Resurrezione:
+          Resuscita una carta casuale dal proprio cimitero
+      - Blocca Attacco:
+          Impedisce all'avversario di esguire un attacco durante il suo prossimo turno
+      - Luna Piena:
+          Potenzia tutte le carte del proprio deck Licantropo
 
 - Meccaniche di gioco:
   - Campo:
@@ -57,12 +74,16 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
     Le carte magia una volta attivate vengono distrutte e il loro effetto viene utilizzato 
     
   - Attacco:
-    Dopo aver selezionato una carta dal campo, tramite un menù a tendina, è possibile scegliere il bersaglio a cui verrà scalata dalla vita, l'attacco della carta         attaccante.
+    Dopo aver selezionato una carta dal proprio campo, tramite un menù a tendina, è possibile scegliere la carta avversaria a cui verrà scalata la vita, se i punti         attacco dell'attaccante superato i punti vita del bersaglio la differenza viene scalata al Player possessore della carta bersaglio.
+    
+  - Attacco Diretto:
+    Se nel campo avversario non sono presenti carte è possibile, tramite un menù a tendina, è possibile attaccare direttamente l'avversario scalandogli la sua vita         totale dai punti attacco della carta attaccante.
     
     ## Tech Stack
 
-- Java - JDK 16.0.2 
-- JavaFX - JDK-fx 16.0.2
+      - Java - JDK 16.0.2 
+      - JavaFX - JDK-fx 16.0.2
+
 
 
 ## Contributing
