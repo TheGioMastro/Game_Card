@@ -36,7 +36,7 @@ public class Player {
         scritta_giocatore_nome = new Label(this.nome);
         scritta_giocatore_nome.setFont(new Font("OCR A Extended", 30));
         scritta_giocatore_nome.setTextFill(Color.web("#F8C66D"));
-        scritta_giocatore_vita_Stringa = new Label("Vita:");
+        scritta_giocatore_vita_Stringa = new Label("HP:");
         scritta_giocatore_vita_Stringa.setFont(new Font("OCR A Extended", 30));
         scritta_giocatore_vita_Stringa.setTextFill(Color.web("#F8C66D"));
         scritta_giocatore_vita = new Label(String.valueOf(this.vita));
@@ -50,7 +50,7 @@ public class Player {
         scritta_giocatore_nome = new Label(this.nome);
         scritta_giocatore_nome.setFont(new Font("OCR A Extended", 30));
         scritta_giocatore_nome.setTextFill(Color.web("#F8C66D"));
-        scritta_giocatore_vita_Stringa = new Label("Vita:");
+        scritta_giocatore_vita_Stringa = new Label("HP:");
         scritta_giocatore_vita_Stringa.setFont(new Font("OCR A Extended", 30));
         scritta_giocatore_vita_Stringa.setTextFill(Color.web("#F8C66D"));
         scritta_giocatore_vita = new Label(String.valueOf(this.vita));

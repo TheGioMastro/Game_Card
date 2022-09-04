@@ -17,7 +17,7 @@ public class MyMenuItem extends MenuItem{
     
     //Costruttori
     public MyMenuItem(String nome, String vita, MyButton item){
-        super(nome + " Vita: " + vita);
+        super(nome + " Life: " + vita);
         
         this.oggetto_da_attaccare = item;
     }
