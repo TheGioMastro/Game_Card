@@ -256,13 +256,11 @@ public class Gioco {
                 giocatore_2.getDck().getCarta(i).getMagia().disability();
             }
         }
-<<<<<<< Updated upstream
+
         semaphore = true;   //riabilito controllo doppio attacco
-=======
         
         this.checkWinner();
         
->>>>>>> Stashed changes
     }
     
     //setter----------------------------------------
