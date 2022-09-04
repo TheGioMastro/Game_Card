@@ -46,10 +46,6 @@ public class Magia extends Carta{
         return doppio_attacco;
     }
     
-    public boolean get_blocca_attacco(){
-        return blocca_attacco;
-    }
-    
     public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero_mio, Cimitero cimitero_suo, int index){
         turno = Gioco.nTurno;
         
