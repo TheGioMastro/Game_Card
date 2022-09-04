@@ -19,6 +19,7 @@ public class Gioco {
     protected static int nTurno; 
     protected int p1attack;
     protected int p2attack;
+    protected boolean semaphore = true;
     
     
     //Grafica del gioco
@@ -90,6 +91,20 @@ public class Gioco {
         System.out.println("pattack2 " + p2attack);
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
+            if(semaphore){
+                System.out.println("HEREEEEEEEEEE1");
+                for(int i=0; i < giocatore_1.getCim().Size(); i++){
+                    if(giocatore_1.getCim().Get(i).getTipo_Carta().equals("Magia")){
+                        if(giocatore_1.getCim().Get(i).getMagia().check2P()){
+                            for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                                giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+                            }
+                            this.p1attack = 2;
+                        }
+                    }
+                }
+                semaphore = false;
+            }
             System.out.println("Vita 1: " + giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
             
@@ -99,6 +114,20 @@ public class Gioco {
             p1attack--;
             System.out.println("pattack1 " + p1attack);
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
+            for(int i=0; i < giocatore_2.getCim().Size(); i++){
+                if(semaphore){
+                    System.out.println("HEREEEEEEEEEE2");
+                    if(giocatore_2.getCim().Get(i).getTipo_Carta().equals("Magia")){
+                        if(giocatore_2.getCim().Get(i).getMagia().check2P()){
+                            for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                                giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+                            }
+                            this.p2attack = 2;
+                        }
+                    }
+                    semaphore = false;
+                }
+            }
             System.out.println("Vita 2: " + giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             
             if(giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_1.getMazCam().Get(iAttaccato), giocatore_1.getGiocatore())){
@@ -191,14 +220,6 @@ public class Gioco {
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
             this.p1attack = 1;
-            for(i=0; i < giocatore_1.getCim().Size(); i++){
-                if(giocatore_1.getCim().Get(i).getTipo_Carta().equals("Magia")){
-                    if(giocatore_1.getCim().Get(i).getMagia().check2P()){
-                        this.p1attack = 2;
-                    }
-                }
-            }
-            
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
@@ -210,13 +231,6 @@ public class Gioco {
             
         }else{//Turno Giocatore 2
             this.p2attack = 1;
-            for(i=0; i < giocatore_2.getCim().Size(); i++){
-                if(giocatore_2.getCim().Get(i).getTipo_Carta().equals("Magia")){
-                    if(giocatore_2.getCim().Get(i).getMagia().check2P()){
-                        this.p2attack = 2;
-                    }
-                }
-            }
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
@@ -240,6 +254,7 @@ public class Gioco {
                 giocatore_2.getDck().getCarta(i).getMagia().disability();
             }
         }
+        semaphore = true;   //riabilito controllo doppio attacco
     }
     
     //setter----------------------------------------
