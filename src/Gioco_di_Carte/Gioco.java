@@ -119,9 +119,30 @@ public class Gioco {
     
     public int checkWinner(){
         if(giocatore_1.getGiocatore().getVita() > 0 && giocatore_2.getGiocatore().getVita() > 0){
+            
+            if(giocatore_1.getCim().Size() == 15 && giocatore_2.getCim().Size() < 15){
+                return 1; //Giocatore 1 ha finito le carte
+                
+            }else if(giocatore_2.getCim().Size() == 15 && giocatore_1.getCim().Size() < 15){
+                return 2; //Giocatore 2 ha finito le carte
+                
+            }else if(giocatore_1.getCim().Size() == 15 && giocatore_2.getCim().Size() == 15){
+                if(giocatore_1.getGiocatore().getVita() == giocatore_2.getGiocatore().getVita()){
+                    return 3; // Patta
+                    
+                }else if(giocatore_1.getGiocatore().getVita() < giocatore_2.getGiocatore().getVita()){
+                    return 1;
+                    
+                }else if(giocatore_1.getGiocatore().getVita() > giocatore_2.getGiocatore().getVita()){
+                    return 2;
+                }
+            }
+            
             return 0; //Nessuno è morto :(
+            
         }else if(giocatore_1.getGiocatore().getVita() <= 0){
             return 1; //Giocatore 1 è morto
+            
         }else if(giocatore_2.getGiocatore().getVita() <= 0){
             return 2; //Giocatore 2 è morto
         }
