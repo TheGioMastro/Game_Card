@@ -46,7 +46,7 @@ public class Magia extends Carta{
         return doppio_attacco;
     }
     
-    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero, int index){
+    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero_mio, Cimitero cimitero_suo, int index){
         turno = Gioco.nTurno;
         
         System.out.println("Ability");
@@ -57,33 +57,28 @@ public class Magia extends Carta{
                 if(rand.nextBoolean()){
                     doppio_attacco = true;
                 }
-                mano.SWAP_REMOVE(index, cimitero);
+                mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case earthquake -> {
                 System.out.println("terremoto");
                 if(campo.Size() > 0){
                     numero_random = rand.nextInt(campo.Size());
-                    System.out.println("campo.Size(): " + campo.Size() + "\nnumero_random" + numero_random);
-                    cimitero.Add(campo.Get(numero_random));
-                    System.out.println("HERE1");
-                    campo.Remove(numero_random);
-                    System.out.println("HERE2");
-                    mano.SWAP_REMOVE(index, cimitero);
-                    System.out.println("HERE3");
+                    campo.SWAP_REMOVE(numero_random, cimitero_suo);
+                    mano.SWAP_REMOVE(index, cimitero_mio);
                 }else{
                     System.out.println("Non ci sono carte in campo da eliminare");  //eliminare questo print a progetto ultimato
                 }
             }
             case resurrect -> {
                 System.out.println("resuscita");
-                if(cimitero.Size() > 0){
-                    numero_random = rand.nextInt(cimitero.Size());
-                    System.out.println("cimitero.Size(): " + cimitero.Size() + "\nnumero_random" + numero_random);
-                    mano.Add(cimitero.Get(numero_random));
+                if(cimitero_mio.Size() > 0){
+                    numero_random = rand.nextInt(cimitero_mio.Size());
+                    System.out.println("cimitero.Size(): " + cimitero_mio.Size() + "\nnumero_random" + numero_random);
+                    mano.Add(cimitero_mio.Get(numero_random));
                     System.out.println("HERE1");
-                    cimitero.Remove(numero_random);
+                    cimitero_mio.Remove(numero_random);
                     System.out.println("HERE2");
-                    mano.SWAP_REMOVE(index, cimitero);
+                    mano.SWAP_REMOVE(index, cimitero_mio);
                     System.out.println("HERE3");
                 }else{
                     System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
@@ -94,22 +89,22 @@ public class Magia extends Carta{
                 blocca_attacco = true;
                 for(int i = 0; i < campo.Size(); i++)
                     campo.Get(i).getPersonaggio().blocca_attacco();     //NON VA BENE, L'ATTACCO NON VA A BUON FINE SI, MA IL TASTO NON SI BLOCCA NEL TASTO DESTRO
-                mano.SWAP_REMOVE(index, cimitero);
+                mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case spirito_indomito -> {
                 System.out.println("spirito_indomito");
                 spirito_indomito = true;
-                mano.SWAP_REMOVE(index, cimitero);
+                mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case brama_sangue -> {
                 System.out.println("brama_sangue");
                 brama_sangue = true;
-                mano.SWAP_REMOVE(index, cimitero);
+                mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case full_moon -> {
                 System.out.println("luna_piena");
                 luna_piena = true;
-                mano.SWAP_REMOVE(index, cimitero);
+                mano.SWAP_REMOVE(index, cimitero_mio);
             }
         }
     }

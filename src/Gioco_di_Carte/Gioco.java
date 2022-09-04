@@ -67,7 +67,11 @@ public class Gioco {
                 
                 System.out.println(giocatore_1.getMan().getCarta(i).getNome());
                 
-                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), i);
+                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), i);
+                System.out.println("HERE4");
+                grafica.reload_GUI(giocatore_1, giocatore_2);
+                grafica.reload_GUI(giocatore_2, giocatore_1);
+                System.out.println("HERE5");
                 //giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
             }else{
                 if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
@@ -85,7 +89,11 @@ public class Gioco {
                 
                 System.out.println(giocatore_2.getMan().getCarta(i).getNome());
                 
-                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), i);
+                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), i);
+                System.out.println("HERE6");
+                grafica.reload_GUI(giocatore_2, giocatore_1);
+                grafica.reload_GUI(giocatore_1, giocatore_2);
+                System.out.println("HERE7");
                 //giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
             }else{
             
@@ -99,7 +107,7 @@ public class Gioco {
             }
         }
         
-        grafica.reload_GUI(giocatore_1, giocatore_2);
+//        grafica.reload_GUI(giocatore_1, giocatore_2);
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
     }
@@ -111,7 +119,6 @@ public class Gioco {
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
             if(semaphore){
-                System.out.println("HEREEEEEEEEEE1");
                 for(int i=0; i < giocatore_1.getCim().Size(); i++){
                     if(giocatore_1.getCim().Get(i).getTipo_Carta().equals("Magia")){
                         if(giocatore_1.getCim().Get(i).getMagia().check2P()){
@@ -135,7 +142,6 @@ public class Gioco {
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
             for(int i=0; i < giocatore_2.getCim().Size(); i++){
                 if(semaphore){
-                    System.out.println("HEREEEEEEEEEE2");
                     if(giocatore_2.getCim().Get(i).getTipo_Carta().equals("Magia")){
                         if(giocatore_2.getCim().Get(i).getMagia().check2P()){
                             for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
