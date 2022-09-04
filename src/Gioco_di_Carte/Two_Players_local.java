@@ -82,12 +82,12 @@ public class Two_Players_local {
         tipo_deck_giocatore_2 = new AtomicReference<>();
         
         giocatore1_scritta = new Label();
-        giocatore1_scritta.setText("Nome del primo giocatore");
+        giocatore1_scritta.setText("Name of the first player:    ");
         giocatore1_scritta.setFont(new Font("OCR A Extended", 30));
         giocatore1_scritta.setTextFill(Color.web("#F8C66D"));
         
         giocatore2_scritta = new Label();
-        giocatore2_scritta.setText("Nome del secondo giocatore");
+        giocatore2_scritta.setText("Name of the second player:    ");
         giocatore2_scritta.setFont(new Font("OCR A Extended", 30));
         giocatore2_scritta.setTextFill(Color.web("#F8C66D"));
         
@@ -95,20 +95,24 @@ public class Two_Players_local {
         giocatore2 = new TextField();
         
         giocatore1_tipo_deck = new Label();
-        giocatore1_tipo_deck.setText("Tipo deck");
+        giocatore1_tipo_deck.setText("Deck type");
         giocatore1_tipo_deck.setFont(new Font("OCR A Extended", 30));
         giocatore1_tipo_deck.setTextFill(Color.web("#F8C66D"));
         
         giocatore2_tipo_deck = new Label();
-        giocatore2_tipo_deck.setText("Tipo deck");
+        giocatore2_tipo_deck.setText("Deck type");
         giocatore2_tipo_deck.setFont(new Font("OCR A Extended", 30));
         giocatore2_tipo_deck.setTextFill(Color.web("#F8C66D"));
         
         text1 = new Label("Werewolf");
+        text1.setFont(new Font("OCR A Extended", 25));
+        text1.setTextFill(Color.web("#ffffff"));
         text2 = new Label("Werewolf");
+        text2.setFont(new Font("OCR A Extended", 25));
+        text2.setTextFill(Color.web("#ffffff"));
         
         bottone = new Button();
-        bottone.setText("Invia!");
+        bottone.setText("Let's play!");
         bottone.setFont(new Font("OCR A Extended", 30));
         bottone.setTextFill(Color.web("#F8C66D"));
         
@@ -124,17 +128,13 @@ public class Two_Players_local {
                         
                         game = new Gioco(String.valueOf(nome_giocatore_1), String.valueOf(nome_giocatore_2), "Werewolf", "Werewolf");
                         
-                        /*
-                        game.getGiocatore_1().getGiocatore().setNome(String.valueOf(nome_giocatore_1));
-                        game.getGiocatore_2().getGiocatore().setNome(String.valueOf(nome_giocatore_2));
-                        game.getGiocatore_1().getGiocatore().setTipo_deck(String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3));
-                        game.getGiocatore_2().getGiocatore().setTipo_deck(String.valueOf(comboBox1).equals("Vampiro")?1:(String.valueOf(comboBox1).equals("Licantropo")?2:3));
-                        */
+                        
                         //PARTE FINALE GRID
                         //contenitore verticale parte sopra e sotto
                         vbox_tot = new VBox(game.getGrafica().getVbox_top(), game.getGrafica().getVbox_sopra(), game.getGrafica().getVbox_mezzo(), game.getGrafica().getVbox_sotto(), game.getGrafica().getVbox_bot());
                         vbox_tot.setAlignment(Pos.CENTER);
-
+                        
+                        vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
 
                         //set the scene and it size
                         scene = new Scene( vbox_tot, 1400, 600 );
@@ -143,7 +143,7 @@ public class Two_Players_local {
                         primaryStage.setMaximized(true);
                         setFullScreen();
                         
-                        vbox_tot.setBackground(new Background(new BackgroundFill(Color.web("#162B3B"), CornerRadii.EMPTY, Insets.EMPTY)));
+                        
                         int i;
                         for(i=0; i<game.getGiocatore_1().getMazz().Size(); i++){
                             game.getGiocatore_1().getMazz().get_indice_ArrayList_radiobutton_mazzo(i).getMycontextmenu().setStart(1);

@@ -184,6 +184,8 @@ public class Gioco {
           Turni pari -----> Giocatore 2
         */
         
+        this.checkWinner();
+        
         this.nTurno ++;
         
         int i;
@@ -254,7 +256,13 @@ public class Gioco {
                 giocatore_2.getDck().getCarta(i).getMagia().disability();
             }
         }
+<<<<<<< Updated upstream
         semaphore = true;   //riabilito controllo doppio attacco
+=======
+        
+        this.checkWinner();
+        
+>>>>>>> Stashed changes
     }
     
     //setter----------------------------------------
