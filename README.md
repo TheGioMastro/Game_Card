@@ -35,10 +35,23 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 - Obbiettivo:
   Creare un gioco di carte con 3 deck differti cercando di rendere il gioco equilibrato
   
-## Regole
-  ## Descrizione schermata di gioco
-    Nel gioco sono presenti 2 campi, 1 per ogni player; per ogni campo è presente una mazzo delle carte che devono ancora essere pescate (Pesca), un mazzo dove sono       presenti tutte le carte morte o utilizzate (Cimitero), un mazzo dove sono presenti le carte in mano al giocatore (Mano) ed infine la sezione Campo dove vengono         posizionate le carte in posizone di difesa.
-    
+- Regole:
+  - Descrizione schermata di gioco:
+      Nel gioco sono presenti 2 campi, 1 per ogni player; per ogni campo è presente una mazzo delle carte che devono ancora essere pescate (Pesca), un mazzo dove sono       presenti tutte le carte morte o utilizzate (Cimitero), un mazzo dove sono presenti le carte in mano al giocatore (Mano) ed infine la sezione Campo dove vengono         posizionate le carte in posizone di difesa.<br>
+      Inoltre sono presenti 2 pulsati il primo dedicato al passaggio del turno al giocatore successivo ed il secondo per impostare o disattivare la modalità schermo         intero (preimpostata di base).
+      
+  - Descrizione carte magia:
+      - Terremoto:
+          Distrugge una carta Personaggio dal campo avversario
+      - Doppio Attacco:
+          Permette di attacare due volte durante lo stesso turno
+      - Resurrezione:
+          Resuscita una carta casuale dal proprio cimitero
+      - Blocca Attacco:
+          Impedisce all'avversario di esguire un attacco durante il suo prossimo turno
+      - Luna Piena:
+          Potenzia tutte le carte del proprio deck Licantropo
+
 - Meccaniche di gioco:
   - Campo:
     - Mazzi:
