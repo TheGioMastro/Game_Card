@@ -68,10 +68,6 @@ public class Gioco {
                 System.out.println(giocatore_1.getMan().getCarta(i).getNome());
                 
                 giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), i);
-                System.out.println("HERE4");
-                grafica.reload_GUI(giocatore_1, giocatore_2);
-                grafica.reload_GUI(giocatore_2, giocatore_1);
-                System.out.println("HERE5");
                 //giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
             }else{
                 if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
@@ -90,10 +86,6 @@ public class Gioco {
                 System.out.println(giocatore_2.getMan().getCarta(i).getNome());
                 
                 giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), i);
-                System.out.println("HERE6");
-                grafica.reload_GUI(giocatore_2, giocatore_1);
-                grafica.reload_GUI(giocatore_1, giocatore_2);
-                System.out.println("HERE7");
                 //giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
             }else{
             
@@ -107,7 +99,7 @@ public class Gioco {
             }
         }
         
-//        grafica.reload_GUI(giocatore_1, giocatore_2);
+        grafica.reload_GUI(giocatore_1, giocatore_2);
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
     }
