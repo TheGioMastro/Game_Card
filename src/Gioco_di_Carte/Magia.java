@@ -14,13 +14,13 @@ import javafx.scene.image.Image;
 
 public class Magia extends Carta{
     protected enum Carta_Magia{
-        doppio_attacco,
-        terremoto,
-        resuscita,
-        blocca_attacco,
+        double_attack,
+        earthquake,
+        resurrect,
+        block_attack,
         spirito_indomito,
         brama_sangue,
-        luna_piena
+        full_moon
     }
 
     //attributi
@@ -52,14 +52,14 @@ public class Magia extends Carta{
         System.out.println("Ability");
         
         switch(Carta_Magia.valueOf(nome)){
-            case doppio_attacco -> {
+            case double_attack -> {
                 System.out.println("doppio_attacco");
                 if(rand.nextBoolean()){
                     doppio_attacco = true;
                 }
                 mano.SWAP_REMOVE(index, cimitero);
             }
-            case terremoto -> {
+            case earthquake -> {
                 System.out.println("terremoto");
                 if(campo.Size() > 0){
                     numero_random = rand.nextInt(campo.Size());
@@ -74,7 +74,7 @@ public class Magia extends Carta{
                     System.out.println("Non ci sono carte in campo da eliminare");  //eliminare questo print a progetto ultimato
                 }
             }
-            case resuscita -> {
+            case resurrect -> {
                 System.out.println("resuscita");
                 if(cimitero.Size() > 0){
                     numero_random = rand.nextInt(cimitero.Size());
@@ -89,7 +89,7 @@ public class Magia extends Carta{
                     System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
                 }
             }
-            case blocca_attacco -> {
+            case block_attack -> {
                 System.out.println("blocca_attacco");
                 blocca_attacco = true;
                 for(int i = 0; i < campo.Size(); i++)
@@ -106,7 +106,7 @@ public class Magia extends Carta{
                 brama_sangue = true;
                 mano.SWAP_REMOVE(index, cimitero);
             }
-            case luna_piena -> {
+            case full_moon -> {
                 System.out.println("luna_piena");
                 luna_piena = true;
                 mano.SWAP_REMOVE(index, cimitero);
@@ -117,14 +117,14 @@ public class Magia extends Carta{
     //disability dovrà essere richiamato alla fine dell'effetto della carta 
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
     public void disability(){
-        if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.blocca_attacco)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.blocca_attacco == Carta_Magia.valueOf(nome)))){
+        if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.block_attack)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.block_attack == Carta_Magia.valueOf(nome)))){
             System.out.println("disability");
             switch(Carta_Magia.valueOf(nome)){
-                case doppio_attacco -> {
+                case double_attack -> {
                     System.out.println("Doppio_Attacco");
                     doppio_attacco = false;
                 }
-                case blocca_attacco -> {
+                case block_attack -> {
                     System.out.println("Ruba_Attacco");
                     blocca_attacco = false;
                 }
@@ -136,7 +136,7 @@ public class Magia extends Carta{
                     System.out.println("Brama_Sangue");
                     brama_sangue = false;
                 }
-                case luna_piena -> {
+                case full_moon -> {
                     System.out.println("Luna_Piena");
                     luna_piena = false;
                 }
