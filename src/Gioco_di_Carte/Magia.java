@@ -24,8 +24,6 @@ public class Magia extends Carta{
     }
 
     //attributi
-    protected boolean doppio_attacco = false;
-    protected boolean blocca_attacco = false;
     protected boolean spirito_indomito = false;
     protected boolean brama_sangue = false;
     protected boolean luna_piena = false;
@@ -42,11 +40,7 @@ public class Magia extends Carta{
         this.foto = foto;
     }
     
-    public boolean check2P(){
-        return doppio_attacco;
-    }
-    
-    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero_mio, Cimitero cimitero_suo, int index){
+    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero_mio, Cimitero cimitero_suo, Deck deck_suo, int index, Gioco gioco){
         turno = Gioco.nTurno;
         
         System.out.println("Ability");
@@ -54,8 +48,10 @@ public class Magia extends Carta{
         switch(Carta_Magia.valueOf(nome)){
             case double_attack -> {
                 System.out.println("doppio_attacco");
-                if(rand.nextBoolean()){
-                    doppio_attacco = true;
+                if((gioco.getnTurno() % 2) == 1){
+                    gioco.incrementAttackPointP1();
+                }else{
+                    gioco.incrementAttackPointP2();
                 }
                 mano.SWAP_REMOVE(index, cimitero_mio);
             }
@@ -73,22 +69,20 @@ public class Magia extends Carta{
                 System.out.println("resuscita");
                 if(cimitero_mio.Size() > 0){
                     numero_random = rand.nextInt(cimitero_mio.Size());
-                    System.out.println("cimitero.Size(): " + cimitero_mio.Size() + "\nnumero_random" + numero_random);
-                    mano.Add(cimitero_mio.Get(numero_random));
-                    System.out.println("HERE1");
-                    cimitero_mio.Remove(numero_random);
-                    System.out.println("HERE2");
                     mano.SWAP_REMOVE(index, cimitero_mio);
-                    System.out.println("HERE3");
+                    cimitero_mio.SWAP_REMOVE(numero_random, mano);
+                    gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
+                    gioco.getGrafica().reload_tasto_destro(gioco.getGiocatore_1());
+                    gioco.getGrafica().reload_tasto_destro(gioco.getGiocatore_2());
                 }else{
                     System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
                 }
             }
             case block_attack -> {
                 System.out.println("blocca_attacco");
-                blocca_attacco = true;
                 for(int i = 0; i < campo.Size(); i++)
-                    campo.Get(i).getPersonaggio().blocca_attacco();     //NON VA BENE, L'ATTACCO NON VA A BUON FINE SI, MA IL TASTO NON SI BLOCCA NEL TASTO DESTRO
+                    if(deck_suo.getCarta(i).getTipo_Carta().equals("Personaggio"))
+                        deck_suo.getCarta(i).getPersonaggio().blocca_attacco();
                 mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case spirito_indomito -> {
@@ -111,17 +105,15 @@ public class Magia extends Carta{
     
     //disability dovrà essere richiamato alla fine dell'effetto della carta 
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
-    public void disability(){
+    public void disability(MazzoCampo campo, Deck deck_suo){
         if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.block_attack)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.block_attack == Carta_Magia.valueOf(nome)))){
             System.out.println("disability");
             switch(Carta_Magia.valueOf(nome)){
-                case double_attack -> {
-                    System.out.println("Doppio_Attacco");
-                    doppio_attacco = false;
-                }
                 case block_attack -> {
                     System.out.println("Ruba_Attacco");
-                    blocca_attacco = false;
+                    for(int i = 0; i < campo.Size(); i++)
+                        if(deck_suo.getCarta(i).getTipo_Carta().equals("Personaggio"))
+                            deck_suo.getCarta(i).getPersonaggio().sblocca_attacco();
                 }
                 case spirito_indomito -> {
                     System.out.println("Spirito_Indomito");

@@ -67,7 +67,7 @@ public class Gioco {
                 
                 System.out.println(giocatore_1.getMan().getCarta(i).getNome());
                 
-                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), i);
+                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), giocatore_2.getDck(), i, this);
                 //giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
             }else{
                 if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
@@ -99,7 +99,7 @@ public class Gioco {
                 
                 System.out.println(giocatore_2.getMan().getCarta(i).getNome());
                 
-                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), i);
+                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), giocatore_1.getDck(), i, this);
                 //giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
             }else{
             
@@ -142,19 +142,6 @@ public class Gioco {
         
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
-            if(semaphore){
-                for(int i=0; i < giocatore_1.getCim().Size(); i++){
-                    if(giocatore_1.getCim().Get(i).getTipo_Carta().equals("Magia")){
-                        if(giocatore_1.getCim().Get(i).getMagia().check2P()){
-                            for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
-                                giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
-                            }
-                            this.p1attack = 2;
-                        }
-                    }
-                }
-                semaphore = false;
-            }
             System.out.println("Vita 1: " + giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
             
@@ -179,19 +166,6 @@ public class Gioco {
             }
             
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
-            for(int i=0; i < giocatore_2.getCim().Size(); i++){
-                if(semaphore){
-                    if(giocatore_2.getCim().Get(i).getTipo_Carta().equals("Magia")){
-                        if(giocatore_2.getCim().Get(i).getMagia().check2P()){
-                            for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
-                                giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
-                            }
-                            this.p2attack = 2;
-                        }
-                    }
-                    semaphore = false;
-                }
-            }
             System.out.println("Vita 2: " + giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             
             if(giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_1.getMazCam().Get(iAttaccato), giocatore_1.getGiocatore())){
@@ -419,7 +393,8 @@ public class Gioco {
             this.p1attack = 1;
             
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
-                giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
+                if(giocatore_1.getMazz().Size() != 0)
+                    giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
             }
             
             //reload grafica
@@ -450,7 +425,8 @@ public class Gioco {
             this.p2attack = 1;
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
-                giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
+                if(giocatore_2.getMazz().Size() != 0)
+                    giocatore_2.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_2.getMazz().Size()), giocatore_2.getMan());
             }
             
             //reload grafica
@@ -485,10 +461,10 @@ public class Gioco {
         //disattivazione carte magia (deve stare in fondo al next turn)
         for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){
             if(giocatore_1.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
-                giocatore_1.getDck().getCarta(i).getMagia().disability();
+                giocatore_1.getDck().getCarta(i).getMagia().disability(giocatore_2.getMazCam(), giocatore_2.getDck());
             }
             if(giocatore_2.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
-                giocatore_2.getDck().getCarta(i).getMagia().disability();
+                giocatore_2.getDck().getCarta(i).getMagia().disability(giocatore_1.getMazCam(), giocatore_1.getDck());
             }
         }
 
@@ -524,6 +500,14 @@ public class Gioco {
     
     public static int getnTurno() {
         return nTurno;
+    }
+
+    public void incrementAttackPointP1(){
+        p1attack++;
+    }
+    
+    public void incrementAttackPointP2(){
+        p2attack++;
     }
     //-------------------------------
 

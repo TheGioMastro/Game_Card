@@ -59,10 +59,9 @@ public class Personaggio extends Carta{
             }else {
                 return false;
             }
-        }else{
-            check = false;
-            return false;
         }
+        
+        return false;
     }
     
     public void attacca_diretto(Player player_attaccato){
@@ -71,6 +70,10 @@ public class Personaggio extends Carta{
     
     public void blocca_attacco(){
         check = true;
+    }
+    
+    public void sblocca_attacco(){
+        check = false;
     }
     
     public boolean get_check_blocca_attacco(){
