@@ -133,8 +133,6 @@ public class MyContextMenu extends ContextMenu{
                         
 
                         nuovoitem.setOnAction((event) -> {
-
-                            //RICERCARE I PROBLEMI SI INDICE E POI ELIMINARE I 45 IF INLINE
                             gioco.attacca(gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone), gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(nuovoitem.getOggetto_da_attaccare()));
                         });
 

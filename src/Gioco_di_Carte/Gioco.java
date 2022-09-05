@@ -79,6 +79,20 @@ public class Gioco {
                 }
             }
             
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+            
+            if(giocatore_1.getMazCam().Size() > 0){
+
+                if(giocatore_1.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco()){
+
+                    for(int j=0; j<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); j++){
+                        giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(j).getMycontextmenu().getAttacca().setDisable(true);
+                    }
+
+                }
+            }
+            
         }else{
             
             if(giocatore_2.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
@@ -97,17 +111,35 @@ public class Gioco {
                     //giocatore_2.getMan().Remove(i);
                 }
             }
+            
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+            
+            if(giocatore_2.getMazCam().Size() > 0){
+
+                if(giocatore_2.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco()){
+
+                    for(int j=0; j<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); j++){
+                        giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(j).getMycontextmenu().getAttacca().setDisable(true);
+                    }
+
+                }
+            }
         }
         
         grafica.reload_GUI(giocatore_1, giocatore_2);
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
+        
+        
     }
     
     public void attacca(int iAttaccante, int iAttaccato){
         System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
         System.out.println("pattack1 " + p1attack);
         System.out.println("pattack2 " + p2attack);
+        
+        
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
             if(semaphore){
@@ -131,6 +163,21 @@ public class Gioco {
             }
             p1attack--;
             System.out.println("pattack1 " + p1attack);
+            
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+            
+            if(giocatore_1.getMazCam().Size() > 0){
+
+                if(giocatore_1.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco()){
+
+                    for(int i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                        giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(true);
+                    }
+
+                }
+            }
+            
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
             for(int i=0; i < giocatore_2.getCim().Size(); i++){
                 if(semaphore){
@@ -153,14 +200,31 @@ public class Gioco {
             
             p2attack--;
             System.out.println("pattack2 " + p2attack);
+            
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+        
+            if(giocatore_2.getMazCam().Size() > 0){
+
+                if(giocatore_2.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco()){
+
+                    for(int i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                        giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(true);
+                    }
+
+                }
+            }
         }
         //reload opzioni tasto destro
         grafica.reload_GUI(giocatore_1, giocatore_2);
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
         
-        //update tasto destro attacco
-        grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+        
+        
+        
+        
+
     }
     
     public void checkWinner(){
@@ -315,6 +379,7 @@ public class Gioco {
         //reload opzioni tasto destro
         grafica.reload_tasto_destro(giocatore_1);
         grafica.reload_tasto_destro(giocatore_2);
+        
         if(nTurno == 2){
             for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
                 giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
@@ -323,6 +388,9 @@ public class Gioco {
                 giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
             }
         }
+        
+        //update tasto destro attacco
+        grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
         
         if(nTurno == 0){//Turno Giocatore 2
             
@@ -335,11 +403,17 @@ public class Gioco {
             grafica.reload_GUI(giocatore_1, giocatore_2);
             grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
             
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+            
         }else if(nTurno == 1){//Turno Giocatore 1
             
             //reload grafica
             grafica.reload_GUI(giocatore_1, giocatore_2);
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
+            
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
             this.p1attack = 1;
@@ -352,6 +426,26 @@ public class Gioco {
             grafica.reload_GUI(giocatore_1);
             grafica.hide_GUI(giocatore_1, false, giocatore_2, true);
             
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+            
+            if(giocatore_1.getMazCam().Size() > 0){
+                System.out.println("gico" + giocatore_2.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco() + "" + giocatore_1.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco());
+                    
+                if(giocatore_1.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco()){
+                    
+                    for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                        giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(true);
+                    }
+                    
+                }else{
+                    
+                    for(i=0; i<giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                        giocatore_1.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+                    }
+                }
+            }
+            
         }else{//Turno Giocatore 2
             this.p2attack = 1;
             
@@ -363,10 +457,30 @@ public class Gioco {
             grafica.reload_GUI(giocatore_2);
             grafica.hide_GUI(giocatore_1, true, giocatore_2, false);
             
+            //update tasto destro attacco
+            grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+            
+            if(giocatore_2.getMazCam().Size() > 0){
+                System.out.println("gioco" +giocatore_2.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco() + "" + giocatore_1.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco());
+                    
+                if(giocatore_2.getMazCam().Get(0).getPersonaggio().get_check_blocca_attacco()){
+                    
+                    for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                        giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(true);
+                    }
+                    
+                }else{
+                    
+                    for(i=0; i<giocatore_2.getMazCam().sizeArrayList_radiobutton_mazzocampo(); i++){
+                        giocatore_2.getMazCam().get_ArrayList_radiobutton_mazzocampo(i).getMycontextmenu().getAttacca().setDisable(false);
+                    }
+                    
+                }
+            }
+            
         }
         
-        //update tasto destro attacco
-        grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
+        
         
         //disattivazione carte magia (deve stare in fondo al next turn)
         for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){
