@@ -72,4 +72,8 @@ public class Personaggio extends Carta{
     public void blocca_attacco(){
         check = true;
     }
+    
+    public boolean get_check_blocca_attacco(){
+        return check;
+    }
 }
