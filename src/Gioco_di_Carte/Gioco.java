@@ -31,8 +31,6 @@ public class Gioco {
     protected static int nTurno; 
     protected int p1attack;
     protected int p2attack;
-    protected boolean semaphore = true;
-    
     
     //Grafica del gioco
     protected GraficaGioco grafica;
@@ -468,8 +466,6 @@ public class Gioco {
             }
         }
 
-        semaphore = true;   //riabilito controllo doppio attacco
-        
         this.checkWinner();
         
     }
