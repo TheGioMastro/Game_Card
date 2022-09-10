@@ -65,7 +65,7 @@ public class Gioco {
                 
                 System.out.println(giocatore_1.getMan().getCarta(i).getNome());
                 
-                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), giocatore_2.getDck(), i, this);
+                giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), giocatore_1.getDck(), giocatore_2.getDck(), i, this);
                 //giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
             }else{
                 if(giocatore_1.getMazCam().sizeArrayList_radiobutton_mazzocampo()<6){
@@ -88,7 +88,7 @@ public class Gioco {
                 
                 System.out.println(giocatore_2.getMan().getCarta(i).getNome());
                 
-                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), giocatore_1.getDck(), i, this);
+                giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), giocatore_2.getDck(), giocatore_1.getDck(), i, this);
                 //giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
             }else{
             
@@ -400,10 +400,10 @@ public class Gioco {
         //disattivazione carte magia (deve stare in fondo al next turn)
         for(i = 0; i < giocatore_1.getDck().sizeDeck(); i++){
             if(giocatore_1.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
-                giocatore_1.getDck().getCarta(i).getMagia().disability(giocatore_2.getMazCam(), giocatore_2.getDck());
+                giocatore_1.getDck().getCarta(i).getMagia().disability(giocatore_2.getMazCam(), giocatore_1.getDck(), giocatore_2.getDck());
             }
             if(giocatore_2.getDck().getCarta(i).getTipo_Carta().equals("Magia")){
-                giocatore_2.getDck().getCarta(i).getMagia().disability(giocatore_1.getMazCam(), giocatore_1.getDck());
+                giocatore_2.getDck().getCarta(i).getMagia().disability(giocatore_1.getMazCam(), giocatore_2.getDck(), giocatore_1.getDck());
             }
         }
 
@@ -447,6 +447,7 @@ public class Gioco {
         p2attack++;
     }
     
+<<<<<<< Updated upstream
     public void decrementAttackPointP1(){
         p1attack--;
     }
@@ -456,6 +457,15 @@ public class Gioco {
     }
     
     
+=======
+    public void blockAttackP1(){
+        p1attack = -1;
+    }
+    
+    public void blockAttackP2(){
+        p2attack = -1;
+    }
+>>>>>>> Stashed changes
     //-------------------------------
 
     public int getP1attack() {

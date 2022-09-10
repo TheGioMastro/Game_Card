@@ -65,7 +65,6 @@ public class Personaggio extends Carta{
     }
     
     public void attacca_diretto(Player player_attaccato){
-        
         player_attaccato.setVita(player_attaccato.getVita() - this.pAttack);
     }
     
@@ -79,5 +78,13 @@ public class Personaggio extends Carta{
     
     public boolean get_check_blocca_attacco(){
         return check;
+    }
+    
+    public void incrementa_valore_attacco(){
+        pAttack += 200;
+    }
+    
+    public void decrementa_valore_attacco(){
+        pAttack -= 200;
     }
 }

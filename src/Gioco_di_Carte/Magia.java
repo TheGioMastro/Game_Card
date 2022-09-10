@@ -26,9 +26,9 @@ public class Magia extends Carta{
     //attributi
     protected boolean spirito_indomito = false;
     protected boolean brama_sangue = false;
-    protected boolean luna_piena = false;
     protected int turno;
     protected int numero_random;
+    protected boolean Luna_piena_attiva = false;
     
     //oggetti
     protected Random rand = new Random();
@@ -40,7 +40,7 @@ public class Magia extends Carta{
         this.foto = foto;
     }
     
-    public void ability(Mano mano, MazzoCampo campo, Cimitero cimitero_mio, Cimitero cimitero_suo, Deck deck_suo, int index, Gioco gioco){
+    public void ability(Mano mano, MazzoCampo campo_suo, Cimitero cimitero_mio, Cimitero cimitero_suo, Deck deck_mio, Deck deck_suo, int index, Gioco gioco){
         turno = Gioco.nTurno;
         
         System.out.println("Ability");
@@ -57,9 +57,9 @@ public class Magia extends Carta{
             }
             case earthquake -> {
                 System.out.println("terremoto");
-                if(campo.Size() > 0){
-                    numero_random = rand.nextInt(campo.Size());
-                    campo.SWAP_REMOVE(numero_random, cimitero_suo);
+                if(campo_suo.Size() > 0){
+                    numero_random = rand.nextInt(campo_suo.Size());
+                    campo_suo.SWAP_REMOVE(numero_random, cimitero_suo);
                     mano.SWAP_REMOVE(index, cimitero_mio);
                 }else{
                     System.out.println("Non ci sono carte in campo da eliminare");  //eliminare questo print a progetto ultimato
@@ -71,15 +71,32 @@ public class Magia extends Carta{
                     numero_random = rand.nextInt(cimitero_mio.Size());
                     mano.SWAP_REMOVE(index, cimitero_mio);
                     cimitero_mio.SWAP_REMOVE(numero_random, mano);
+                    if(mano.getCarta(mano.sizeArrayList_radiobutton_mano()-1).getPersonaggio().getpAttack() == 100){
+                        mano.getCarta(mano.sizeArrayList_radiobutton_mano()-1).getPersonaggio().setpDefense(300);
+                        mano.get_ArrayList_radiobutton_mano(mano.sizeArrayList_radiobutton_mano()-1).setDisable(false);
+                    }else{
+                        mano.getCarta(mano.sizeArrayList_radiobutton_mano()-1).getPersonaggio().setpDefense(100);
+                        mano.get_ArrayList_radiobutton_mano(mano.sizeArrayList_radiobutton_mano()-1).setDisable(false);
+                    }
                 }else{
                     System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
                 }
+                if(gioco.getnTurno() % 2 == 1){ //giocatore 1
+                    gioco.getGiocatore_1().getMan().get_ArrayList_radiobutton_mano(mano.sizeArrayList_radiobutton_mano()-1).getMycontextmenu().getMettiInCampo().setDisable(false);
+                }else{
+                    gioco.getGiocatore_2().getMan().get_ArrayList_radiobutton_mano(mano.sizeArrayList_radiobutton_mano()-1).getMycontextmenu().getMettiInCampo().setDisable(false);
+                }
+                gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
+                gioco.getGrafica().reload_tasto_destro(gioco.getGiocatore_1());
+                gioco.getGrafica().reload_tasto_destro(gioco.getGiocatore_2());
             }
             case block_attack -> {
                 System.out.println("blocca_attacco");
-                for(int i = 0; i < campo.Size(); i++)
-                    if(deck_suo.getCarta(i).getTipo_Carta().equals("Personaggio"))
-                        deck_suo.getCarta(i).getPersonaggio().blocca_attacco();
+                if((gioco.getnTurno() % 2) == 1){
+                    gioco.blockAttackP1();
+                }else{
+                    gioco.blockAttackP2();
+                }
                 mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case spirito_indomito -> {
@@ -94,21 +111,25 @@ public class Magia extends Carta{
             }
             case full_moon -> {
                 System.out.println("luna_piena");
-                luna_piena = true;
                 mano.SWAP_REMOVE(index, cimitero_mio);
+                for(int i = 0; i < deck_mio.sizeDeck(); i++){
+                    if(deck_mio.getCarta(i).getTipo_Carta().equals("Personaggio"))
+                        deck_mio.getCarta(i).getPersonaggio().incrementa_valore_attacco();
+                }
+                Luna_piena_attiva = true;
             }
         }
     }
     
     //disability dovrà essere richiamato alla fine dell'effetto della carta 
     //ATTENZIONE: Non tutte le carte magia hanno la stessa durata, variano dai 1 ai 2 turni (per turno conto il turno di 1 giocatore, non di entrambi)
-    public void disability(MazzoCampo campo, Deck deck_suo){
+    public void disability(MazzoCampo campo_suo, Deck deck_mio, Deck deck_suo){
         if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.block_attack)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.block_attack == Carta_Magia.valueOf(nome)))){
             System.out.println("disability");
             switch(Carta_Magia.valueOf(nome)){
                 case block_attack -> {
                     System.out.println("Ruba_Attacco");
-                    for(int i = 0; i < campo.Size(); i++)
+                    for(int i = 0; i < campo_suo.Size(); i++)
                         if(deck_suo.getCarta(i).getTipo_Carta().equals("Personaggio"))
                             deck_suo.getCarta(i).getPersonaggio().sblocca_attacco();
                 }
@@ -121,8 +142,14 @@ public class Magia extends Carta{
                     brama_sangue = false;
                 }
                 case full_moon -> {
-                    System.out.println("Luna_Piena");
-                    luna_piena = false;
+                    if(Luna_piena_attiva){
+                        System.out.println("Luna_Piena");
+                        for(int i = 0; i < deck_mio.sizeDeck(); i++){
+                            if(deck_mio.getCarta(i).getTipo_Carta().equals("Personaggio"))
+                                deck_mio.getCarta(i).getPersonaggio().decrementa_valore_attacco();
+                        }
+                        Luna_piena_attiva = false;
+                    }
                 }
             }
         }
