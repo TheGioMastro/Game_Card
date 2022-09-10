@@ -29,6 +29,7 @@ public class MyContextMenu extends ContextMenu{
     protected MenuItem attacca_avversario;
     protected Menu attacca_carte_in_campo;
     protected MenuItem vita;
+    protected MenuItem attacco;
     
    
     
@@ -63,11 +64,17 @@ public class MyContextMenu extends ContextMenu{
         attacca_avversario.setOnAction((event) -> {
            if(gioco.getnTurno() % 2 == 1){//Turno Giocatore 1
                gioco.giocatore_1.getMazCam().Get(gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone)).getPersonaggio().attacca_diretto(gioco.giocatore_2.getGiocatore());
-           
+               gioco.decrementAttackPointP1();
+               
            }else{ //Turno Giocatore 2
                gioco.giocatore_2.getMazCam().Get(gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone)).getPersonaggio().attacca_diretto(gioco.giocatore_1.getGiocatore());
-
+               gioco.decrementAttackPointP2();
+               
            }
+           
+           gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
+           gioco.getGrafica().reload_tasto_destro_attacco(gioco.getGiocatore_1(), gioco.getP1attack(), gioco.getGiocatore_2(), gioco.getP2attack());
+           gioco.checkWinner();
            
                
         });
@@ -105,10 +112,15 @@ public class MyContextMenu extends ContextMenu{
         this.attacca_carte_in_campo = attacca;
     }
     
+    public MenuItem getAttaccoAvversario(){
+        return attacca_avversario;
+    }
+    
     //other
     public void setStart(int i){
         this.carta_legata_al_bottone = (i == 1)?Mazzo.get(ArrayList_radiobutton_mazzo.indexOf(bottone)):Mazzo.get(ArrayList_radiobutton_mazzo.indexOf(bottone));
         this.attacca_avversario.setText("Attack " + ((i == 1)?gioco.getGiocatore_2().getGiocatore().getNome():gioco.getGiocatore_1().getGiocatore().getNome()));
+        this.attacca_avversario.setDisable(true);
         
         if(this.carta_legata_al_bottone.getTipo_Carta().equals("Personaggio")){
             this.getItems().addAll(mettiInCampo, attacca_avversario, attacca_carte_in_campo);
@@ -116,7 +128,10 @@ public class MyContextMenu extends ContextMenu{
             mettiInCampo.setText("Place");
             this.vita = new MenuItem("Life: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
             this.vita.setStyle("-fx-background-color: #53CA2B");
+            this.attacco = new MenuItem("Attack: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpAttack()));
+            this.attacco.setStyle("-fx-background-color: #53CA2B");
             this.getItems().add(vita);
+            this.getItems().add(attacco);
         
         }else{
             this.getItems().add(mettiInCampo);
@@ -137,6 +152,8 @@ public class MyContextMenu extends ContextMenu{
 
                         this.vita.setText("HP: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
                         this.vita.setStyle("-fx-background-color: #53CA2B");
+                        this.attacco.setText("Attack: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpAttack()));
+                        this.attacco.setStyle("-fx-background-color: #53CA2B");
                         
 
                         nuovoitem.setOnAction((event) -> {
@@ -154,6 +171,8 @@ public class MyContextMenu extends ContextMenu{
                         
                         this.vita.setText("HP: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpDefense()));
                         this.vita.setStyle("-fx-background-color: #53CA2B");
+                        this.attacco.setText("Attack: " + Integer.toString(this.carta_legata_al_bottone.getPersonaggio().getpAttack()));
+                        this.attacco.setStyle("-fx-background-color: #53CA2B");
                         
 
                         nuovoitem.setOnAction((event) -> {
