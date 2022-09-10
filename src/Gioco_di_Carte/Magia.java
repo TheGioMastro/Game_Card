@@ -92,11 +92,7 @@ public class Magia extends Carta{
             }
             case block_attack -> {
                 System.out.println("blocca_attacco");
-                if((gioco.getnTurno() % 2) == 1){
-                    gioco.blockAttackP1();
-                }else{
-                    gioco.blockAttackP2();
-                }
+                gioco.blocca_attacco();
                 mano.SWAP_REMOVE(index, cimitero_mio);
             }
             case spirito_indomito -> {
@@ -127,12 +123,6 @@ public class Magia extends Carta{
         if(((turno + 1 == Gioco.nTurno) && (Carta_Magia.valueOf(nome) != Carta_Magia.block_attack)) || ((turno + 2 == Gioco.nTurno) && (Carta_Magia.block_attack == Carta_Magia.valueOf(nome)))){
             System.out.println("disability");
             switch(Carta_Magia.valueOf(nome)){
-                case block_attack -> {
-                    System.out.println("Ruba_Attacco");
-                    for(int i = 0; i < campo_suo.Size(); i++)
-                        if(deck_suo.getCarta(i).getTipo_Carta().equals("Personaggio"))
-                            deck_suo.getCarta(i).getPersonaggio().sblocca_attacco();
-                }
                 case spirito_indomito -> {
                     System.out.println("Spirito_Indomito");
                     spirito_indomito = false;

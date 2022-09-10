@@ -31,6 +31,7 @@ public class Gioco {
     protected static int nTurno; 
     protected int p1attack;
     protected int p2attack;
+    protected boolean semaphore = false;
     
     //Grafica del gioco
     protected GraficaGioco grafica;
@@ -360,8 +361,10 @@ public class Gioco {
             
             
         }else if(nTurno % 2 == 1){//Turno Giocatore 1
-            this.p1attack = 1;
-            
+            if(!semaphore)
+                this.p1attack = 1;
+            else
+                this.p1attack = -1;
             if(giocatore_1.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 if(giocatore_1.getMazz().Size() != 0)
                     giocatore_1.getMazz().SWAP_REMOVE(rand.nextInt(giocatore_1.getMazz().Size()), giocatore_1.getMan());
@@ -377,7 +380,12 @@ public class Gioco {
             
             
         }else{//Turno Giocatore 2
-            this.p2attack = 1;
+            if(!semaphore)
+                this.p2attack = 1;
+            else{
+                this.p2attack = -1;
+                semaphore = false;
+            }
             
             if(giocatore_2.getMan().sizeGestione() < 8){ //Se c'è spazio nella mano pesca
                 if(giocatore_2.getMazz().Size() != 0)
@@ -455,16 +463,6 @@ public class Gioco {
         p2attack--;
     }
     
-    
-    public void blockAttackP1(){
-        p1attack = -1;
-    }
-    
-    public void blockAttackP2(){
-        p2attack = -1;
-    }
-    //-------------------------------
-
     public int getP1attack() {
         return p1attack;
     }
@@ -472,9 +470,9 @@ public class Gioco {
     public int getP2attack() {
         return p2attack;
     }
-
-   
-
     
-    
+    public void blocca_attacco(){
+        semaphore = true;
+    }
+    //-------------------------------
 }
