@@ -61,8 +61,14 @@ public class MyContextMenu extends ContextMenu{
         });
         
         attacca_avversario.setOnAction((event) -> {
-            //mettere metodo che attacchi l'avversario direttamente
-            System.out.println("tua madre mi gurda male");
+           if(gioco.getnTurno() % 2 == 1){//Turno Giocatore 1
+               gioco.giocatore_1.getMazCam().Get(gioco.getGiocatore_1().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone)).getPersonaggio().attacca_diretto(gioco.giocatore_2.getGiocatore());
+           }else{ //Turno Giocatore 2
+               gioco.giocatore_2.getMazCam().Get(gioco.getGiocatore_2().getMazCam().get_ArrayList_radiobutton_mazzocampo().indexOf(bottone)).getPersonaggio().attacca_diretto(gioco.giocatore_1.getGiocatore());
+
+           }
+           
+               
         });
 
         
