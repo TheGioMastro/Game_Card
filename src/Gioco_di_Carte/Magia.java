@@ -71,9 +71,6 @@ public class Magia extends Carta{
                     numero_random = rand.nextInt(cimitero_mio.Size());
                     mano.SWAP_REMOVE(index, cimitero_mio);
                     cimitero_mio.SWAP_REMOVE(numero_random, mano);
-                    gioco.getGrafica().reload_GUI(gioco.getGiocatore_1(), gioco.getGiocatore_2());
-                    gioco.getGrafica().reload_tasto_destro(gioco.getGiocatore_1());
-                    gioco.getGrafica().reload_tasto_destro(gioco.getGiocatore_2());
                 }else{
                     System.out.println("Non ci sono carte nel cimitero da resuscitare");  //eliminare questo print a progetto ultimato
                 }
