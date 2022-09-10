@@ -447,7 +447,6 @@ public class Gioco {
         p2attack++;
     }
     
-<<<<<<< Updated upstream
     public void decrementAttackPointP1(){
         p1attack--;
     }
@@ -457,7 +456,6 @@ public class Gioco {
     }
     
     
-=======
     public void blockAttackP1(){
         p1attack = -1;
     }
@@ -465,7 +463,6 @@ public class Gioco {
     public void blockAttackP2(){
         p2attack = -1;
     }
->>>>>>> Stashed changes
     //-------------------------------
 
     public int getP1attack() {
