@@ -65,6 +65,7 @@ public class Personaggio extends Carta{
     }
     
     public void attacca_diretto(Player player_attaccato){
+        
         player_attaccato.setVita(player_attaccato.getVita() - this.pAttack);
     }
     
