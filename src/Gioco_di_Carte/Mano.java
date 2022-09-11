@@ -26,10 +26,10 @@ public class Mano {
     
     //Costruttori
     public Mano(){
-        gestione=new <Carta>ArrayList();      
+        gestione=new ArrayList<>();      
         
         //PARTE INTERFACCIA GRAFICA
-        ArrayList_radiobutton_mano = new ArrayList<MyButton>();//max 8
+        ArrayList_radiobutton_mano = new ArrayList<>();//max 8
         
         
         //PARTE TEMPORANEA(quando si avrà l'immagine di tavola vuota si dovrà cambiare il link)
