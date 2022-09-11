@@ -64,7 +64,6 @@ public class Gioco {
             
             if(giocatore_1.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
                 
-                System.out.println(giocatore_1.getMan().getCarta(i).getNome());
                 
                 giocatore_1.getMan().getCarta(i).getMagia().ability(giocatore_1.getMan(), giocatore_2.getMazCam(), giocatore_1.getCim(), giocatore_2.getCim(), giocatore_1.getDck(), giocatore_2.getDck(), i, this);
                 //giocatore_1.getMan().SWAP_REMOVE(i, giocatore_1.getCim());
@@ -87,7 +86,6 @@ public class Gioco {
             
             if(giocatore_2.getMan().getCarta(i).getTipo_Carta().equals("Magia")){
                 
-                System.out.println(giocatore_2.getMan().getCarta(i).getNome());
                 
                 giocatore_2.getMan().getCarta(i).getMagia().ability(giocatore_2.getMan(), giocatore_1.getMazCam(), giocatore_2.getCim(), giocatore_1.getCim(), giocatore_2.getDck(), giocatore_1.getDck(), i, this);
                 //giocatore_2.getMan().SWAP_REMOVE(i, giocatore_2.getCim());
@@ -116,21 +114,16 @@ public class Gioco {
     }
     
     public void attacca(int iAttaccante, int iAttaccato){
-        System.out.println("indici attacco" + iAttaccante + " " + iAttaccato);
-        System.out.println("pattack1 " + p1attack);
-        System.out.println("pattack2 " + p2attack);
         
         
         
         if(nTurno % 2 == 1 && p1attack > 0){ //Giocatore 1
-            System.out.println("Vita 1: " + giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             //INCREMENTARE L'UTILIZZO DELL'ATTACCO DI UNO OGNI VOLTA ESEGUITO UN ATTACCO(CONTROLLARE SE POSSIBILE ATTACCARE)
             
             if(giocatore_1.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_2.getMazCam().Get(iAttaccato), giocatore_2.getGiocatore())){
                 giocatore_2.getMazCam().SWAP_REMOVE(iAttaccato, giocatore_2.getCim());
             }
             p1attack--;
-            System.out.println("pattack1 " + p1attack);
             
             //update tasto destro attacco
             grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);
@@ -138,14 +131,12 @@ public class Gioco {
             
             
         }else if (nTurno %2 == 0 && p2attack > 0){ //Giocatore 2
-            System.out.println("Vita 2: " + giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().getpDefense());
             
             if(giocatore_2.getMazCam().Get(iAttaccante).getPersonaggio().attacca(giocatore_1.getMazCam().Get(iAttaccato), giocatore_1.getGiocatore())){
                 giocatore_1.getMazCam().SWAP_REMOVE(iAttaccato, giocatore_1.getCim());
             }
             
             p2attack--;
-            System.out.println("pattack2 " + p2attack);
             
             //update tasto destro attacco
             grafica.reload_tasto_destro_attacco(giocatore_1, p1attack, giocatore_2, p2attack);

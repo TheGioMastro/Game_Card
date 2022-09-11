@@ -55,7 +55,6 @@ public class Cimitero {
     //fatto
     public void SWAP_ADD(Carta carta, MyButton campo){
         
-        System.out.println("mucca");
         Cimitero.add(carta);
         ArrayList_radiobutton_cimitero.add(campo);
         
@@ -88,7 +87,6 @@ public class Cimitero {
     public void Add(Carta C1){
         
         if(this.Size()>15){
-            System.out.print("Error");
         }else{
             Cimitero.add(C1);
         }
