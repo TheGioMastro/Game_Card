@@ -3,6 +3,8 @@
 
 Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a differti giochi di carte, tra cui Yu-Gi-Oh e Magic prendendo ispirazione dalle loro meccaniche di gioco principali.
 
+(Gioco di Carte is a project develpoed during the school year, inspired by different cards games, among which Yu-Gi-Oh and Magic taking inspiration from their game mechanics.)
+
 
 ## Authors & Roles
 
@@ -14,11 +16,11 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 ## Roadmap
 
-- Gioco multiplayer da remoto
+- Gioco multiplayer da remoto (Multiplayer game from remote computers)
 
-- Supporto per lingue aggiuntive
+- Supporto per lingue aggiuntive (Multiple Language support)
 
-- Modalità single player
+- Modalità single player (Single Player Mode)
 
 ## UML
 ![alt text](https://github.com/TheGioMastro/Game_Card/blob/main/UML/UML_Progetto_gioco_carte.png?raw=true)
@@ -35,6 +37,9 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 - Obbiettivo:
   Creare un gioco di carte con 3 deck differti cercando di rendere il gioco equilibrato
   
+(- Objective
+  Develope a card game with 3 different deck trying to make the game balanced)
+  
 - Regole:
   - Descrizione schermata di gioco:
       Nel gioco sono presenti 2 campi, 1 per ogni player; per ogni campo è presente una mazzo delle carte che devono ancora essere pescate (Pesca), un mazzo dove sono       presenti tutte le carte morte o utilizzate (Cimitero), un mazzo dove sono presenti le carte in mano al giocatore (Mano) ed infine la sezione Campo dove vengono         posizionate le carte in posizone di difesa.<br>
@@ -50,8 +55,25 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
       - Blocca Attacco:
           Impedisce all'avversario di esguire un attacco durante il suo prossimo turno
       - Luna Piena:
-          Potenzia tutte le carte del proprio deck Licantropo
-
+          Potenzia tutte le carte del proprio deck Licantropo per un turno
+(- Rules:
+  - Game screen description:
+      In the game there are 2 fields, 1 for each player; for each field there is a deck of cards that have yet to be drawn (Draw), a deck containing all the dead or         used cards (Graveyard), a deck containing the cards in the player's hand (Hand) and finally the Field section where cards are placed in defense position.<br>
+      There are also 2 buttons, the first dedicated to passing the turn to the next player and the second to set or deactivate the full screen mode (default default).
+ 
+ - Magic card description:
+      - Earthquake:
+          Destroys a Character card from the opponent's field.
+      - Double Attack:
+          Allows you to attack twice during the same turn.
+      - Resurrect:
+          Revive a random card from your graveyard.
+      - Block Attack:
+          Prevents the opponent from making an attack during his next turn.
+      - Full Moon:
+          Boost all cards in your Werewolf deck for one turn
+ )
+ 
 - Meccaniche di gioco:
   - Campo:
     - Mazzi:
@@ -78,7 +100,36 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
     
   - Attacco Diretto:
     Se nel campo avversario non sono presenti carte è possibile, tramite un menù a tendina, è possibile attaccare direttamente l'avversario scalandogli la sua vita         totale dai punti attacco della carta attaccante.
+
+(- Game mechanics:
+  - Campo:
+    - Mazzi:
+      - Mano:
+        Where are contained all the cards that the player has in his hand (8 Cards max).
+        
+      - Mazzo Campo:
+        Where all the player's cards are contained (6 Cards max).
+        
+      - Cimitero:
+        Where all the used Character cards or Magic cards are contained.
+        
+      - Deck:
+        Where all the cards not yet drawn are contained.
+        
+  - Draw:
+    Method that randomly draws a card from the deck and adds it to the Hand.
     
+  - Use of Magic Cards:
+    Once activated, magic cards are destroyed and their effect is used
+    
+  - Attack:
+    After selecting a card from your field, through a drop-down menu, you can choose the opponent card to which the life will be decreased, if the attack points of the     attacker exceed the life points of the target the difference is scaled to the Player owning the card target.
+    
+  - Direct Attack:
+    If there are no cards in the opponent's field it is possible, through a drop-down menu, it is possible to attack the opponent directly by decreasing his total life     from the attack points of the attacking card.
+
+)
+
     ## Tech Stack
 
       - Java - JDK 16.0.2 
