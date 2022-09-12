@@ -141,6 +141,6 @@ Gioco di Carte è un progetto realizzato durante l'anno scolastico, ispirato a d
 
 Contributions are always welcome!
 
-Please contact `giuliano.colombo04@gmail.com` or `giorgiogio402@gmail.com`
+Please contact `giuliano.colombo04@gmail.com`, `giorgiogio402@gmail.com` or `alessandro.poggi003@gmail.com`
 to ask for contributing.
 
