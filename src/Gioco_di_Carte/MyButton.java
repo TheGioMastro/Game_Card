@@ -19,7 +19,6 @@ public class MyButton extends Button{
     //Costruttori
     public MyButton(){
         super();
-        
     }
     
     //Metodi
